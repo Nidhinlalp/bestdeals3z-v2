@@ -9,7 +9,7 @@ interface Props {
   autocomplete?: string
   inputmode?: 'text' | 'numeric' | 'tel' | 'email' | 'search' | 'decimal'
 }
-const props = defineProps<Props>()
+defineProps<Props>()
 defineEmits<{ 'update:modelValue': [value: string] }>()
 const id = useId()
 </script>

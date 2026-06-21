@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Props { title: string; description?: string; icon?: 'cart' | 'search' | 'box' }
-withDefaults(defineProps<Props>(), { icon: 'box' })
+withDefaults(defineProps<Props>(), { icon: 'box', description: undefined })
 </script>
 
 <template>

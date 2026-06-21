@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Props { kicker?: string; title: string; link?: string; linkText?: string; stripe?: boolean }
-withDefaults(defineProps<Props>(), { linkText: 'View All', stripe: true })
+withDefaults(defineProps<Props>(), { linkText: 'View All', stripe: true, kicker: undefined, link: undefined })
 </script>
 
 <template>

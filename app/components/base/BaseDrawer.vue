@@ -4,7 +4,7 @@ interface Props {
   title?: string
   side?: 'right' | 'left'
 }
-const props = withDefaults(defineProps<Props>(), { side: 'right' })
+const props = withDefaults(defineProps<Props>(), { side: 'right', title: undefined })
 const emit = defineEmits<{ 'update:modelValue': [value: boolean] }>()
 
 const close = () => emit('update:modelValue', false)

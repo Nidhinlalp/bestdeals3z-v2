@@ -26,7 +26,7 @@ const slugify = (s) =>
 
 // Strip emoji / pictographs but keep ™, ®, normal punctuation.
 const cleanTitle = (s) =>
-  s.replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}]/gu, '')
+  s.replace(/\p{Emoji_Presentation}|\p{Extended_Pictographic}/gu, '')
     .replace(/\s{2,}/g, ' ').trim()
 
 function htmlToText(html = '') {
@@ -39,7 +39,7 @@ function htmlToText(html = '') {
     .replace(/&nbsp;/g, ' ').replace(/&amp;/g, '&')
     .replace(/&#39;|&rsquo;|&lsquo;/g, "'").replace(/&quot;|&ldquo;|&rdquo;/g, '"')
     .replace(/&hellip;/g, '…').replace(/&#?\w+;/g, ' ')
-    .replace(/[\u{1F000}-\u{1FAFF}\u{2600}-\u{27BF}\u{2B00}-\u{2BFF}\u{FE0F}\u{200D}]/gu, '')
+    .replace(/\p{Emoji_Presentation}|\p{Extended_Pictographic}/gu, '')
     .replace(/[ \t]+/g, ' ').replace(/ *\n */g, '\n').replace(/\n{3,}/g, '\n\n')
     .replace(/ +([.,!?;:])/g, '$1').trim()
 }

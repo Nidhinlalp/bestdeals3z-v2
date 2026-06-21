@@ -230,7 +230,7 @@ order: ${order}
 `
 }
 
-function bannerMarkdown(b, order, image, slug) {
+function bannerMarkdown(b, order, image, _slug) {
   return `---
 title: ${JSON.stringify(b.title)}
 subtitle: ${JSON.stringify(b.subtitle)}

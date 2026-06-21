@@ -1,6 +1,6 @@
 <script setup lang="ts">
 interface Props { rating: number; count?: number; size?: 'sm' | 'md' }
-const props = withDefaults(defineProps<Props>(), { size: 'sm' })
+const props = withDefaults(defineProps<Props>(), { size: 'sm', count: undefined })
 const full = computed(() => Math.round(props.rating))
 </script>
 
