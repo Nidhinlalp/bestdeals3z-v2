@@ -1,0 +1,38 @@
+{
+  "name": "bestdeal3z",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "BestDeal3z — budget-friendly headless e-commerce storefront built with Nuxt 3, Nuxt Content and WhatsApp checkout.",
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "seed": "node scripts/generate-content.mjs",
+    "scrape": "node scripts/scrape-dropstore.mjs",
+    "typecheck": "nuxt typecheck",
+    "lint": "eslint ."
+  },
+  "dependencies": {
+    "@nuxt/content": "^2.13.4",
+    "@nuxt/image": "^1.8.1",
+    "@pinia-plugin-persistedstate/nuxt": "^1.2.1",
+    "@pinia/nuxt": "^0.5.5",
+    "@vueuse/nuxt": "^11.3.0",
+    "nuxt": "^3.14.1592",
+    "pinia": "^2.2.6",
+    "vue": "^3.5.13",
+    "vue-router": "^4.4.5",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@nuxt/eslint": "^0.7.2",
+    "@types/node": "^22.10.1",
+    "@nuxtjs/tailwindcss": "^6.12.2",
+    "eslint": "^9.16.0",
+    "typescript": "^5.7.2",
+    "vue-tsc": "^2.1.10"
+  }
+}
