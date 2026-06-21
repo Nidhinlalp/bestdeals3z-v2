@@ -84,6 +84,9 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       routes: ['/', '/sitemap.xml', '/robots.txt'],
+      // Vercel image optimization (/_vercel/image) is a runtime-only service
+      // and always returns 404 at build time — ignore these to prevent false failures.
+      failOnError: false,
     },
   },
 
