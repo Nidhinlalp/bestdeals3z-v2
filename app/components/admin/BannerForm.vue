@@ -13,7 +13,7 @@ const saving = ref(false)
 watchEffect(() => {
   if (props.initial) {
     Object.assign(form, {
-      title: props.initial.title, slug: props.initial.slug ?? props.initial._path?.split('/').pop() ?? '',
+      title: props.initial.title, slug: props.initial.slug ?? '',
       subtitle: props.initial.subtitle, image: props.initial.image,
       buttonText: props.initial.buttonText, buttonLink: props.initial.buttonLink, order: props.initial.order,
     })
@@ -39,7 +39,7 @@ defineExpose({ done: () => { saving.value = false } })
     <BaseInput v-model="form.title" label="Title" required placeholder="HEADLINE IN UPPERCASE" />
     <BaseInput v-model="form.slug" label="Slug / File name" required placeholder="banner-1" />
     <BaseTextarea v-model="form.subtitle" label="Subtitle" :rows="2" />
-    <BaseInput v-model="form.image" label="Image Path" required placeholder="/banners/banner-1.svg" />
+    <ImageUploadInput v-model="form.image" label="Image" required folder="banners" />
     <div class="grid grid-cols-1 gap-md sm:grid-cols-2">
       <BaseInput v-model="form.buttonText" label="Button Text" />
       <BaseInput v-model="form.buttonLink" label="Button Link" placeholder="/shop or /category/drones" />

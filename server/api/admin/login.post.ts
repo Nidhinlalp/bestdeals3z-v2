@@ -1,9 +1,4 @@
-/** Verify the admin password. The client stores it and sends it as x-admin-key on writes. */
-export default defineEventHandler(async (event) => {
-  const body = await readBody<{ password?: string }>(event)
-  const expected = useRuntimeConfig().adminPassword
-  if (!body?.password || body.password !== expected) {
-    throw createError({ statusCode: 401, statusMessage: 'Incorrect password' })
-  }
-  return { ok: true }
+/** Replaced by Supabase Auth — this endpoint is no longer used. */
+export default defineEventHandler(() => {
+  throw createError({ statusCode: 410, statusMessage: 'Gone — use Supabase Auth instead.' })
 })

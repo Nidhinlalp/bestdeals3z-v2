@@ -1,32 +1,49 @@
-const STORAGE_KEY = 'bestdeal3z-admin-key'
-
 /**
- * Lightweight admin auth. The password doubles as the API key:
- * after a successful login we keep it in sessionStorage and send it
- * as `x-admin-key` on every write request. Cleared when the tab closes.
+ * Admin auth using Supabase Auth (email + password).
+ * `@nuxtjs/supabase` auto-injects useSupabaseClient() and useSupabaseUser().
  */
 export function useAdminAuth() {
-  const key = useState<string | null>('admin-key', () => null)
+  const supabase = useSupabaseClient()
+  const user = useSupabaseUser()
 
-  // Hydrate from sessionStorage on the client.
-  if (import.meta.client && key.value === null) {
-    key.value = sessionStorage.getItem(STORAGE_KEY)
+  // Shared across all components — persists for the SPA session.
+  const isAdmin = useState<boolean>('admin-status', () => false)
+
+  const isAuthenticated = computed(() => !!user.value && isAdmin.value)
+
+  async function checkAdminStatus(): Promise<boolean> {
+    try {
+      const { data: { session } } = await supabase.auth.getSession()
+      if (!session?.access_token) {
+        isAdmin.value = false
+        return false
+      }
+      const data = await $fetch<{ isAdmin?: boolean }>('/api/admin/check', {
+        headers: { Authorization: `Bearer ${session.access_token}` },
+      })
+      isAdmin.value = !!data?.isAdmin
+    } catch {
+      isAdmin.value = false
+    }
+    return isAdmin.value
   }
 
-  const isAuthenticated = computed(() => !!key.value)
-
-  async function login(password: string): Promise<boolean> {
-    await $fetch('/api/admin/login', { method: 'POST', body: { password } })
-    key.value = password
-    if (import.meta.client) sessionStorage.setItem(STORAGE_KEY, password)
-    return true
+  async function login(email: string, password: string): Promise<{ ok: boolean; error?: string }> {
+    const { error } = await supabase.auth.signInWithPassword({ email, password })
+    if (error) return { ok: false, error: error.message }
+    const ok = await checkAdminStatus()
+    if (!ok) {
+      await supabase.auth.signOut()
+      return { ok: false, error: 'You do not have admin access.' }
+    }
+    return { ok: true }
   }
 
-  function logout() {
-    key.value = null
-    if (import.meta.client) sessionStorage.removeItem(STORAGE_KEY)
+  async function logout() {
+    await supabase.auth.signOut()
+    isAdmin.value = false
     navigateTo('/admin/login')
   }
 
-  return { key, isAuthenticated, login, logout }
+  return { user, isAuthenticated, isAdmin, login, logout, checkAdminStatus }
 }

@@ -154,7 +154,7 @@ useBreadcrumbSchema(() => [
         <h2 class="text-display-sm font-bold uppercase leading-none text-white">Details</h2>
       </div>
       <div class="prose-bmw max-w-none">
-        <ContentRenderer v-if="product.body" :value="product" />
+        <p v-if="product.description" class="whitespace-pre-line text-body-md text-body">{{ product.description }}</p>
       </div>
     </section>
 

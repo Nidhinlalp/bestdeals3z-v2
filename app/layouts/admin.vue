@@ -8,6 +8,7 @@ const nav = [
   { label: 'Products', to: '/admin/products' },
   { label: 'Categories', to: '/admin/categories' },
   { label: 'Banners', to: '/admin/banners' },
+  { label: 'Orders', to: '/admin/orders' },
 ]
 const isActive = (item: { to: string; exact?: boolean }) =>
   item.exact ? route.path === item.to : route.path.startsWith(item.to)

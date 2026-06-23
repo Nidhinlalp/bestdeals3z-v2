@@ -44,10 +44,6 @@ useSeoMeta({
             <a v-for="(url, name) in SITE.social" :key="name" :href="url" target="_blank" rel="noopener" class="text-body-md capitalize text-body hover:text-white">{{ name }}</a>
           </div>
         </div>
-        <div class="border border-hairline p-lg">
-          <p class="kicker text-body">Support Hours</p>
-          <p class="mt-sm text-body-md text-body">Mon–Sat, 10:00 – 19:00 IST</p>
-        </div>
       </div>
     </div>
   </div>

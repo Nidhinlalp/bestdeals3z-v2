@@ -11,13 +11,13 @@ interface FormState {
   price: number; salePrice: number | null; stock: number
   featured: boolean; bestSeller: boolean; trending: boolean
   rating: number; reviewCount: number
-  imagesText: string; variants: ProductVariant[]; createdAt: string
+  images: string[]; variants: ProductVariant[]; createdAt: string
 }
 
 const blank = (): FormState => ({
   title: '', slug: '', category: props.categories[0]?.slug ?? '', shortDescription: '', description: '',
   price: 0, salePrice: null, stock: 0, featured: false, bestSeller: false, trending: false,
-  rating: 0, reviewCount: 0, imagesText: '', variants: [], createdAt: new Date().toISOString(),
+  rating: 0, reviewCount: 0, images: [], variants: [], createdAt: new Date().toISOString(),
 })
 
 const form = reactive<FormState>(blank())
@@ -32,7 +32,7 @@ watchEffect(() => {
       title: p.title, slug: p.slug, category: p.category, shortDescription: p.shortDescription,
       description: p.description, price: p.price, salePrice: p.salePrice ?? null, stock: p.stock,
       featured: p.featured, bestSeller: p.bestSeller, trending: p.trending, rating: p.rating,
-      reviewCount: p.reviewCount, imagesText: p.images.join('\n'), variants: p.variants ? JSON.parse(JSON.stringify(p.variants)) : [],
+      reviewCount: p.reviewCount, images: [...p.images], variants: p.variants ? JSON.parse(JSON.stringify(p.variants)) : [],
       createdAt: p.createdAt,
     })
     slugLocked.value = true
@@ -51,7 +51,7 @@ function removeVariant(i: number) { form.variants.splice(i, 1) }
 
 function submit() {
   error.value = ''
-  const images = form.imagesText.split(/[\n,]/).map((s) => s.trim()).filter(Boolean)
+  const images = form.images.filter(Boolean)
   const doc = {
     title: form.title, slug: form.slug || slugify(form.title), category: form.category,
     shortDescription: form.shortDescription, description: form.shortDescription || form.description,
@@ -92,8 +92,7 @@ defineExpose({ done: () => { saving.value = false } })
       <BaseInput v-model.number="form.reviewCount" label="Review Count" type="number" inputmode="numeric" />
     </div>
 
-    <BaseTextarea v-model="form.imagesText" label="Image Paths (one per line)" :rows="3" placeholder="/products/my-product-1.svg" />
-    <p class="-mt-2 text-caption text-muted">Upload images to <code class="text-body">/public/products</code>, then reference them here (e.g. <code class="text-body">/products/name-1.jpg</code>).</p>
+    <MultiImageUpload v-model="form.images" label="Images" folder="products" />
 
     <fieldset class="flex flex-wrap gap-lg border border-hairline p-md">
       <label class="flex items-center gap-2 text-body-sm text-body"><input v-model="form.featured" type="checkbox" class="accent-m-red"> Featured</label>

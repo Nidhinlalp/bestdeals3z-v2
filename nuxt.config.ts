@@ -10,6 +10,7 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
 
   modules: [
+    '@nuxtjs/supabase',
     '@nuxt/content',
     '@nuxt/image',
     '@nuxtjs/tailwindcss',
@@ -24,17 +25,24 @@ export default defineNuxtConfig({
   // Use the file name as the component name regardless of nesting depth.
   components: [{ path: '~/components', pathPrefix: false }],
 
-  // Runtime configuration. Only NUXT_PUBLIC_* / NUXT_* env vars override these.
+  // Runtime configuration — private keys server-only, public keys exposed to client.
   runtimeConfig: {
-    adminPassword: process.env.ADMIN_PASSWORD || 'admin123',
-    // GitHub API — required in production for admin content writes to persist.
-    githubToken: process.env.GITHUB_TOKEN || '',
-    githubOwner: process.env.GITHUB_OWNER || '',
-    githubRepo: process.env.GITHUB_REPO || '',
-    githubBranch: process.env.GITHUB_BRANCH || 'main',
+    supabaseServiceKey: process.env.SUPABASE_SERVICE_ROLE_KEY || '',
     public: {
       siteUrl: process.env.NUXT_PUBLIC_SITE_URL || SITE.url,
       whatsappNumber: process.env.NUXT_PUBLIC_WHATSAPP_NUMBER || SITE.whatsappNumber,
+      supabaseUrl: process.env.SUPABASE_URL || '',
+      supabaseKey: process.env.SUPABASE_KEY || '',
+    },
+  },
+
+  // @nuxtjs/supabase reads SUPABASE_URL and SUPABASE_KEY from env automatically.
+  // redirect: false — we manage our own admin redirects via middleware.
+  supabase: {
+    redirect: false,
+    redirectOptions: {
+      login: '/admin/login',
+      callback: '/admin',
     },
   },
 
@@ -84,14 +92,12 @@ export default defineNuxtConfig({
     prerender: {
       crawlLinks: true,
       routes: ['/', '/sitemap.xml', '/robots.txt'],
-      // Vercel image optimization (/_vercel/image) is a runtime-only service
-      // and always returns 404 at build time — ignore these to prevent false failures.
       failOnError: false,
     },
   },
 
   routeRules: {
-    // Admin is client-only (SPA). It's kept out of search via robots.txt + per-page noindex meta.
+    // Admin is client-only (SPA). Kept out of search via robots.txt + per-page noindex meta.
     '/admin/**': { ssr: false },
   },
 

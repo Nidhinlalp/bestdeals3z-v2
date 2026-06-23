@@ -16,10 +16,11 @@ export function computeOrder(items: CartItem[]): OrderSummary {
   return { items, subtotal, shipping, total: subtotal + shipping }
 }
 
-/** Build the human-readable WhatsApp order message. */
-export function buildOrderMessage(details: CheckoutDetails, order: OrderSummary): string {
+/** Build the human-readable WhatsApp order message. Includes orderRef for cross-referencing. */
+export function buildOrderMessage(details: CheckoutDetails, order: OrderSummary, orderRef?: string): string {
   const lines: string[] = []
   lines.push('🛒 *NEW ORDER — BestDeal3z*')
+  if (orderRef) lines.push(`*Order Ref: ${orderRef}*`)
   lines.push('')
   lines.push('*Customer*')
   lines.push(`Name: ${details.fullName}`)
@@ -52,10 +53,10 @@ export function buildOrderMessage(details: CheckoutDetails, order: OrderSummary)
 }
 
 /** Build the full wa.me URL for an order. */
-export function buildWhatsappUrl(details: CheckoutDetails, order: OrderSummary): string {
+export function buildWhatsappUrl(details: CheckoutDetails, order: OrderSummary, orderRef?: string): string {
   const config = useRuntimeConfig()
   const number = config.public.whatsappNumber || SITE.whatsappNumber
-  const message = buildOrderMessage(details, order)
+  const message = buildOrderMessage(details, order, orderRef)
   return `https://wa.me/${number}?text=${encodeURIComponent(message)}`
 }
 

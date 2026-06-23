@@ -11,22 +11,55 @@ import type {
 /** A selectable product option (e.g. colour / size). */
 export type ProductVariant = z.infer<typeof variantSchema>
 
-/** Product as authored in content/products/*.md (front-matter). */
+/** Product as stored in Supabase (camelCase). */
 export type Product = z.infer<typeof productSchema> & {
-  /** Nuxt Content injects these at query time. */
-  _path?: string
-  body?: unknown
+  id?: string
+  tags?: string[]
+  metaTitle?: string | null
+  metaDesc?: string | null
 }
 
-export type Category = z.infer<typeof categorySchema> & { _path?: string }
+/** Category as stored in Supabase. `name` maps from DB column `title`. */
+export type Category = z.infer<typeof categorySchema> & {
+  id?: string
+}
 
-export type Banner = z.infer<typeof bannerSchema> & { _path?: string }
+/** Banner as stored in Supabase. `buttonText`/`buttonLink` map from DB `cta_label`/`cta_href`. */
+export type Banner = z.infer<typeof bannerSchema> & {
+  slug: string
+  id?: string
+  active?: boolean
+}
 
 /** A line in the cart. */
 export type CartItem = z.infer<typeof cartItemSchema>
 
 /** Validated checkout/customer details. */
 export type CheckoutDetails = z.infer<typeof checkoutSchema>
+
+export type OrderStatus = 'pending' | 'confirmed' | 'shipped' | 'delivered' | 'cancelled'
+
+export interface Order {
+  id: string
+  orderRef: string
+  userId?: string | null
+  customerName: string
+  customerPhone: string
+  customerWhatsapp: string
+  address: string
+  city: string
+  state: string
+  pincode: string
+  notes: string
+  items: CartItem[]
+  subtotal: number
+  shipping: number
+  total: number
+  status: OrderStatus
+  whatsappSent: boolean
+  createdAt: string
+  updatedAt: string
+}
 
 export interface Review {
   id: string

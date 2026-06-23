@@ -40,7 +40,7 @@ defineExpose({ done: () => { saving.value = false } })
       <BaseInput v-model="form.slug" label="Slug" required />
       <BaseInput v-model.number="form.order" label="Sort Order" type="number" inputmode="numeric" />
     </div>
-    <BaseInput v-model="form.image" label="Image Path" required placeholder="/categories/name.svg" />
+    <ImageUploadInput v-model="form.image" label="Image" required folder="categories" />
     <BaseTextarea v-model="form.description" label="Description" :rows="3" />
     <p v-if="error" class="border border-m-red bg-m-red/10 px-md py-2 text-body-sm text-m-red">{{ error }}</p>
     <div class="flex justify-end gap-sm border-t border-hairline pt-md">

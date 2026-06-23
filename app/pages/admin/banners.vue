@@ -15,7 +15,7 @@ const editing = ref<BannerRow | null>(null)
 const deleteTarget = ref<BannerRow | null>(null)
 const formRef = ref<{ done: () => void } | null>(null)
 
-const withSlug = (b: Banner): BannerRow => ({ ...b, slug: b._path?.split('/').pop() ?? '' })
+const withSlug = (b: Banner): BannerRow => ({ ...b, slug: b.slug || (b as { _path?: string })._path?.split('/').pop() || '' })
 
 async function refresh() {
   loading.value = true

@@ -3,6 +3,7 @@ definePageMeta({ layout: 'admin' })
 
 const { login, isAuthenticated } = useAdminAuth()
 const route = useRoute()
+const email = ref('')
 const password = ref('')
 const error = ref('')
 const loading = ref(false)
@@ -13,10 +14,14 @@ async function submit() {
   error.value = ''
   loading.value = true
   try {
-    await login(password.value)
+    const result = await login(email.value, password.value)
+    if (!result.ok) {
+      error.value = result.error ?? 'Login failed. Please try again.'
+      return
+    }
     await navigateTo((route.query.redirect as string) || '/admin')
   } catch {
-    error.value = 'Incorrect password. Please try again.'
+    error.value = 'An unexpected error occurred. Please try again.'
   } finally {
     loading.value = false
   }
@@ -32,8 +37,9 @@ useSeoMeta({ title: 'Admin Login', robots: 'noindex, nofollow' })
       <form class="flex flex-col gap-lg p-lg" @submit.prevent="submit">
         <div>
           <h1 class="text-title-lg font-bold uppercase">Admin Access</h1>
-          <p class="mt-1 text-body-sm text-body">Enter your password to manage the store.</p>
+          <p class="mt-1 text-body-sm text-body">Enter your admin credentials to manage the store.</p>
         </div>
+        <BaseInput v-model="email" label="Email" type="email" placeholder="admin@example.com" required autocomplete="username" />
         <BaseInput v-model="password" label="Password" type="password" placeholder="••••••••" required autocomplete="current-password" :error="error" />
         <BaseButton type="submit" variant="primary" size="lg" block :loading="loading">Log In</BaseButton>
         <NuxtLink to="/" class="text-center text-caption uppercase tracking-wide text-muted hover:text-white">← Back to Store</NuxtLink>

@@ -5,6 +5,8 @@ import { computeOrder, buildWhatsappUrl } from '~/composables/useWhatsapp'
 import type { CheckoutDetails } from '~/types'
 
 const cart = useCartStore()
+const supabase = useSupabaseClient()
+const user = useSupabaseUser()
 const order = computed(() => computeOrder(cart.items))
 
 // Remember details locally for repeat orders (never sent anywhere but WhatsApp).
@@ -40,9 +42,34 @@ async function placeOrder() {
     return
   }
   submitting.value = true
-  const url = buildWhatsappUrl(checkoutSchema.parse(form.value), order.value)
 
-  // Open WhatsApp with the prefilled order, then show the success page.
+  // Generate human-readable order reference
+  const orderRef = `BD3Z-${Math.floor(1000 + Math.random() * 9000)}`
+  const details = checkoutSchema.parse(form.value)
+
+  // Save order to Supabase (fire-and-forget; WhatsApp still opens even if this fails)
+  const { error } = await supabase.from('orders').insert({
+    order_ref: orderRef,
+    user_id: user.value?.id ?? null,
+    customer_name: details.fullName,
+    customer_phone: details.phone,
+    customer_whatsapp: details.whatsapp,
+    address: details.address,
+    city: details.city,
+    state: details.state,
+    pincode: details.pincode,
+    notes: details.notes ?? '',
+    items: cart.items,
+    subtotal: order.value.subtotal,
+    shipping: order.value.shipping,
+    total: order.value.total,
+    status: 'pending',
+    whatsapp_sent: true,
+  })
+  if (error) console.error('Order save failed:', error)
+
+  // Open WhatsApp with the prefilled order (includes order ref), then show the success page.
+  const url = buildWhatsappUrl(details, order.value, orderRef)
   window.open(url, '_blank', 'noopener')
   cart.clear()
   await navigateTo('/order-success')
