@@ -95,14 +95,26 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      crawlLinks: true,
-      routes: ['/', '/sitemap.xml', '/robots.txt'],
+      // Only prerender truly static routes. Content pages use ISR below.
+      routes: ['/sitemap.xml', '/robots.txt'],
       failOnError: false,
     },
   },
 
   routeRules: {
-    // Admin is client-only (SPA). Kept out of search via robots.txt + per-page noindex meta.
+    // Content pages — ISR: served from cache, re-generated every 60 s in the background.
+    // Changes made in the admin panel go live within ~1 minute without a redeploy.
+    '/': { isr: 60 },
+    '/shop': { isr: 60 },
+    '/categories': { isr: 60 },
+    '/category/**': { isr: 60 },
+    '/product/**': { isr: 60 },
+    '/about': { isr: 3600 },
+    '/contact': { isr: 3600 },
+    '/track': { isr: 3600 },
+    // Policy pages are markdown — only change on redeploy, so prerender them.
+    '/policies/**': { prerender: true },
+    // Admin is client-only (SPA).
     '/admin/**': { ssr: false },
     // Security headers on all routes.
     '/**': {
