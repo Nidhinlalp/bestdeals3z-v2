@@ -165,6 +165,7 @@ export type Database = {
           shipping: number
           total: number
           status: 'pending' | 'confirmed' | 'shipped' | 'delivered' | 'cancelled'
+          payment_method: 'cod' | 'prepaid'
           whatsapp_sent: boolean
           created_at: string
           updated_at: string
@@ -186,6 +187,7 @@ export type Database = {
           shipping?: number
           total: number
           status?: 'pending' | 'confirmed' | 'shipped' | 'delivered' | 'cancelled'
+          payment_method?: 'cod' | 'prepaid'
           whatsapp_sent?: boolean
           created_at?: string
           updated_at?: string
@@ -207,6 +209,7 @@ export type Database = {
           shipping?: number
           total?: number
           status?: 'pending' | 'confirmed' | 'shipped' | 'delivered' | 'cancelled'
+          payment_method?: 'cod' | 'prepaid'
           whatsapp_sent?: boolean
           created_at?: string
           updated_at?: string

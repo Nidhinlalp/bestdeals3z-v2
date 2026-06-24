@@ -37,7 +37,7 @@ export function useProductSchema(product: MaybeRefOrGetter<Product | null | unde
       '@type': 'Product',
       name: p.title,
       description: p.shortDescription || p.description,
-      image: p.images.map((i) => `${url}${i}`),
+      image: p.images.map((i) => (i.startsWith('http') ? i : `${url}${i}`)),
       sku: p.slug,
       category: p.category,
       brand: { '@type': 'Brand', name: SITE.name },

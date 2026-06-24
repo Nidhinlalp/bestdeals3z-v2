@@ -1,70 +1,73 @@
 ---
-title: "Terms of Service"
+title: "സേവന നിബന്ധനകൾ"
 slug: "terms-of-service"
-description: "The terms that govern your use of the BestDeal3z website and the purchase of products through WhatsApp."
+description: "BestDeal3z വെബ്സൈറ്റ് ഉപയോഗിക്കുന്നതിനും WhatsApp വഴി ഉൽപ്പന്നങ്ങൾ വാങ്ങുന്നതിനുമുള്ള നിബന്ധനകളും വ്യവസ്ഥകളും."
 order: 4
-updatedAt: "2026-06-21"
+updatedAt: "2026-06-24"
 ---
 
-## Terms of Service
+## സേവന നിബന്ധനകൾ
 
-Welcome to BestDeal3z. These terms govern your use of our website and your purchase of products from us. By browsing the site or placing an order, you agree to these terms.
+BestDeal3z-ലേക്ക് സ്വാഗതം. ഈ വെബ്സൈറ്റ് ഉപയോഗിക്കുന്നതിലൂടെയോ Order Place ചെയ്യുന്നതിലൂടെയോ നിങ്ങൾ ഈ നിബന്ധനകൾ പൂർണമായും അംഗീകരിക്കുന്നതായി കണക്കാക്കും.
 
-### 1. About us
+### 1. ഞങ്ങളെക്കുറിച്ച്
 
-BestDeal3z is an online store offering drones, RC machines and gadgets in India. Orders are confirmed and completed over WhatsApp; there is no online payment gateway on this website.
+BestDeal3z ഇന്ത്യയിൽ Drones, RC Machines, Gadgets എന്നിവ വിൽക്കുന്ന ഒരു Online Store ആണ്. Orders WhatsApp വഴിയാണ് Confirm ചെയ്യുന്നതും പൂർത്തിയാക്കുന്നതും. ഈ വെബ്സൈറ്റിൽ Online Payment Gateway ഒന്നും ഇല്ല.
 
-### 2. Eligibility
+### 2. Cash on Delivery (COD) — സ്വീകരണ ബാധ്യത
 
-You must be at least 18 years old, or have the consent of a parent or guardian, to place an order. Several products are toys and should be used with appropriate adult supervision.
+COD ഓർഡർ Place ചെയ്ത ശേഷം Product സ്വീകരിക്കാതെ മടക്കിവിടുന്നത് **അനുവദനീയമല്ല.** ഞങ്ങൾ മുൻകൂർ Payment വാങ്ങാതെയാണ് Product അയക്കുന്നത്. Delivery സമയത്ത് Product **നിർബന്ധമായും** സ്വീകരിക്കണം.
 
-### 3. Products, pricing and availability
+- Order Ship ചെയ്ത ശേഷം Cancel ചെയ്യാൻ സാധ്യമല്ല. Order Ship ആകുന്നതിന് മുൻപ് WhatsApp-ൽ Message ചെയ്ത് Cancel ചെയ്യാം.
+- അനാവശ്യമായി Delivery Reject ചെയ്യുന്ന ഉപഭോക്താക്കൾക്കെതിരെ ഭാവിയിൽ COD സേവനം നിർത്തിവെക്കാനുള്ള അവകാശം BestDeal3z-ന് ഉണ്ടായിരിക്കും.
 
-- We try to describe and picture our products as accurately as possible. Slight variations in colour or finish may occur.
-- All prices are in Indian Rupees (₹) and include applicable taxes unless stated otherwise.
-- Prices, offers and availability can change without notice. If an item becomes unavailable after you order, we will tell you on WhatsApp and offer an alternative or a full refund.
+### 3. Unboxing Video — നിർബന്ധം
 
-### 4. How ordering works
+പാർസൽ ലഭിക്കുന്ന സമയത്ത് **നിർബന്ധമായും Unboxing Video** എടുക്കണം. Sealed Parcel-ൽ നിന്ന് ആരംഭിച്ച്, Package പൂർണമായി തുറക്കുന്നത് വരെ തുടർച്ചയായ ഒറ്റ Video ആയിരിക്കണം.
 
-1. You add products to your cart and proceed to checkout.
-2. You enter your delivery details and tap **Place Order on WhatsApp**.
-3. A pre-filled order message opens in WhatsApp for you to send to us.
-4. Your order is confirmed once our team replies and you agree to it on WhatsApp.
+**Video ഇല്ലാതെ ഏതെങ്കിലും Complaint, Return Request, അല്ലെങ്കിൽ Damage Claim സ്വീകരിക്കില്ല — ഒരു Exception-ഉം ഇല്ല.**
 
-An order is only binding once we confirm it. We reserve the right to decline or cancel any order — for example, due to stock issues, pricing errors or suspected fraud.
+### 4. ഓർഡർ ചെയ്യുന്ന രീതി
+
+1. ഉൽപ്പന്നങ്ങൾ Cart-ൽ ചേർത്ത് Checkout-ലേക്ക് പോകുക.
+2. Delivery Details നൽകി **WhatsApp-ൽ Order Place ചെയ്യുക** എന്ന ബട്ടൺ അമർത്തുക.
+3. Pre-filled Order Message WhatsApp-ൽ തുറക്കും; അത് ഞങ്ങൾക്ക് അയക്കുക.
+4. ഞങ്ങളുടെ Team Reply ചെയ്ത് Confirm ചെയ്ത ശേഷം മാത്രമേ Order Binding ആകൂ.
+
+Stock ഇല്ലായ്മ, Pricing Error, Fraud Suspicion എന്നിവ കാരണം ഏതെങ്കിലും Order Decline ചെയ്യാനുള്ള അവകാശം ഞങ്ങൾക്ക് ഉണ്ട്.
 
 ### 5. Payment
 
-We accept **Cash on Delivery** and, where you prefer, a **UPI link** shared by our team on WhatsApp. We never ask for your card details, UPI PIN or passwords. Do not share these with anyone claiming to be from BestDeal3z.
+ഞങ്ങൾ **Cash on Delivery (COD)** സ്വീകരിക്കുന്നു. WhatsApp-ൽ Team Share ചെയ്യുന്ന **UPI Link** വഴിയും Payment ചെയ്യാം. ഞങ്ങൾ ഒരിക്കലും Card Details, UPI PIN, അല്ലെങ്കിൽ Bank Password ചോദിക്കില്ല. BestDeal3z എന്ന് അവകാശപ്പെടുന്ന ആരോടും ഇത്തരം വിവരങ്ങൾ Share ചെയ്യരുത്.
 
-### 6. Shipping and delivery
+### 6. Warranty
 
-Delivery timelines and charges are described in our [Shipping Policy](/policies/shipping-policy).
+Product-ന് Warranty ഉണ്ടായാൽ അത് **Manufacturer-ന്റെ Warranty നിബന്ധനകൾക്ക് വിധേയമായിരിക്കും.** BestDeal3z Warranty Support സഹായിക്കും, എന്നാൽ Manufacturer-ന്റെ Terms മാറ്റാൻ ഞങ്ങൾക്ക് സാധ്യമല്ല.
 
-### 7. Returns and refunds
+### 7. Shipping & Delivery
 
-Returns, replacements, warranty and refunds are covered in our [Return & Refund Policy](/policies/refund-policy).
+Delivery Timelines, Charges എന്നിവ ഞങ്ങളുടെ [Shipping Policy](/policies/shipping-policy)-ൽ വിശദമാക്കിയിട്ടുണ്ട്.
 
-### 8. Acceptable use
+### 8. Returns & Refunds
 
-You agree not to misuse the website, attempt to gain unauthorised access, disrupt its operation, or use it for any unlawful purpose.
+Returns, Replacements, Warranty, Refunds എന്നിവ ഞങ്ങളുടെ [Return & Refund Policy](/policies/refund-policy)-ൽ വിശദമാക്കിയിട്ടുണ്ട്.
 
-### 9. Intellectual property
+### 9. Liability പരിധി
 
-All content on this website — including the BestDeal3z name, logo, design and text — is owned by us or our licensors and may not be copied or reused without permission.
+BestDeal3z ഈ Website-ന്റെ അല്ലെങ്കിൽ Products-ന്റെ ഉപയോഗം മൂലം ഉണ്ടാകുന്ന Indirect Loss-ന് ഉത്തരവാദിയല്ല. Courier Delay, Natural Disaster, Strike, Regional Restrictions, അല്ലെങ്കിൽ ഞങ്ങളുടെ നിയന്ത്രണത്തിന് പുറത്തുള്ള ഏതെങ്കിലും കാരണങ്ങളാൽ ഉണ്ടായ താമസങ്ങൾക്ക് BestDeal3z ഉത്തരവാദിയല്ല.
 
-### 10. Limitation of liability
+### 10. Governing Law
 
-To the fullest extent permitted by law, BestDeal3z is not liable for any indirect or consequential loss arising from the use of our website or products. Products must be used responsibly and in line with their instructions and any local regulations (for example, rules that apply to drones).
+ഈ നിബന്ധനകൾ ഇന്ത്യൻ നിയമപ്രകാരം നിയന്ത്രിക്കപ്പെടുന്നു. ഏതെങ്കിലും തർക്കം ഉണ്ടായാൽ ഇന്ത്യൻ കോടതിയുടെ Exclusive Jurisdiction-ന് വിധേയമായിരിക്കും.
 
-### 11. Governing law
+### 11. Terms-ൽ മാറ്റം
 
-These terms are governed by the laws of India, and any disputes are subject to the exclusive jurisdiction of the courts of India.
+ഞങ്ങൾ ഈ Terms & Conditions ഇടയ്ക്കിടെ Update ചെയ്യാം. ഏറ്റവും പുതിയ Version ഈ Page-ൽ തന്നെ Revision Date സഹിതം ലഭ്യമായിരിക്കും.
 
-### 12. Changes to these terms
+### 12. Agreement
 
-We may update these terms from time to time. The current version, with its revision date, is always available on this page.
+BestDeal3z-ൽ Order Place ചെയ്യുന്നതിലൂടെ ഈ Terms of Service, [Return & Refund Policy](/policies/refund-policy), [Shipping Policy](/policies/shipping-policy), [Privacy Policy](/policies/privacy-policy) എന്നിവ വായിക്കുകയും മനസ്സിലാക്കുകയും **പൂർണമായും അംഗീകരിക്കുകയും** ചെയ്തതായി കണക്കാക്കും.
 
-### Contact us
+### ഞങ്ങളെ ബന്ധപ്പെടുക
 
-For any questions about these terms, message us on WhatsApp at **+91 79948 67698** or email **bestdeal3zinfo@gmail.com**.
+ഈ Terms & Conditions സംബന്ധിച്ച് ഏതെങ്കിലും ചോദ്യം ഉണ്ടെങ്കിൽ **+91 79948 67698** എന്ന നമ്പറിൽ WhatsApp Message ചെയ്യുക അല്ലെങ്കിൽ **bestdeal3zinfo@gmail.com** എന്ന Email-ൽ ബന്ധപ്പെടുക.

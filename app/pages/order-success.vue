@@ -15,7 +15,8 @@ useSeoMeta({ title: 'Order Sent', robots: 'noindex' })
     <p class="mt-sm max-w-md text-body-sm text-muted">If WhatsApp didn't open, please check your pop-up blocker and try again from your cart.</p>
     <div class="mt-xl flex flex-col gap-sm sm:flex-row">
       <BaseButton to="/shop" variant="primary">Continue Shopping</BaseButton>
-      <BaseButton to="/" variant="outline">Back to Home</BaseButton>
+      <BaseButton to="/track" variant="outline">Track My Order</BaseButton>
+      <BaseButton to="/" variant="ghost">Back to Home</BaseButton>
     </div>
   </div>
 </template>

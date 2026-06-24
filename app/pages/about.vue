@@ -10,13 +10,14 @@ const stats = [
 const policies = [
   { title: 'Free Shipping over ₹999', body: 'All orders above ₹999 ship free across India. Smaller orders carry a flat ₹49.' },
   { title: 'Cash on Delivery', body: 'Pay only when your order arrives. Available on most pincodes.' },
-  { title: '48-Hour Return Window', body: 'Damaged or defective on arrival? Message us within 48 hours for a free replacement or refund.' },
+  { title: '24-Hour Return Window', body: 'Damaged or defective on arrival? Message us within 24 hours with an unboxing video for a free replacement or refund.' },
   { title: '6-Month Warranty', body: 'All electronics carry a 6-month replacement warranty against manufacturing defects.' },
 ]
 
 useSeoMeta({
   title: 'About Us',
   description: `${SITE.name} brings you the best deals on drones, RC machines and gadgets in India — with WhatsApp ordering and cash on delivery.`,
+  ogImage: '/og-image.svg',
 })
 </script>
 

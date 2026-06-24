@@ -43,6 +43,9 @@ export function buildOrderMessage(details: CheckoutDetails, order: OrderSummary,
   lines.push(`Subtotal: ${formatPrice(order.subtotal)}`)
   lines.push(`Shipping: ${order.shipping === 0 ? 'FREE' : formatPrice(order.shipping)}`)
   lines.push(`*Total: ${formatPrice(order.total)}*`)
+  lines.push('')
+  const paymentLabel = details.paymentMethod === 'prepaid' ? '💳 Prepaid (UPI)' : '💵 Cash on Delivery (COD)'
+  lines.push(`*Payment Method: ${paymentLabel}*`)
   if (details.notes) {
     lines.push('')
     lines.push(`*Notes*: ${details.notes}`)

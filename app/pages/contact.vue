@@ -8,6 +8,7 @@ const waUrl = computed(() => buildEnquiryUrl(message.value.trim() || 'Hi BestDea
 useSeoMeta({
   title: 'Contact Us',
   description: 'Get in touch with BestDeal3z on WhatsApp. We reply fast about products, orders and delivery across India.',
+  ogImage: '/og-image.svg',
 })
 </script>
 

@@ -1,101 +1,133 @@
-# Deployment Guide
+# Deployment Guide — BestDeal3z
 
-BestDeal3z deploys to **Vercel** with zero configuration. Because there is no database and no separate backend, hosting is cheap (it fits comfortably in Vercel's free Hobby tier).
+BestDeal3z is a **Nuxt 3** storefront backed by **Supabase** (database, auth, storage). It deploys to **Vercel** with no extra configuration.
 
 ---
 
 ## 1. Prerequisites
 
-- A [GitHub](https://github.com) (or GitLab/Bitbucket) repository containing this project.
-- A free [Vercel](https://vercel.com) account.
+- A [GitHub](https://github.com) repository containing this project.
+- A [Vercel](https://vercel.com) account (free Hobby tier is enough).
+- A [Supabase](https://supabase.com) project (free tier is enough to start).
 - Your WhatsApp business number in international format (e.g. `919000000000`).
 
 ---
 
-## 2. Push to Git
+## 2. Supabase Setup
 
-```bash
-git init
-git add .
-git commit -m "Initial commit — BestDeal3z storefront"
-git branch -M main
-git remote add origin https://github.com/<you>/bestdeal3z.git
-git push -u origin main
+### 2a. Create the database schema
+
+In your Supabase project, open **SQL Editor** and run the migration file:
+
 ```
+supabase/migrations/001_initial_schema.sql
+```
+
+This creates the `products`, `categories`, `banners`, and `orders` tables, plus RLS policies and the `admin_users` table.
+
+Then run this additional migration:
+
+```sql
+ALTER TABLE orders
+ADD COLUMN payment_method text NOT NULL DEFAULT 'cod'
+  CHECK (payment_method IN ('cod', 'prepaid'));
+```
+
+### 2b. Create an admin user
+
+1. Go to **Supabase Dashboard → Authentication → Users → Invite user**.
+2. Enter the admin's email address and send the invite.
+3. Once they accept, copy their **User ID** (UUID) from the Users list.
+4. Run this in SQL Editor (replace the UUID):
+
+```sql
+INSERT INTO admin_users (user_id) VALUES ('<paste-user-uuid-here>');
+```
+
+That user can now log in at `/admin/login` with their email and password.
+
+### 2c. Create a storage bucket
+
+1. Go to **Supabase Dashboard → Storage → New bucket**.
+2. Name it `images`, set it to **Public**.
+3. The admin panel uses this bucket for all image uploads.
 
 ---
 
-## 3. Import into Vercel
+## 3. Environment Variables
 
-1. Go to **vercel.com → Add New → Project** and import your repository.
-2. Vercel auto-detects **Nuxt** — no build settings needed.
-   - Build command: `npm run build`
-   - Output: handled by the Nuxt Vercel preset automatically.
-3. Add the **Environment Variables** below before the first deploy.
-4. Click **Deploy**.
+Copy `.env.example` to `.env` and fill in all values:
 
-### Required environment variables
-
-| Key | Value |
+| Variable | Where to find it |
 |---|---|
-| `ADMIN_PASSWORD` | A strong password for `/admin` |
-| `NUXT_PUBLIC_SITE_URL` | Your final URL, e.g. `https://bestdeal3z.vercel.app` |
-| `NUXT_PUBLIC_WHATSAPP_NUMBER` | Owner number, intl format, no `+` (e.g. `919000000000`) |
-
-> After adding/changing env vars, trigger a **redeploy** so they take effect.
-
----
-
-## 4. Custom Domain (optional)
-
-In **Vercel → Project → Settings → Domains**, add your domain and follow the DNS instructions. Then update `NUXT_PUBLIC_SITE_URL` to the custom domain and redeploy so canonical URLs, the sitemap and JSON-LD all use it.
+| `SUPABASE_URL` | Supabase → Project Settings → API → Project URL |
+| `SUPABASE_KEY` | Supabase → Project Settings → API → `anon` / `public` key |
+| `SUPABASE_SERVICE_ROLE_KEY` | Supabase → Project Settings → API → `service_role` key (**server only — never expose**) |
+| `NUXT_PUBLIC_SITE_URL` | Your production domain, e.g. `https://bestdeal3z.com` |
+| `NUXT_PUBLIC_WHATSAPP_NUMBER` | WhatsApp number, no `+` or spaces, e.g. `919000000000` |
 
 ---
 
-## 5. Managing Content (the Git-based CMS workflow)
+## 4. Deploy to Vercel
 
-The store's data lives as markdown files in `content/`. There are two ways to edit it:
+1. Push the project to GitHub.
+2. Go to **vercel.com → Add New → Project** and import your repository.
+3. Vercel auto-detects Nuxt — no build settings changes needed.
+4. Add all 5 environment variables (Step 3) before the first deploy.
+5. Click **Deploy**.
 
-### A. Locally with the admin dashboard (recommended)
-```bash
-npm run dev
-# visit http://localhost:3000/admin and log in
-# add / edit / delete products, categories, banners
-git add content public
-git commit -m "Update catalog"
-git push        # Vercel redeploys with the new content
-```
+**Custom domain:** In Vercel → Project → Settings → Domains, add your domain. Then update `NUXT_PUBLIC_SITE_URL` and redeploy.
 
-### B. By hand
-Edit the markdown files in `content/products`, `content/categories`, `content/banners` directly, drop images into `public/`, commit and push.
+---
 
-> **Why not edit on the live site?** Vercel's serverless filesystem is read-only/ephemeral, so writes made in production are lost on the next deploy. Editing locally + committing keeps everything versioned and free of any backend — the JAMstack way.
+## 5. Managing Content (Admin Panel)
 
-### Adding real product photos
-1. Put image files in `public/products/` (e.g. `public/products/drone-x-1.jpg`).
-2. Reference them in the product (admin form or markdown `images:` list) as `/products/drone-x-1.jpg`.
-3. Commit & push. `@nuxt/image` optimises them automatically.
+Everything is managed at `/admin` on the live site — no git or code changes needed for day-to-day updates.
+
+| Section | What you can do |
+|---|---|
+| **Products** | Add, edit, delete products. Upload images, set price, stock, variants. |
+| **Categories** | Add, edit, delete categories and their cover images. |
+| **Banners** | Manage homepage hero banners — image, headline, CTA button. |
+| **Orders** | View all orders, update status (pending → confirmed → shipped → delivered). |
 
 ---
 
 ## 6. Post-Deploy Checklist
 
-- [ ] Visit the live URL — homepage, shop, a product page all load.
-- [ ] Add to cart → checkout → **Place Order on WhatsApp** opens a chat to the correct number with the order prefilled.
-- [ ] `/<your-domain>/sitemap.xml` and `/robots.txt` resolve.
-- [ ] `/admin` redirects to login and accepts `ADMIN_PASSWORD`.
-- [ ] Run [PageSpeed Insights](https://pagespeed.web.dev) against the home and a product page.
+- [ ] Homepage, shop page and a product page all load correctly.
+- [ ] Add to cart → checkout → **Place Order on WhatsApp** opens WhatsApp with the order pre-filled and the correct number.
+- [ ] Payment method (COD / Prepaid) appears in the WhatsApp message.
+- [ ] `/admin/login` accepts the admin email and password.
+- [ ] Admin can add a product and it appears live on the store immediately.
+- [ ] `/sitemap.xml` and `/robots.txt` resolve correctly.
+- [ ] Image uploads from the admin panel land in Supabase Storage.
+- [ ] Run [PageSpeed Insights](https://pagespeed.web.dev) on the homepage and a product page.
 
 ---
 
-## 7. Performance Notes
+## 7. Architecture
 
-- Storefront pages are prerendered/cached; only `/admin` is client-rendered.
-- Images are served through `@nuxt/image` (WebP, responsive `srcset`, lazy loading).
-- Replace the SVG placeholders with optimised real photos (ideally ≤ 200 KB each) before launch for the best Lighthouse scores.
+| Layer | Technology |
+|---|---|
+| Frontend | Nuxt 3, Vue 3, Tailwind CSS |
+| Database | Supabase (PostgreSQL) — products, categories, banners, orders |
+| Auth | Supabase Auth — email/password, JWT, `admin_users` table |
+| Storage | Supabase Storage — all product/category/banner images |
+| Legal pages | Nuxt Content (Markdown) — only `/policies/*` |
+| Hosting | Vercel (serverless + edge cache) |
+| Orders | WhatsApp — no payment gateway; COD and UPI arranged via chat |
+
+RLS (Row Level Security) is enabled on all tables. The `anon` key is safe to expose because RLS controls what each visitor can read and write.
 
 ---
 
-## 8. Alternative Hosts
+## 8. Rotating Secrets
 
-The app also runs on **Netlify**, **Cloudflare Pages** or any Node host (`node .output/server/index.mjs` after `npm run build`). Set the same three environment variables. The admin write API requires a Node/serverless runtime; on fully static hosts (`npm run generate`) the storefront still works but use the local admin workflow for content.
+If Supabase keys are ever compromised:
+
+1. **Supabase → Project Settings → API → Rotate API keys.**
+2. Update `SUPABASE_KEY` and `SUPABASE_SERVICE_ROLE_KEY` in Vercel's environment variables.
+3. Trigger a redeploy on Vercel.
+
+To change the admin password: **Supabase → Authentication → Users → Send password reset**.

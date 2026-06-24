@@ -9,6 +9,7 @@ const waUrl = computed(() =>
 useSeoMeta({
   title: 'Track Your Order',
   description: 'Track your BestDeal3z order. Share your order reference on WhatsApp and we will send you a live tracking link.',
+  ogImage: '/og-image.svg',
 })
 </script>
 

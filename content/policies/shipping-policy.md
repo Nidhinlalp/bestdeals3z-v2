@@ -1,53 +1,68 @@
 ---
-title: "Shipping Policy"
+title: "ഷിപ്പിംഗ് നയം"
 slug: "shipping-policy"
-description: "How and when BestDeal3z ships your order across India, delivery timelines, charges and tracking."
+description: "BestDeal3z ഇന്ത്യ മുഴുവൻ Order Ship ചെയ്യുന്ന രീതി, Delivery Timelines, Charges, COD നിബന്ധനകൾ, Tracking എന്നിവ."
 order: 1
-updatedAt: "2026-06-21"
+updatedAt: "2026-06-24"
 ---
 
-## Shipping Policy
+## ഷിപ്പിംഗ് നയം
 
-At BestDeal3z we work hard to get your order to you quickly and safely. This policy explains where we deliver, how long it takes and what it costs.
+BestDeal3z നിങ്ങളുടെ Order വേഗത്തിലും സുരക്ഷിതമായും എത്തിക്കാൻ ശ്രമിക്കുന്നു. ഞങ്ങൾ എവിടെ Deliver ചെയ്യുന്നു, എത്ര സമയം എടുക്കും, എന്ത് Charge ആണ് — ഇവ ഈ Policy-ൽ വിശദമാക്കിയിട്ടുണ്ട്.
 
-### Where we deliver
+### Delivery ലഭ്യത
 
-We ship to almost every serviceable pincode across India. If we are unable to deliver to your area, our team will let you know on WhatsApp before your order is confirmed.
+ഇന്ത്യ മുഴുവൻ ഉള്ള Serviceable Pincodes-ലേക്ക് ഞങ്ങൾ Ship ചെയ്യുന്നു. നിങ്ങളുടെ Area-ൽ Delivery സാധ്യമല്ലെങ്കിൽ Order Confirm ചെയ്യുന്നതിന് മുൻപ് WhatsApp-ൽ അറിയിക്കും.
 
-### Shipping charges
+### Shipping Charge
 
-- **Free shipping** on all orders of ₹999 and above.
-- A flat **₹49** shipping fee applies to orders below ₹999.
-- Your final shipping charge is always shown in your cart and in the order summary we share on WhatsApp before you confirm.
+- ₹999-ഉം അതിൽ കൂടുതലുമുള്ള Orders-ന് **Free Shipping.**
+- ₹999-ൽ കുറഞ്ഞ Orders-ന് **₹49** Flat Shipping Fee.
+- Final Shipping Charge Cart-ൽ-ഉം WhatsApp-ൽ Order Confirm ചെയ്യുന്നതിന് മുൻപ് ഞങ്ങൾ Share ചെയ്യുന്ന Order Summary-ൽ-ഉം കാണിക്കും.
 
-### Order processing
+### Order Processing
 
-Orders are processed within **1–2 working days** of confirmation. Orders confirmed on Sundays or public holidays are processed on the next working day.
+Orders **1–2 Working Days-ൽ** Process ചെയ്യും. Sundays / Public Holidays-ൽ Confirm ചെയ്ത Orders അടുത്ത Working Day-ൽ Process ചെയ്യും.
 
-### Delivery timelines
+### Delivery Timeline
 
-- **Metro cities:** typically **3–4 working days**.
-- **Other locations:** **5–6 working days**.
-- **Remote pincodes:** may take up to **7 working days**.
+- **Metro Cities:** സാധാരണ **3–4 Working Days.**
+- **മറ്റ് സ്ഥലങ്ങൾ:** **5–6 Working Days.**
+- **Remote Pincodes:** **7 Working Days** വരെ.
 
-These are estimates. The exact timeline for your address is shared when we confirm your order on WhatsApp.
+ഇവ Estimates ആണ്. നിങ്ങളുടെ Address-ന്റെ Exact Timeline Order Confirm ചെയ്യുമ്പോൾ WhatsApp-ൽ അറിയിക്കും.
 
-### Order tracking
+### Order Tracking
 
-Once your order ships, we send a tracking link on the same WhatsApp chat you ordered from. You can also reach us any time through our [Track Order](/track) page.
+Order Ship ആകുമ്പോൾ അതേ WhatsApp Chat-ൽ Tracking Link അയക്കും. [Track Order](/track) Page-ൽ-ഉം ഏത് സമയത്തും ഞങ്ങളെ Contact ചെയ്യാം.
 
-### Delays
+### Cash on Delivery (COD)
 
-While we plan for on-time delivery, factors outside our control — weather, courier disruptions, regional restrictions or incorrect addresses — can occasionally cause delays. If your order is delayed, message us and we will follow up with the courier on your behalf.
+COD മിക്ക Pincodes-ലും ലഭ്യമാണ്. Courier നിങ്ങൾക്ക് Order കൈമാറുമ്പോൾ മാത്രം Cash ആയി Pay ചെയ്താൽ മതി.
 
-### Incorrect or incomplete address
+**പ്രധാനം — COD Order സ്വീകരണ ബാധ്യത:**
 
-Please double-check your address and pincode before confirming your order. We are not responsible for delays or non-delivery caused by an incorrect or incomplete address.
+COD Order-ന് ഞങ്ങൾ **മുൻകൂർ Payment വാങ്ങാതെ** Product Dispatch ചെയ്യുന്നു. COD Select ചെയ്ത് Order Place ചെയ്യുന്നതിലൂടെ Delivery സമയത്ത് Product Pay ചെയ്ത് സ്വീകരിക്കാൻ നിങ്ങൾ Commit ചെയ്യുന്നു.
 
-### Cash on Delivery
+- Valid കാരണം ഇല്ലാതെ Parcel Refuse / Return ചെയ്യുന്നത് **അനുവദനീയമല്ല.** ഇത് ഞങ്ങൾക്ക് Recover ചെയ്യാൻ കഴിയാത്ത Shipping Loss ഉണ്ടാക്കുന്നു.
+- COD Delivery ആവർത്തിച്ച് Reject ചെയ്യുന്ന Customers-ന് ഭാവിയിൽ COD Option ഇല്ലാതാകും.
+- Order Ship ആകുന്നതിന് **മുൻപ്** Cancel ചെയ്യണമെങ്കിൽ WhatsApp-ൽ Message ചെയ്യുക. Ship ആയ ശേഷം Cancel ചെയ്യാൻ സാധ്യമല്ല.
 
-Cash on Delivery (COD) is available on most pincodes. You pay the courier in cash only when your order is handed to you.
+### Delay — BestDeal3z-ന്റെ ഉത്തരവാദിത്തം
 
-### Need help?
+ഞങ്ങൾ On-Time Delivery ഉറപ്പ് വരുത്താൻ ശ്രമിക്കുന്നു. എന്നാൽ **ഇനി പറയുന്ന കാരണങ്ങളാൽ ഉണ്ടാകുന്ന Delay-ന് BestDeal3z ഉത്തരവാദിയല്ല:**
 
-Message us on WhatsApp at **+91 79948 67698** or email **bestdeal3zinfo@gmail.com**.
+- Courier / Logistics Disruptions
+- Natural Disasters, Floods, Storms, അല്ലെങ്കിൽ Acts of Nature
+- Regional Restrictions, Strikes, Government-Imposed Closures
+- ഞങ്ങളുടെ Control-ന് പുറത്തുള്ള മറ്റ് ഏതെങ്കിലും സാഹചര്യം
+
+Order ഗണ്യമായ Delay ഉണ്ടെങ്കിൽ Message ചെയ്യുക — ഞങ്ങൾ Courier-ൽ Follow Up ചെയ്യും.
+
+### തെറ്റായ Address
+
+Checkout-ൽ Address, Pincode ശ്രദ്ധിച്ച് Check ചെയ്യുക. Incorrect / Incomplete Address കാരണം ഉണ്ടാകുന്ന Delay / Non-Delivery-ന് ഞങ്ങൾ ഉത്തരവാദിയല്ല.
+
+### സഹായം വേണോ?
+
+**+91 79948 67698** — WhatsApp | **bestdeal3zinfo@gmail.com** — Email

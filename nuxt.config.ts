@@ -1,5 +1,9 @@
 import { SITE } from './app/constants/site'
 
+const supabaseHostname = (() => {
+  try { return new URL(process.env.SUPABASE_URL || '').hostname } catch { return '' }
+})()
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: '2024-11-01',
@@ -78,6 +82,7 @@ export default defineNuxtConfig({
     quality: 70,
     format: ['webp'],
     densities: [1, 2],
+    domains: supabaseHostname ? [supabaseHostname] : [],
     screens: {
       xs: 320,
       sm: 375,
@@ -99,6 +104,15 @@ export default defineNuxtConfig({
   routeRules: {
     // Admin is client-only (SPA). Kept out of search via robots.txt + per-page noindex meta.
     '/admin/**': { ssr: false },
+    // Security headers on all routes.
+    '/**': {
+      headers: {
+        'X-Frame-Options': 'DENY',
+        'X-Content-Type-Options': 'nosniff',
+        'Referrer-Policy': 'strict-origin-when-cross-origin',
+        'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+      },
+    },
   },
 
   typescript: {

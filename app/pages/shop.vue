@@ -75,6 +75,7 @@ function goToPage(p: number) {
 useSeoMeta({
   title: 'Shop All Products',
   description: 'Browse the full BestDeal3z range — drones, RC cars, planes, gimbals, blasters and gadgets. Filter, sort and order on WhatsApp.',
+  ogImage: '/og-image.svg',
 })
 useBreadcrumbSchema([{ name: 'Home', item: '/' }, { name: 'Shop', item: '/shop' }])
 </script>

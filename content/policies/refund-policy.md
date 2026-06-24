@@ -1,52 +1,80 @@
 ---
-title: "Return & Refund Policy"
+title: "റിട്ടേൺ & റീഫണ്ട് നയം"
 slug: "refund-policy"
-description: "BestDeal3z return, replacement and refund terms — including our 48-hour damage window and 6-month warranty."
+description: "BestDeal3z-ന്റെ Return, Replacement, Refund നിബന്ധനകൾ — Unboxing Video ആവശ്യകത, 24 മണിക്കൂർ Complaint Window, Warranty വ്യവസ്ഥകൾ എന്നിവ ഉൾപ്പെടെ."
 order: 2
-updatedAt: "2026-06-21"
+updatedAt: "2026-06-24"
 ---
 
-## Return & Refund Policy
+## റിട്ടേൺ & റീഫണ്ട് നയം
 
-We want you to be happy with every order. If something isn't right, here's how we make it good.
+ഓരോ Order-ഉം നിങ്ങൾക്ക് തൃപ്തികരമായിരിക്കണം എന്നതാണ് ഞങ്ങളുടെ ലക്ഷ്യം. എന്തെങ്കിലും പ്രശ്നം ഉണ്ടായാൽ ഞങ്ങൾ ഇങ്ങനെ പരിഹരിക്കും.
 
-### Damaged or defective on arrival
+### Unboxing Video — നിർബന്ധം
 
-If your product arrives damaged, defective or not as described, contact us within **48 hours of delivery** with a clear photo or short video showing the issue. Once verified, we will arrange a **free replacement** or a **full refund** — your choice.
+പാർസൽ ലഭിക്കുന്ന സമയത്ത് **നിർബന്ധമായും Unboxing Video** എടുക്കണം. Sealed Parcel-ൽ നിന്ന് ആരംഭിച്ച്, Package പൂർണമായി തുറക്കുന്നത് വരെ **തുടർച്ചയായ ഒറ്റ Video** ആയിരിക്കണം — ഇടയ്ക്ക് Cut ആകരുത്.
 
-### How to raise a request
+**Video ഇല്ലാതെ ഏതെങ്കിലും Complaint, Return Request, അല്ലെങ്കിൽ Damage Claim സ്വീകരിക്കില്ല — ഒരു Exception-ഉം ഇല്ല.**
 
-1. Message us on WhatsApp at **+91 79948 67698** with your order reference (from your WhatsApp chat).
-2. Share a photo or video of the issue and the original packaging.
-3. Our team confirms the resolution and arranges a pickup or replacement.
+### Damage / Missing / Wrong Product — Report ചെയ്യേണ്ട സമയം
 
-### What is covered
+Product ലഭിച്ചതിന് ശേഷം **24 മണിക്കൂറിനുള്ളിൽ** WhatsApp-ൽ Report ചെയ്യണം:
 
-- Items damaged in transit.
-- Manufacturing defects.
-- Wrong item delivered.
+- Physical Damage (Delivery-ൽ ഉണ്ടായത്)
+- Missing Items
+- Wrong Product
 
-### What is not covered
+Report ചെയ്യുമ്പോൾ ഇവ ഉൾപ്പെടുത്തണം:
+1. Unboxing Video (Sealed Parcel-ൽ നിന്ന് തുടർച്ചയായത്)
+2. Issue വ്യക്തമായി കാണിക്കുന്ന Photo / Video
+3. WhatsApp Chat-ൽ നിന്നുള്ള Order Reference
 
-- Normal wear and tear, or damage from misuse, accidents or unauthorised repairs.
-- Products returned without original packaging, accessories or free gifts.
-- Requests raised more than 48 hours after delivery (except valid warranty claims — see below).
-- Minor variations in colour or finish caused by your screen or photography.
+24 മണിക്കൂർ കഴിഞ്ഞ ശേഷം Raise ചെയ്യുന്ന Complaints Warranty Claims ഒഴികെ സ്വീകരിക്കില്ല.
+
+### Return Request — എങ്ങനെ ചെയ്യാം
+
+1. **+91 79948 67698** — WhatsApp-ൽ Order Reference സഹിതം Message ചെയ്യുക.
+2. Unboxing Video, Issue-ന്റെ Photos/Video Share ചെയ്യുക.
+3. ഞങ്ങളുടെ Team Verify ചെയ്ത് Replacement അല്ലെങ്കിൽ Refund Arrange ചെയ്യും.
+
+### Return Shipping Charge
+
+Return Approved ആയാൽ **Return Shipping Charge മുഴുവനായും Customer വഹിക്കണം.** BestDeal3z Prepaid Return Label നൽകില്ല. Product Original Packaging-ൽ Securely Pack ചെയ്ത് Ship ചെയ്യുക.
+
+### Return സ്വീകരിക്കുന്ന കാര്യങ്ങൾ
+
+- Unboxing Video-ൽ Proof ഉള്ള Transit Damage.
+- Delivery-യുടെ 24 മണിക്കൂറിനുള്ളിൽ Report ചെയ്ത Manufacturing Defects.
+- Wrong Item Delivered.
+
+### Return സ്വീകരിക്കാത്ത കാര്യങ്ങൾ
+
+- Valid Unboxing Video ഇല്ലാതെ Raise ചെയ്ത Claims.
+- Delivery-യുടെ 24 മണിക്കൂർ കഴിഞ്ഞ ശേഷം Raise ചെയ്ത Requests (Warranty Claims ഒഴികെ).
+- ഉപയോഗിച്ച, കേടുപാടുകൾ സംഭവിച്ച, Repair / Modify ചെയ്ത Products.
+- Original Packing, Accessories, Free Gifts ഇല്ലാതെ Return ചെയ്ത Products.
+- Screen / Photography കാരണം ഉണ്ടാകുന്ന Color / Finish Variations.
+- Normal Wear and Tear, Misuse, Accident മൂലമുള്ള Damage.
 
 ### Warranty
 
-All electronic products carry a **6-month replacement warranty** against manufacturing defects from the date of delivery. Warranty does not cover physical or accidental damage, water damage (unless the product is rated for it), or wear of consumable parts such as batteries and propellers.
+Product-ന് Warranty ഉണ്ടെങ്കിൽ അത് **Manufacturer-ന്റെ Warranty നിബന്ധനകൾക്ക് വിധേയമായിരിക്കും.** Warranty Period-ഉം Coverage-ഉം Manufacturer Decide ചെയ്യുന്നതാണ്.
 
-### Refunds
+പൊതുവേ:
+- Electronic Products-ന് Delivery Date-ൽ നിന്ന് **6 മാസം Manufacturing Defect Replacement Warranty** ഉണ്ടായിരിക്കും (Manufacturer-ന്റെ Specific Terms-ന് വിധേയമായി).
+- Physical / Accidental Damage, Water Damage (Waterproof Product ഒഴികെ), Battery / Propeller പോലുള്ള Consumable Parts-ന്റെ Wear — ഇവ Warranty-ൽ ഉൾപ്പെടില്ല.
+- Warranty Claim ചെയ്യാൻ Order Reference, Unboxing Video, Defect-ന്റെ Description സഹിതം WhatsApp-ൽ Contact ചെയ്യുക.
 
-- For **prepaid orders**, refunds are issued to the original payment method.
-- For **Cash on Delivery orders**, refunds are made via UPI or bank transfer to an account you share with us.
-- Approved refunds are processed within **5–7 working days** of the returned item being received and inspected, or immediately for verified damage-on-arrival cases.
+### Refund
 
-### Cancellations
+- **Prepaid Orders** — Original Payment Method-ൽ Refund ചെയ്യും.
+- **Cash on Delivery Orders** — UPI / Bank Transfer വഴി Refund ചെയ്യും (Account Details നിങ്ങൾ Share ചെയ്യണം).
+- Approved Refunds Returned Item Receive ചെയ്ത് Inspect ചെയ്ത ശേഷം **5–7 Working Days-ൽ** Process ചെയ്യും. Verified Damage-on-Arrival Cases ഉടനടി Process ചെയ്യും.
 
-You can cancel your order free of charge any time **before it ships** — just reply on your WhatsApp chat. Once an order has shipped it cannot be cancelled, but you may refuse delivery or follow the return process above.
+### Cancellation
 
-### Need help?
+Order **Ship ആകുന്നതിന് മുൻപ്** WhatsApp-ൽ Reply ചെയ്ത് Free-ആയി Cancel ചെയ്യാം. Ship ആയ ശേഷം Cancel ചെയ്യാൻ സാധ്യമല്ല. COD Parcel Valid കാരണം ഇല്ലാതെ Refuse ചെയ്യുന്നത് അനുവദനീയമല്ല — കൂടുതൽ വിവരത്തിന് [Terms of Service](/policies/terms-of-service) കാണുക.
 
-Message us on WhatsApp at **+91 79948 67698** or email **bestdeal3zinfo@gmail.com** and we'll sort it out quickly.
+### സഹായം വേണോ?
+
+**+91 79948 67698** — WhatsApp | **bestdeal3zinfo@gmail.com** — Email

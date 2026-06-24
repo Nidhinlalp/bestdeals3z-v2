@@ -1,59 +1,63 @@
 ---
-title: "Privacy Policy"
+title: "സ്വകാര്യതാ നയം"
 slug: "privacy-policy"
-description: "How BestDeal3z collects, uses and protects your personal information when you shop and order over WhatsApp."
+description: "BestDeal3z-ൽ Shop ചെയ്യുമ്പോഴും WhatsApp വഴി Order ചെയ്യുമ്പോഴും നിങ്ങളുടെ Personal Information ശേഖരിക്കുന്ന, ഉപയോഗിക്കുന്ന, സംരക്ഷിക്കുന്ന രീതി."
 order: 3
-updatedAt: "2026-06-21"
+updatedAt: "2026-06-24"
 ---
 
-## Privacy Policy
+## സ്വകാര്യതാ നയം
 
-Your privacy matters to us. This policy explains what information we collect when you use BestDeal3z, how we use it, and the choices you have. By using our website you agree to the practices described here.
+നിങ്ങളുടെ Privacy ഞങ്ങൾക്ക് പ്രധാനമാണ്. BestDeal3z ഉപയോഗിക്കുമ്പോൾ ഏത് Information ശേഖരിക്കുന്നു, എങ്ങനെ ഉപയോഗിക്കുന്നു, നിങ്ങൾക്ക് ഏത് Choice ഉണ്ട് — ഇവ ഈ Policy-ൽ വിശദമാക്കിയിട്ടുണ്ട്. ഈ Website ഉപയോഗിക്കുന്നതിലൂടെ ഇതിൽ വിവരിച്ചിരിക്കുന്ന രീതികൾ നിങ്ങൾ അംഗീകരിക്കുന്നതായി കണക്കാക്കും.
 
-### Information we collect
+### ഞങ്ങൾ ശേഖരിക്കുന്ന Information
 
-Because BestDeal3z has no online accounts or payment gateway, we collect very little. We may collect:
+BestDeal3z-ന് Online Accounts അല്ലെങ്കിൽ Payment Gateway ഇല്ലാത്തതിനാൽ ഞങ്ങൾ ശേഖരിക്കുന്ന Information വളരെ കുറവാണ്:
 
-- **Order details** you provide at checkout — your name, phone number, WhatsApp number and delivery address — so we can confirm and ship your order.
-- **Messages** you send us on WhatsApp or email.
-- **Basic device and usage data** (such as browser type and pages visited) collected automatically to keep the site secure and improve it.
+- **Order Details** — Checkout-ൽ നൽകുന്ന പേര്, Phone Number, WhatsApp Number, Delivery Address — Order Confirm ചെയ്യാനും Ship ചെയ്യാനും.
+- **Messages** — WhatsApp-ൽ അല്ലെങ്കിൽ Email-ൽ ഞങ്ങൾക്ക് അയക്കുന്ന Messages.
+- **Basic Device & Usage Data** — Browser Type, Visit ചെയ്ത Pages — Site സുരക്ഷിതമാക്കാനും Improve ചെയ്യാനും.
 
-We do **not** collect or store card numbers, UPI PINs or bank passwords — there is no payment gateway on this site.
+Card Numbers, UPI PIN, Bank Password — **ഇവ ഞങ്ങൾ ഒരിക്കലും ശേഖരിക്കില്ല.** ഈ Site-ൽ Payment Gateway ഒന്നും ഇല്ല.
 
-### How we use your information
+### Information ഉപയോഗിക്കുന്ന രീതി
 
-We use your information to:
+ഞങ്ങൾ ഈ Information ഉപയോഗിക്കുന്നത്:
 
-- Process, confirm and deliver your orders.
-- Communicate with you about your order, including delivery updates and tracking.
-- Respond to your questions and provide support.
-- Improve our products, website and service.
-- Prevent fraud and keep the site secure.
+- Orders Process ചെയ്യാൻ, Confirm ചെയ്യാൻ, Deliver ചെയ്യാൻ.
+- Delivery Updates, Tracking എന്നിവ Order-ന്റെ WhatsApp Chat-ൽ Share ചെയ്യാൻ.
+- നിങ്ങളുടെ ചോദ്യങ്ങൾക്ക് ഉത്തരം നൽകാൻ, Support ചെയ്യാൻ.
+- Products, Website, Service Improve ചെയ്യാൻ.
+- Fraud തടയാനും Site സുരക്ഷിതമാക്കാനും.
 
-### Where your order goes
+### Order ഡേറ്റ എവിടെ പോകുന്നു
 
-When you place an order, the order summary opens in **WhatsApp** and is sent to our team. WhatsApp's own privacy practices apply to messages sent through it. We share delivery details with our **courier partners** only to fulfil your order. We never sell your personal information to anyone.
+Order Place ചെയ്യുമ്പോൾ Order Summary **WhatsApp**-ൽ തുറക്കുന്നു; അത് ഞങ്ങളുടെ Team-ലേക്ക് Send ചെയ്യുന്നു. WhatsApp Message-ന് WhatsApp-ന്റെ സ്വന്തം Privacy Policy ബാധകമാണ്. Delivery Details Order Fulfil ചെയ്യാൻ മാത്രം **Courier Partners**-ക്ക് Share ചെയ്യും. നിങ്ങളുടെ Personal Information ഒരിക്കലും വിൽക്കില്ല.
 
-### Cookies and local storage
+### Unboxing Videos
 
-We use your browser's local storage to remember your shopping cart between visits, and minimal cookies to keep the site working. You can clear these at any time from your browser settings.
+Complaint / Return Request-ന്റെ ഭാഗമായി Submit ചെയ്യുന്ന Unboxing Video, Claim Verify ചെയ്ത് Process ചെയ്യാൻ മാത്രം ഉപയോഗിക്കും. Public-ആയി Share ചെയ്യില്ല, വിൽക്കില്ല, മറ്റ് ആവശ്യങ്ങൾക്ക് ഉപയോഗിക്കില്ല.
 
-### Data retention
+### Cookies & Local Storage
 
-We keep order information only as long as needed to fulfil your order, provide support and meet legal obligations. You can ask us to delete your details at any time.
+Shopping Cart Visit-കൾ തമ്മിൽ Remember ചെയ്യാൻ Browser-ന്റെ Local Storage ഉപയോഗിക്കുന്നു. Site Work ചെയ്യാൻ Minimal Cookies ഉപയോഗിക്കുന്നു. ഇവ ഏത് സമയത്തും Browser Settings-ൽ Clear ചെയ്യാം.
 
-### Your choices
+### Data Retention
 
-You may contact us to access, correct or delete the personal information you have shared with us. To do so, reach out using the details below.
+Order Information Order Fulfil ചെയ്യാൻ, Support നൽകാൻ, Legal Obligations നിറവേറ്റാൻ ആവശ്യമുള്ള കാലം മാത്രം സൂക്ഷിക്കും. ഏത് സമയത്തും നിങ്ങളുടെ Details Delete ചെയ്യാൻ ആവശ്യപ്പെടാം.
 
-### Children's privacy
+### നിങ്ങളുടെ Rights
 
-Our products include toys for children, but our store is intended for use by adults. We do not knowingly collect personal information from children under 18 without a parent or guardian.
+നിങ്ങൾ Share ചെയ്ത Personal Information Access ചെയ്യാൻ, Correct ചെയ്യാൻ, Delete ചെയ്യാൻ ഞങ്ങളെ Contact ചെയ്യാം.
 
-### Changes to this policy
+### കുട്ടികളുടെ Privacy
 
-We may update this policy from time to time. The latest version will always be available on this page with its revision date.
+ഞങ്ങളുടെ Products-ൽ ചിലത് Children-നുള്ള Toys ആണ്. എന്നാൽ ഞങ്ങളുടെ Store Adults-ന് ഉദ്ദേശിച്ചതാണ്. Parent / Guardian Consent ഇല്ലാതെ 18 വയസ്സിൽ കുറഞ്ഞ കുട്ടികളിൽ നിന്ന് Personal Information ശേഖരിക്കില്ല.
 
-### Contact us
+### Policy-ൽ മാറ്റം
 
-For any privacy questions, message us on WhatsApp at **+91 79948 67698** or email **bestdeal3zinfo@gmail.com**.
+ഞങ്ങൾ ഈ Privacy Policy ഇടയ്ക്കിടെ Update ചെയ്യാം. ഏറ്റവും പുതിയ Version Revision Date സഹിതം ഈ Page-ൽ ലഭ്യമായിരിക്കും.
+
+### ഞങ്ങളെ ബന്ധപ്പെടുക
+
+Privacy സംബന്ധിച്ച് ഏതെങ്കിലും ചോദ്യം ഉണ്ടെങ്കിൽ **+91 79948 67698** — WhatsApp | **bestdeal3zinfo@gmail.com** — Email.

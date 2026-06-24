@@ -11,7 +11,7 @@ const order = computed(() => computeOrder(cart.items))
 
 // Remember details locally for repeat orders (never sent anywhere but WhatsApp).
 const form = useLocalStorage<CheckoutDetails>('bestdeal3z-customer', {
-  fullName: '', phone: '', whatsapp: '', address: '', city: '', state: '', pincode: '', notes: '',
+  fullName: '', phone: '', whatsapp: '', address: '', city: '', state: '', pincode: '', paymentMethod: 'cod', notes: '',
 })
 const sameAsPhone = ref(true)
 watch([sameAsPhone, () => form.value.phone], () => { if (sameAsPhone.value) form.value.whatsapp = form.value.phone })
@@ -59,6 +59,7 @@ async function placeOrder() {
     state: details.state,
     pincode: details.pincode,
     notes: details.notes ?? '',
+    payment_method: details.paymentMethod,
     items: cart.items,
     subtotal: order.value.subtotal,
     shipping: order.value.shipping,
@@ -92,7 +93,7 @@ useSeoMeta({ title: 'Checkout', robots: 'noindex' })
       <div class="flex flex-col gap-lg">
         <div class="flex flex-col gap-md">
           <h2 class="text-title-lg font-bold uppercase">Delivery Details</h2>
-          <p class="text-body-sm text-body">No account needed. We confirm your order on WhatsApp and you pay cash on delivery.</p>
+          <p class="text-body-sm text-body">No account needed. We confirm your order on WhatsApp. Choose Cash on Delivery or pay via UPI.</p>
         </div>
 
         <BaseInput v-model="form.fullName" label="Full Name" placeholder="e.g. Arjun Menon" required autocomplete="name" :error="errors.fullName" />
@@ -111,6 +112,46 @@ useSeoMeta({ title: 'Checkout', robots: 'noindex' })
           <BaseInput v-model="form.city" label="City" placeholder="City" required autocomplete="address-level2" :error="errors.city" />
           <BaseSelect v-model="form.state" label="State" :options="[{ label: 'Select state', value: '' }, ...INDIAN_STATES]" :error="errors.state" />
           <BaseInput v-model="form.pincode" label="Pincode" placeholder="6-digit" type="text" inputmode="numeric" required autocomplete="postal-code" :error="errors.pincode" />
+        </div>
+
+        <!-- Payment Method -->
+        <div class="flex flex-col gap-sm">
+          <span class="text-label-uppercase uppercase text-body-strong">Payment Method <span class="text-m-red">*</span></span>
+          <div class="grid grid-cols-1 gap-sm sm:grid-cols-2">
+            <button
+              type="button"
+              :class="form.paymentMethod === 'cod'
+                ? 'border-white bg-surface-card'
+                : 'border-hairline bg-canvas hover:border-white/50'"
+              class="flex items-start gap-md border p-md text-left transition-colors"
+              @click="form.paymentMethod = 'cod'"
+            >
+              <span class="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2" :class="form.paymentMethod === 'cod' ? 'border-white' : 'border-muted'">
+                <span v-if="form.paymentMethod === 'cod'" class="h-2 w-2 rounded-full bg-white" />
+              </span>
+              <div class="flex flex-col gap-0.5">
+                <span class="text-body-sm font-medium text-white">💵 Cash on Delivery</span>
+                <span class="text-caption text-muted">Pay cash when your order arrives</span>
+              </div>
+            </button>
+            <button
+              type="button"
+              :class="form.paymentMethod === 'prepaid'
+                ? 'border-white bg-surface-card'
+                : 'border-hairline bg-canvas hover:border-white/50'"
+              class="flex items-start gap-md border p-md text-left transition-colors"
+              @click="form.paymentMethod = 'prepaid'"
+            >
+              <span class="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2" :class="form.paymentMethod === 'prepaid' ? 'border-white' : 'border-muted'">
+                <span v-if="form.paymentMethod === 'prepaid'" class="h-2 w-2 rounded-full bg-white" />
+              </span>
+              <div class="flex flex-col gap-0.5">
+                <span class="text-body-sm font-medium text-white">💳 Prepaid (UPI)</span>
+                <span class="text-caption text-muted">Pay via UPI link shared on WhatsApp</span>
+              </div>
+            </button>
+          </div>
+          <p v-if="errors.paymentMethod" class="text-caption text-m-red">{{ errors.paymentMethod }}</p>
         </div>
 
         <BaseTextarea v-model="form.notes" label="Order Notes (optional)" placeholder="Anything we should know? Colour preference, delivery timing…" :rows="2" />
@@ -140,7 +181,7 @@ useSeoMeta({ title: 'Checkout', robots: 'noindex' })
               <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Z" /></svg>
               Place Order on WhatsApp
             </BaseButton>
-            <p class="text-center text-caption text-muted">Tapping this opens WhatsApp with your order ready to send. No online payment.</p>
+            <p class="text-center text-caption text-muted">Opens WhatsApp with your order pre-filled. Pay {{ form.paymentMethod === 'prepaid' ? 'via UPI link we send you' : 'cash on delivery' }}.</p>
           </div>
         </div>
       </aside>

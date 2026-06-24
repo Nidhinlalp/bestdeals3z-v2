@@ -75,6 +75,7 @@ export const checkoutSchema = z.object({
   city: z.string().trim().min(2, 'City is required'),
   state: z.string().trim().min(2, 'State is required'),
   pincode: indianPincode,
+  paymentMethod: z.enum(['cod', 'prepaid'], { required_error: 'Please select a payment method' }),
   notes: z.string().trim().max(500).optional().default(''),
 })
 

@@ -54,7 +54,7 @@ function submit() {
   const images = form.images.filter(Boolean)
   const doc = {
     title: form.title, slug: form.slug || slugify(form.title), category: form.category,
-    shortDescription: form.shortDescription, description: form.shortDescription || form.description,
+    shortDescription: form.shortDescription, description: form.description,
     price: Number(form.price), salePrice: form.salePrice ? Number(form.salePrice) : null,
     stock: Number(form.stock), featured: form.featured, bestSeller: form.bestSeller, trending: form.trending,
     rating: Number(form.rating), reviewCount: Number(form.reviewCount), images,
@@ -67,7 +67,7 @@ function submit() {
     return
   }
   saving.value = true
-  emit('submit', { ...doc, body: form.description })
+  emit('submit', doc)
 }
 defineExpose({ done: () => { saving.value = false } })
 </script>

@@ -11,6 +11,7 @@ const counts = computed(() => {
 useSeoMeta({
   title: 'All Categories',
   description: 'Explore every BestDeal3z category — camera drones, RC cars, planes, helicopters, boats, gimbals, blasters, robotics and accessories.',
+  ogImage: '/og-image.svg',
 })
 useBreadcrumbSchema([{ name: 'Home', item: '/' }, { name: 'Categories', item: '/categories' }])
 </script>
