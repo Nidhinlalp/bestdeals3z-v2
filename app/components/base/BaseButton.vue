@@ -4,7 +4,7 @@
  * Renders as <button>, <a> or <NuxtLink> depending on props.
  */
 interface Props {
-  variant?: 'primary' | 'outline' | 'ghost' | 'danger'
+  variant?: 'primary' | 'outline' | 'ghost' | 'danger' | 'light'
   size?: 'sm' | 'md' | 'lg'
   to?: string
   href?: string
@@ -26,10 +26,12 @@ const base =
   'inline-flex items-center justify-center gap-2 font-bold uppercase tracking-[1.5px] text-button transition-colors duration-200 disabled:opacity-40 disabled:pointer-events-none select-none'
 
 const variants: Record<NonNullable<Props['variant']>, string> = {
-  primary: 'bg-white text-on-primary border border-white hover:bg-transparent hover:text-white',
-  outline: 'bg-transparent text-white border border-white hover:bg-white hover:text-on-primary',
-  ghost: 'bg-transparent text-white border border-transparent hover:border-hairline',
+  primary: 'bg-ink text-on-primary border border-ink hover:bg-transparent hover:text-ink',
+  outline: 'bg-transparent text-ink border border-ink hover:bg-ink hover:text-on-primary',
+  ghost: 'bg-transparent text-ink border border-transparent hover:border-hairline-strong',
   danger: 'bg-m-red text-white border border-m-red hover:bg-transparent hover:text-m-red',
+  // For CTAs placed over dark imagery (banners/heroes): white fill, dark label.
+  light: 'bg-white text-ink border border-white hover:bg-transparent hover:text-white',
 }
 
 const sizes: Record<NonNullable<Props['size']>, string> = {

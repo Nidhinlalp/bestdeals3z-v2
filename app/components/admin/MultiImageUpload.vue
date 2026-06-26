@@ -60,7 +60,7 @@ function updateUrl(i: number, val: string) {
           :value="url"
           type="text"
           placeholder="Image URL"
-          class="h-12 min-w-0 flex-1 border border-hairline bg-surface-card px-md text-body-sm text-white placeholder:text-muted focus:border-white focus:outline-none"
+          class="h-12 min-w-0 flex-1 border border-hairline bg-surface-card px-md text-body-sm text-ink placeholder:text-muted focus:border-ink focus:outline-none"
           @input="updateUrl(i, ($event.target as HTMLInputElement).value)"
         >
         <button
@@ -76,7 +76,7 @@ function updateUrl(i: number, val: string) {
       <button
         type="button"
         :disabled="uploading"
-        class="flex h-10 items-center border border-hairline bg-surface-card px-md text-caption uppercase text-white hover:border-white disabled:opacity-50"
+        class="flex h-10 items-center border border-hairline bg-surface-card px-md text-caption uppercase text-ink hover:border-ink disabled:opacity-50"
         @click="fileInput?.click()"
       >
         <span v-if="uploading" class="animate-pulse">Uploading…</span>
@@ -84,7 +84,7 @@ function updateUrl(i: number, val: string) {
       </button>
       <button
         type="button"
-        class="flex h-10 items-center border border-hairline bg-surface-card px-md text-caption uppercase text-muted hover:border-white hover:text-white"
+        class="flex h-10 items-center border border-hairline bg-surface-card px-md text-caption uppercase text-muted hover:border-ink hover:text-ink"
         @click="addManualRow"
       >+ Add URL</button>
     </div>

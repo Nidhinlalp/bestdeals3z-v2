@@ -1,8 +1,8 @@
 import type { Config } from 'tailwindcss'
 
 /**
- * Design tokens derived 1:1 from DESIGN-bmw-m.md.
- * Near-black canvas, white display type, M-tricolor used only as a brand accent.
+ * Design tokens — light ecommerce theme.
+ * White canvas, near-black display type, M-tricolor used only as a brand accent.
  */
 export default <Partial<Config>>{
   content: [
@@ -19,23 +19,23 @@ export default <Partial<Config>>{
     },
     extend: {
       colors: {
-        // Brand & text
-        primary: '#ffffff',
-        ink: '#ffffff',
-        'on-dark': '#ffffff',
-        'on-primary': '#000000',
-        body: '#bbbbbb',
-        'body-strong': '#e6e6e6',
-        muted: '#7e7e7e',
+        // Brand & text — light theme: near-black ink on a white canvas.
+        primary: '#0a0a0a',
+        ink: '#0a0a0a',
+        'on-dark': '#1a1a1a',
+        'on-primary': '#ffffff',
+        body: '#525252',
+        'body-strong': '#1a1a1a',
+        muted: '#6e6e6e',
         // Hairlines
-        hairline: '#3c3c3c',
-        'hairline-strong': '#262626',
+        hairline: '#e4e4e4',
+        'hairline-strong': '#d4d4d4',
         // Surfaces
-        canvas: '#000000',
-        'surface-soft': '#0d0d0d',
-        'surface-card': '#1a1a1a',
-        'surface-elevated': '#262626',
-        'carbon-gray': '#2b2b2b',
+        canvas: '#ffffff',
+        'surface-soft': '#f7f7f7',
+        'surface-card': '#f4f4f4',
+        'surface-elevated': '#ececec',
+        'carbon-gray': '#e8e8e8',
         // M tricolor (brand-identity accent only — never a CTA fill)
         'm-blue-light': '#0066b1',
         'm-blue-dark': '#1c69d4',
@@ -43,8 +43,8 @@ export default <Partial<Config>>{
         'bmw-blue': '#1c69d4',
         'electric-blue': '#0653b6',
         // Semantic
-        warning: '#f4b400',
-        success: '#0fa336',
+        warning: '#b45309',
+        success: '#0f9d34',
       },
       fontFamily: {
         // BMW Type Next Latin substitute per the design doc.

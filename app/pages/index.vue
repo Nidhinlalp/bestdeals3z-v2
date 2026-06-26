@@ -22,7 +22,7 @@ const valueProps = [
   { title: 'Free Shipping', desc: 'On all orders above ₹999' },
   { title: 'Cash on Delivery', desc: 'Pay when it arrives' },
   { title: 'WhatsApp Checkout', desc: 'Order in under a minute' },
-  { title: '6-Month Warranty', desc: 'On all electronics' },
+  { title: 'Easy Replacement', desc: 'On damaged arrivals' },
 ]
 
 useSeoMeta({
@@ -44,7 +44,7 @@ useFaqSchema(FAQS)
     <section class="border-b border-hairline bg-surface-soft">
       <div class="container-bmw grid grid-cols-2 divide-x divide-hairline md:grid-cols-4">
         <div v-for="(v, i) in valueProps" :key="v.title" class="flex flex-col gap-1 px-md py-lg" :class="{ 'border-t border-hairline md:border-t-0': i >= 2 }">
-          <span class="text-label-uppercase uppercase text-white">{{ v.title }}</span>
+          <span class="text-label-uppercase uppercase text-ink">{{ v.title }}</span>
           <span class="text-caption text-muted">{{ v.desc }}</span>
         </div>
       </div>
@@ -103,7 +103,7 @@ useFaqSchema(FAQS)
         <div>
           <div class="m-stripe mb-lg w-20" />
           <p class="kicker text-body">Need Help?</p>
-          <h2 class="text-display-sm font-bold uppercase leading-none text-white md:text-display-md">Frequently Asked Questions</h2>
+          <h2 class="text-display-sm font-bold uppercase leading-none text-ink md:text-display-md">Frequently Asked Questions</h2>
           <p class="mt-md text-body-md text-body">Still unsure? Message us on WhatsApp — we reply fast.</p>
           <BaseButton to="/contact" variant="outline" class="mt-lg">Contact Us</BaseButton>
         </div>

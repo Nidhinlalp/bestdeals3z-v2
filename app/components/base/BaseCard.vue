@@ -9,7 +9,7 @@ defineProps<Props>()
     :is="to ? resolveComponent('NuxtLink') : 'div'"
     :to="to"
     class="block border border-hairline rounded-none"
-    :class="[surface ? 'bg-surface-card' : 'bg-canvas', hover ? 'transition-colors hover:border-white' : '']"
+    :class="[surface ? 'bg-surface-card' : 'bg-canvas', hover ? 'transition-colors hover:border-ink' : '']"
   >
     <slot />
   </component>

@@ -11,7 +11,7 @@ const { toasts } = useToast()
             v-for="t in toasts"
             :key="t.id"
             class="flex items-center gap-sm border bg-surface-card px-md py-sm text-body-sm shadow-lg"
-            :class="t.type === 'success' ? 'border-success text-white' : 'border-m-red text-white'"
+            :class="t.type === 'success' ? 'border-success text-ink' : 'border-m-red text-ink'"
           >
             <span class="h-2 w-2 shrink-0 rounded-full" :class="t.type === 'success' ? 'bg-success' : 'bg-m-red'" />
             {{ t.message }}

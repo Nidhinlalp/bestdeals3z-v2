@@ -7,9 +7,9 @@
  * ------------------------------------------------------------------ */
 @layer base {
   :root {
-    color-scheme: dark;
-    --color-canvas: #000000;
-    --color-on-dark: #ffffff;
+    color-scheme: light;
+    --color-canvas: #ffffff;
+    --color-on-dark: #1a1a1a;
     --color-m-blue-light: #0066b1;
     --color-m-blue-dark: #1c69d4;
     --color-m-red: #e22718;
@@ -39,16 +39,16 @@
     color: #fff;
   }
 
-  /* Accessible focus ring on the black canvas. */
+  /* Accessible focus ring on the white canvas. */
   :focus-visible {
-    outline: 2px solid #fff;
+    outline: 2px solid #0a0a0a;
     outline-offset: 2px;
   }
 
   /* Thin scrollbar to match the engineered aesthetic. */
   * {
     scrollbar-width: thin;
-    scrollbar-color: #3c3c3c #000;
+    scrollbar-color: #c4c4c4 #f0f0f0;
   }
 }
 
@@ -90,17 +90,17 @@
   }
 
   /* Long-form editorial body used on product descriptions and policy pages. */
-  .prose-bmw h2 { @apply text-title-lg font-bold uppercase text-white mt-xl mb-md; }
-  .prose-bmw h3 { @apply text-title-md font-bold text-white mt-lg mb-sm; }
+  .prose-bmw h2 { @apply text-title-lg font-bold uppercase text-ink mt-xl mb-md; }
+  .prose-bmw h3 { @apply text-title-md font-bold text-ink mt-lg mb-sm; }
   .prose-bmw p { @apply text-body-md text-body mb-md; }
   .prose-bmw ul { @apply flex flex-col gap-2 mb-md; }
   .prose-bmw ol { @apply flex flex-col gap-2 mb-md list-decimal pl-lg; }
   .prose-bmw ul > li { @apply text-body-md text-body pl-md relative; }
   .prose-bmw ul > li::before { content: ''; @apply absolute left-0 top-2.5 h-1.5 w-1.5 bg-m-red; }
   .prose-bmw ol > li { @apply text-body-md text-body pl-1; }
-  .prose-bmw a { @apply text-white underline decoration-hairline underline-offset-4 hover:decoration-m-red; }
+  .prose-bmw a { @apply text-ink underline decoration-hairline-strong underline-offset-4 hover:decoration-m-red; }
   .prose-bmw blockquote { @apply border-l-2 border-m-red pl-md text-body-sm text-body-strong italic mb-md; }
-  .prose-bmw strong { @apply text-white font-medium; }
+  .prose-bmw strong { @apply text-ink font-medium; }
 }
 
 /* Respect reduced-motion preferences. */

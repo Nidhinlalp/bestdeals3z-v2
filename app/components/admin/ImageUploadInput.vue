@@ -43,7 +43,7 @@ async function onFileChange(e: Event) {
       <img :src="modelValue" alt="Preview" class="h-full w-full object-cover" >
       <button
         type="button"
-        class="absolute right-2 top-2 flex h-6 w-6 items-center justify-center border border-hairline bg-canvas text-caption text-white hover:border-m-red hover:text-m-red"
+        class="absolute right-2 top-2 flex h-6 w-6 items-center justify-center border border-hairline bg-canvas text-caption text-ink hover:border-m-red hover:text-m-red"
         @click="emit('update:modelValue', '')"
       >✕</button>
     </div>
@@ -53,7 +53,7 @@ async function onFileChange(e: Event) {
       <button
         type="button"
         :disabled="uploading"
-        class="flex h-12 shrink-0 items-center gap-2 border border-hairline bg-surface-card px-md text-body-sm uppercase text-white transition-colors hover:border-white disabled:opacity-50"
+        class="flex h-12 shrink-0 items-center gap-2 border border-hairline bg-surface-card px-md text-body-sm uppercase text-ink transition-colors hover:border-ink disabled:opacity-50"
         @click="fileInput?.click()"
       >
         <span v-if="uploading" class="animate-pulse">Uploading…</span>
@@ -64,7 +64,7 @@ async function onFileChange(e: Event) {
         :value="modelValue ?? ''"
         type="text"
         placeholder="or paste URL"
-        class="h-12 min-w-0 flex-1 border border-hairline bg-surface-card px-md text-body-sm text-white placeholder:text-muted focus:border-white focus:outline-none"
+        class="h-12 min-w-0 flex-1 border border-hairline bg-surface-card px-md text-body-sm text-ink placeholder:text-muted focus:border-ink focus:outline-none"
         @input="emit('update:modelValue', ($event.target as HTMLInputElement).value)"
       >
     </div>

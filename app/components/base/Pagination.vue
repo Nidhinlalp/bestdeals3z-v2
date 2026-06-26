@@ -23,7 +23,7 @@ const go = (p: number) => { if (p >= 1 && p <= pageCount.value && p !== props.pa
 
 <template>
   <nav v-if="pageCount > 1" class="flex items-center justify-center gap-xs" aria-label="Pagination">
-    <button class="flex h-10 w-10 items-center justify-center border border-hairline text-white disabled:opacity-30 hover:border-white" :disabled="page === 1" aria-label="Previous page" @click="go(page - 1)">
+    <button class="flex h-10 w-10 items-center justify-center border border-hairline text-ink disabled:opacity-30 hover:border-ink" :disabled="page === 1" aria-label="Previous page" @click="go(page - 1)">
       <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6" /></svg>
     </button>
     <template v-for="(pg, i) in pages" :key="i">
@@ -31,12 +31,12 @@ const go = (p: number) => { if (p >= 1 && p <= pageCount.value && p !== props.pa
       <button
         v-else
         class="h-10 min-w-[40px] border px-2 text-label-uppercase transition-colors"
-        :class="pg === page ? 'border-white bg-white text-on-primary' : 'border-hairline text-white hover:border-white'"
+        :class="pg === page ? 'border-ink bg-ink text-on-primary' : 'border-hairline text-ink hover:border-ink'"
         :aria-current="pg === page ? 'page' : undefined"
         @click="go(pg)"
       >{{ pg }}</button>
     </template>
-    <button class="flex h-10 w-10 items-center justify-center border border-hairline text-white disabled:opacity-30 hover:border-white" :disabled="page === pageCount" aria-label="Next page" @click="go(page + 1)">
+    <button class="flex h-10 w-10 items-center justify-center border border-hairline text-ink disabled:opacity-30 hover:border-ink" :disabled="page === pageCount" aria-label="Next page" @click="go(page + 1)">
       <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6" /></svg>
     </button>
   </nav>

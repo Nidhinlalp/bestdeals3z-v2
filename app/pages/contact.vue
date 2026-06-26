@@ -15,7 +15,7 @@ useSeoMeta({
 <template>
   <div class="container-bmw py-xl md:py-xxl">
     <div class="m-stripe mb-lg w-20" />
-    <h1 class="text-display-sm font-bold uppercase leading-none text-white md:text-display-md">Contact Us</h1>
+    <h1 class="text-display-sm font-bold uppercase leading-none text-ink md:text-display-md">Contact Us</h1>
     <p class="mt-md max-w-xl text-body-md text-body">The fastest way to reach us is WhatsApp — we answer questions about products, orders and delivery within hours.</p>
 
     <div class="mt-xl grid grid-cols-1 gap-xl lg:grid-cols-2">
@@ -33,16 +33,16 @@ useSeoMeta({
       <div class="flex flex-col gap-md">
         <div class="border border-hairline p-lg">
           <p class="kicker text-body">Call / WhatsApp</p>
-          <a :href="`tel:${SITE.phone.replace(/\s/g, '')}`" class="text-title-md text-white hover:text-m-red">{{ SITE.phone }}</a>
+          <a :href="`tel:${SITE.phone.replace(/\s/g, '')}`" class="text-title-md text-ink hover:text-m-red">{{ SITE.phone }}</a>
         </div>
         <div class="border border-hairline p-lg">
           <p class="kicker text-body">Email</p>
-          <a :href="`mailto:${SITE.email}`" class="break-all text-title-md text-white hover:text-m-red">{{ SITE.email }}</a>
+          <a :href="`mailto:${SITE.email}`" class="break-all text-title-md text-ink hover:text-m-red">{{ SITE.email }}</a>
         </div>
         <div class="border border-hairline p-lg">
           <p class="kicker text-body">Follow Us</p>
           <div class="mt-sm flex flex-col gap-2">
-            <a v-for="(url, name) in SITE.social" :key="name" :href="url" target="_blank" rel="noopener" class="text-body-md capitalize text-body hover:text-white">{{ name }}</a>
+            <a v-for="(url, name) in SITE.social" :key="name" :href="url" target="_blank" rel="noopener" class="text-body-md capitalize text-body hover:text-ink">{{ name }}</a>
           </div>
         </div>
       </div>

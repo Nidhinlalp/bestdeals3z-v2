@@ -21,7 +21,7 @@ export function useOrganizationSchema() {
     '@type': 'OnlineStore',
     name: SITE.name,
     url,
-    logo: `${url}/favicon.svg`,
+    logo: `${url}/logo.png`,
     description: SITE.description,
     sameAs: Object.values(SITE.social),
   })

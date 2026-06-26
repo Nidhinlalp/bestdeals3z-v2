@@ -26,7 +26,7 @@ watch(() => props.images, () => { active.value = 0 })
         v-for="(img, i) in images"
         :key="img"
         class="relative aspect-square overflow-hidden border bg-surface-soft transition-colors"
-        :class="i === active ? 'border-white' : 'border-hairline hover:border-body'"
+        :class="i === active ? 'border-ink' : 'border-hairline hover:border-body'"
         :aria-label="`View image ${i + 1}`"
         :aria-current="i === active"
         @click="active = i"

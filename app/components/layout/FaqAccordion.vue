@@ -10,7 +10,7 @@ const toggle = (id: string) => { openId.value = openId.value === id ? null : id 
     <div v-for="item in items" :key="item.id">
       <h3>
         <button
-          class="flex w-full items-center justify-between gap-md py-md text-left text-title-sm font-medium text-white hover:text-body-strong"
+          class="flex w-full items-center justify-between gap-md py-md text-left text-title-sm font-medium text-ink hover:text-body-strong"
           :aria-expanded="openId === item.id"
           @click="toggle(item.id)"
         >

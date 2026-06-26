@@ -106,10 +106,10 @@ useSeoMeta({ title: 'Manage Orders', robots: 'noindex, nofollow' })
             <td class="p-md">
               <span class="font-mono text-caption text-m-red">{{ order.orderRef }}</span>
             </td>
-            <td class="p-md text-body-sm text-white">{{ order.customerName }}</td>
+            <td class="p-md text-body-sm text-ink">{{ order.customerName }}</td>
             <td class="hidden p-md text-body-sm text-body sm:table-cell">{{ order.customerPhone }}</td>
             <td class="hidden p-md text-body-sm text-body md:table-cell">{{ order.city }}, {{ order.state }}</td>
-            <td class="p-md text-body-sm text-white">{{ formatPrice(order.total) }}</td>
+            <td class="p-md text-body-sm text-ink">{{ formatPrice(order.total) }}</td>
             <td class="p-md">
               <select
                 :value="order.status"
@@ -117,7 +117,7 @@ useSeoMeta({ title: 'Manage Orders', robots: 'noindex, nofollow' })
                 :class="statusClass(order.status)"
                 @change="updateStatus(order, ($event.target as HTMLSelectElement).value as OrderStatus)"
               >
-                <option v-for="s in STATUS_OPTIONS" :key="s" :value="s" class="text-white">{{ s }}</option>
+                <option v-for="s in STATUS_OPTIONS" :key="s" :value="s" class="text-ink">{{ s }}</option>
               </select>
             </td>
             <td class="hidden p-md text-caption text-muted lg:table-cell">

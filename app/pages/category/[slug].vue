@@ -49,11 +49,11 @@ useBreadcrumbSchema(() => [
     <!-- Header band -->
     <section class="relative overflow-hidden border-b border-hairline bg-surface-soft">
       <NuxtImg :src="category.image" :alt="category.name" width="1440" height="480" sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw xxl:100vw" class="absolute inset-0 h-full w-full object-cover opacity-30" loading="eager" preload />
-      <div class="absolute inset-0 bg-gradient-to-t from-black to-black/40" />
+      <div class="absolute inset-0 bg-gradient-to-t from-canvas via-canvas/80 to-canvas/40" />
       <div class="container-bmw relative z-10 py-xxl">
         <Breadcrumb :items="[{ name: 'Home', to: '/' }, { name: 'Categories', to: '/categories' }, { name: category.name }]" class="mb-md" />
         <div class="m-stripe mb-lg w-20" />
-        <h1 class="text-display-md font-bold uppercase leading-none text-white md:text-display-lg">{{ category.name }}</h1>
+        <h1 class="text-display-md font-bold uppercase leading-none text-ink md:text-display-lg">{{ category.name }}</h1>
         <p class="mt-md max-w-xl text-body-md text-body-strong">{{ category.description }}</p>
       </div>
     </section>

@@ -42,7 +42,7 @@ function submit() {
         type="search"
         inputmode="search"
         placeholder="Search drones, RC cars, gadgets…"
-        class="h-10 w-full bg-transparent text-body-md text-white placeholder:text-muted focus:outline-none"
+        class="h-10 w-full bg-transparent text-body-md text-ink placeholder:text-muted focus:outline-none"
         aria-label="Search products"
       >
     </form>
@@ -56,7 +56,7 @@ function submit() {
         <section v-if="results.categories.length">
           <p class="kicker mb-sm">Categories</p>
           <div class="flex flex-wrap gap-xs">
-            <NuxtLink v-for="c in results.categories" :key="c.slug" :to="`/category/${c.slug}`" class="border border-hairline px-sm py-2 text-body-sm hover:border-white" @click="emit('navigate')">{{ c.name }}</NuxtLink>
+            <NuxtLink v-for="c in results.categories" :key="c.slug" :to="`/category/${c.slug}`" class="border border-hairline px-sm py-2 text-body-sm hover:border-ink" @click="emit('navigate')">{{ c.name }}</NuxtLink>
           </div>
         </section>
 
@@ -67,7 +67,7 @@ function submit() {
               <NuxtLink :to="`/product/${p.slug}`" class="flex items-center gap-sm border-b border-hairline py-sm hover:bg-surface-card" @click="emit('navigate')">
                 <NuxtImg :src="p.images[0]" :alt="p.title" width="56" height="56" class="h-14 w-14 shrink-0 border border-hairline object-cover" loading="lazy" />
                 <span class="flex-1">
-                  <span class="block text-body-sm text-white">{{ p.title }}</span>
+                  <span class="block text-body-sm text-ink">{{ p.title }}</span>
                   <span class="block text-caption text-muted">{{ formatPrice(effectivePrice(p)) }}</span>
                 </span>
               </NuxtLink>

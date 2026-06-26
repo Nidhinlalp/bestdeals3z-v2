@@ -21,8 +21,8 @@ defineProps<{ banner: Banner; priority?: boolean }>()
       <div class="max-w-2xl py-xxl">
         <div class="m-stripe mb-lg w-32" />
         <h2 class="text-display-md font-bold uppercase leading-none text-white md:text-display-lg">{{ banner.title }}</h2>
-        <p v-if="banner.subtitle" class="mt-md max-w-lg text-body-md text-body-strong md:text-title-md">{{ banner.subtitle }}</p>
-        <BaseButton :to="banner.buttonLink" variant="primary" size="lg" class="mt-xl">{{ banner.buttonText }}</BaseButton>
+        <p v-if="banner.subtitle" class="mt-md max-w-lg text-body-md text-white/90 md:text-title-md">{{ banner.subtitle }}</p>
+        <BaseButton :to="banner.buttonLink" variant="light" size="lg" class="mt-xl">{{ banner.buttonText }}</BaseButton>
       </div>
     </div>
   </section>

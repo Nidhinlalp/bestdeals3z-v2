@@ -21,7 +21,7 @@ const remaining = computed(() => Math.max(0, SHIPPING.freeShippingThreshold - or
 
     <div v-else class="px-lg">
       <p v-if="remaining > 0" class="mt-md border border-hairline bg-surface-soft px-md py-2 text-caption text-body">
-        Add <span class="text-white">{{ formatPrice(remaining) }}</span> more for <span class="text-white">FREE shipping</span>.
+        Add <span class="text-ink">{{ formatPrice(remaining) }}</span> more for <span class="text-ink">FREE shipping</span>.
       </p>
       <p v-else class="mt-md border border-success/40 bg-surface-soft px-md py-2 text-caption text-success">You've unlocked FREE shipping! 🎉</p>
       <CartItem v-for="item in cart.items" :key="cart.keyOf(item)" :item="item" compact />
@@ -30,12 +30,12 @@ const remaining = computed(() => Math.max(0, SHIPPING.freeShippingThreshold - or
     <template v-if="!cart.isEmpty" #footer>
       <div class="flex flex-col gap-sm">
         <div class="flex items-center justify-between text-body-sm text-body">
-          <span>Subtotal</span><span class="text-white">{{ formatPrice(order.subtotal) }}</span>
+          <span>Subtotal</span><span class="text-ink">{{ formatPrice(order.subtotal) }}</span>
         </div>
         <div class="flex items-center justify-between text-body-sm text-body">
-          <span>Shipping</span><span class="text-white">{{ order.shipping === 0 ? 'FREE' : formatPrice(order.shipping) }}</span>
+          <span>Shipping</span><span class="text-ink">{{ order.shipping === 0 ? 'FREE' : formatPrice(order.shipping) }}</span>
         </div>
-        <div class="flex items-center justify-between border-t border-hairline pt-sm text-title-md font-bold text-white">
+        <div class="flex items-center justify-between border-t border-hairline pt-sm text-title-md font-bold text-ink">
           <span>Total</span><span>{{ formatPrice(order.total) }}</span>
         </div>
         <BaseButton to="/checkout" variant="primary" size="lg" block class="mt-sm" @click="ui.closeAll()">Checkout</BaseButton>

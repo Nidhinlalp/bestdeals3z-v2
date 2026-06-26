@@ -23,14 +23,12 @@ const columns = computed(() => [
         <!-- Brand -->
         <div class="flex flex-col gap-md">
           <NuxtLink to="/" class="flex items-center gap-2" aria-label="BestDeal3z home">
-            <!-- <span class="flex h-6 items-center gap-px" aria-hidden="true">
-              <span class="block h-6 w-1.5 bg-m-blue-light" /><span class="block h-6 w-1.5 bg-m-blue-dark" /><span class="block h-6 w-1.5 bg-m-red" />
-            </span> -->
-            <span class="text-title-lg font-bold uppercase text-white">{{ SITE.name }}</span>
+            <NuxtImg src="/logo.png" alt="BestDeal3z Logo" width="32" height="32" class="h-8 w-8 object-contain" />
+            <span class="text-title-lg font-bold uppercase text-ink">{{ SITE.name }}</span>
           </NuxtLink>
-          <p class="max-w-xs text-body-sm text-body">{{ SITE.tagline }} Drones, RC machines & gadgets at the best prices in India — checkout on WhatsApp.</p>
+          <p class="max-w-xs text-body-sm text-body">{{ SITE.tagline }} Drones, RC machines & gadgets at the best prices in India checkout on WhatsApp.</p>
           <div class="flex gap-sm">
-            <a v-for="(url, name) in SITE.social" :key="name" :href="url" target="_blank" rel="noopener" :aria-label="name" class="flex h-10 w-10 items-center justify-center border border-hairline text-body hover:border-white hover:text-white">
+            <a v-for="(url, name) in SITE.social" :key="name" :href="url" target="_blank" rel="noopener" :aria-label="name" class="flex h-10 w-10 items-center justify-center border border-hairline text-body hover:border-ink hover:text-ink">
               <span class="text-caption uppercase">{{ String(name).slice(0, 2) }}</span>
             </a>
           </div>
@@ -38,9 +36,9 @@ const columns = computed(() => [
 
         <!-- Link columns -->
         <div v-for="col in columns" :key="col.title" class="flex flex-col gap-md">
-          <h3 class="text-label-uppercase uppercase text-white">{{ col.title }}</h3>
+          <h3 class="text-label-uppercase uppercase text-ink">{{ col.title }}</h3>
           <ul class="flex flex-col gap-sm">
-            <li v-for="link in col.links" :key="link.to"><NuxtLink :to="link.to" class="text-body-sm text-body hover:text-white">{{ link.label }}</NuxtLink></li>
+            <li v-for="link in col.links" :key="link.to"><NuxtLink :to="link.to" class="text-body-sm text-body hover:text-ink">{{ link.label }}</NuxtLink></li>
           </ul>
         </div>
       </div>
@@ -48,7 +46,7 @@ const columns = computed(() => [
       <div class="mt-xxl flex flex-col items-start justify-between gap-md border-t border-hairline pt-lg md:flex-row md:items-center">
         <p class="text-caption text-muted">© {{ year }} {{ SITE.name }}. All rights reserved. Inspired by motorsport engineering.</p>
         <nav class="flex flex-wrap gap-md" aria-label="Footer">
-          <NuxtLink v-for="l in NAV_LINKS" :key="l.to" :to="l.to" class="text-caption uppercase tracking-wide text-muted hover:text-white">{{ l.label }}</NuxtLink>
+          <NuxtLink v-for="l in NAV_LINKS" :key="l.to" :to="l.to" class="text-caption uppercase tracking-wide text-muted hover:text-ink">{{ l.label }}</NuxtLink>
         </nav>
       </div>
     </div>

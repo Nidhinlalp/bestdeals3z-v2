@@ -29,7 +29,7 @@ const id = useId()
       :inputmode="inputmode"
       :aria-invalid="!!error"
       :aria-describedby="error ? `${id}-err` : undefined"
-      class="h-12 w-full rounded-none border bg-surface-card px-md text-body-md text-white placeholder:text-muted focus:outline-none focus:border-white transition-colors"
+      class="h-12 w-full rounded-none border bg-surface-card px-md text-body-md text-ink placeholder:text-muted focus:outline-none focus:border-ink transition-colors"
       :class="error ? 'border-m-red' : 'border-hairline'"
       @input="$emit('update:modelValue', ($event.target as HTMLInputElement).value)"
     >

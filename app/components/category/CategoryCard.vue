@@ -4,7 +4,7 @@ defineProps<{ category: Category; count?: number }>()
 </script>
 
 <template>
-  <NuxtLink :to="`/category/${category.slug}`" class="group relative block aspect-[4/5] overflow-hidden border border-hairline bg-surface-soft transition-colors hover:border-white">
+  <NuxtLink :to="`/category/${category.slug}`" class="group relative block aspect-[4/5] overflow-hidden border border-hairline bg-surface-soft transition-colors hover:border-ink">
     <NuxtImg
       :src="category.image"
       :alt="category.name"
@@ -17,7 +17,7 @@ defineProps<{ category: Category; count?: number }>()
     <div class="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
     <div class="absolute inset-x-0 bottom-0 flex flex-col gap-1 p-md">
       <h3 class="text-title-lg font-bold uppercase leading-tight text-white">{{ category.name }}</h3>
-      <span v-if="count != null" class="text-caption uppercase tracking-wide text-body">{{ count }} {{ count === 1 ? 'product' : 'products' }}</span>
+      <span v-if="count != null" class="text-caption uppercase tracking-wide text-white/70">{{ count }} {{ count === 1 ? 'product' : 'products' }}</span>
     </div>
   </NuxtLink>
 </template>

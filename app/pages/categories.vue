@@ -20,7 +20,7 @@ useBreadcrumbSchema([{ name: 'Home', item: '/' }, { name: 'Categories', item: '/
   <div class="container-bmw py-xl md:py-xxl">
     <Breadcrumb :items="[{ name: 'Home', to: '/' }, { name: 'Categories' }]" class="mb-md" />
     <div class="m-stripe mb-lg w-20" />
-    <h1 class="text-display-sm font-bold uppercase leading-none text-white md:text-display-md">Shop by Category</h1>
+    <h1 class="text-display-sm font-bold uppercase leading-none text-ink md:text-display-md">Shop by Category</h1>
     <p class="mt-md max-w-xl text-body-md text-body">Ten ranges of drones, RC machines and gadgets — each engineered for a different kind of fun.</p>
 
     <div class="mt-xl grid grid-cols-2 gap-sm md:grid-cols-3 md:gap-lg lg:grid-cols-4">

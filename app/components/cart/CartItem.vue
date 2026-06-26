@@ -17,7 +17,7 @@ const variantLabel = computed(() =>
     </NuxtLink>
     <div class="flex flex-1 flex-col gap-1">
       <div class="flex items-start justify-between gap-2">
-        <NuxtLink :to="`/product/${item.slug}`" class="text-body-md font-medium text-white hover:text-body-strong line-clamp-2">{{ item.title }}</NuxtLink>
+        <NuxtLink :to="`/product/${item.slug}`" class="text-body-md font-medium text-ink hover:text-body-strong line-clamp-2">{{ item.title }}</NuxtLink>
         <button class="shrink-0 text-muted hover:text-m-red" :aria-label="`Remove ${item.title}`" @click="cart.remove(key)">
           <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2m2 0v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" /></svg>
         </button>
@@ -25,7 +25,7 @@ const variantLabel = computed(() =>
       <p v-if="variantLabel" class="text-caption text-muted">{{ variantLabel }}</p>
       <div class="mt-auto flex items-center justify-between gap-2 pt-2">
         <QuantitySelector :model-value="item.quantity" :max="item.maxStock" @update:model-value="cart.setQuantity(key, $event)" />
-        <span class="text-body-md font-bold text-white">{{ formatPrice(item.price * item.quantity) }}</span>
+        <span class="text-body-md font-bold text-ink">{{ formatPrice(item.price * item.quantity) }}</span>
       </div>
     </div>
   </div>

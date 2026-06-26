@@ -18,7 +18,7 @@ const id = useId()
       <select
         :id="id"
         :value="modelValue"
-        class="h-12 w-full appearance-none rounded-none border border-hairline bg-surface-card px-md pr-10 text-body-md text-white focus:outline-none focus:border-white transition-colors"
+        class="h-12 w-full appearance-none rounded-none border border-hairline bg-surface-card px-md pr-10 text-body-md text-ink focus:outline-none focus:border-ink transition-colors"
         @change="$emit('update:modelValue', ($event.target as HTMLSelectElement).value)"
       >
         <option v-for="opt in options" :key="opt.value" :value="opt.value" class="bg-surface-card">

@@ -16,7 +16,7 @@ useSeoMeta({
 <template>
   <div class="container-bmw py-xl md:py-xxl">
     <div class="m-stripe mb-lg w-20" />
-    <h1 class="text-display-sm font-bold uppercase leading-none text-white md:text-display-md">Track Your Order</h1>
+    <h1 class="text-display-sm font-bold uppercase leading-none text-ink md:text-display-md">Track Your Order</h1>
     <p class="mt-md max-w-xl text-body-md text-body">All orders are confirmed and tracked on WhatsApp. Enter your order reference (from your WhatsApp chat) and we'll send you a live tracking update.</p>
 
     <div class="mt-xl max-w-md border border-hairline bg-surface-card p-lg">

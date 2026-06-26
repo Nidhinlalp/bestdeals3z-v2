@@ -28,14 +28,14 @@ onUnmounted(stop)
     <div v-if="count > 1" class="pointer-events-none absolute inset-0">
       <div class="container-bmw relative flex h-full items-end pb-lg">
         <div class="pointer-events-auto flex items-center gap-sm">
-          <button class="flex h-12 w-12 items-center justify-center rounded-full bg-surface-card/80 text-white backdrop-blur hover:bg-surface-card" aria-label="Previous slide" @click="prev">
+          <button class="flex h-12 w-12 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur hover:bg-black/60" aria-label="Previous slide" @click="prev">
             <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6" /></svg>
           </button>
-          <button class="flex h-12 w-12 items-center justify-center rounded-full bg-surface-card/80 text-white backdrop-blur hover:bg-surface-card" aria-label="Next slide" @click="next">
+          <button class="flex h-12 w-12 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur hover:bg-black/60" aria-label="Next slide" @click="next">
             <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"><path d="m9 18 6-6-6-6" /></svg>
           </button>
           <div class="ml-sm flex gap-2">
-            <button v-for="(b, i) in banners" :key="i" class="h-1.5 w-8 transition-colors" :class="i === active ? 'bg-white' : 'bg-hairline hover:bg-body'" :aria-label="`Go to slide ${i + 1}`" @click="go(i)" />
+            <button v-for="(b, i) in banners" :key="i" class="h-1.5 w-8 transition-colors" :class="i === active ? 'bg-white' : 'bg-white/40 hover:bg-white/70'" :aria-label="`Go to slide ${i + 1}`" @click="go(i)" />
           </div>
         </div>
       </div>

@@ -42,7 +42,7 @@ useSeoMeta({ title: 'Admin Login', robots: 'noindex, nofollow' })
         <BaseInput v-model="email" label="Email" type="email" placeholder="admin@example.com" required autocomplete="username" />
         <BaseInput v-model="password" label="Password" type="password" placeholder="••••••••" required autocomplete="current-password" :error="error" />
         <BaseButton type="submit" variant="primary" size="lg" block :loading="loading">Log In</BaseButton>
-        <NuxtLink to="/" class="text-center text-caption uppercase tracking-wide text-muted hover:text-white">← Back to Store</NuxtLink>
+        <NuxtLink to="/" class="text-center text-caption uppercase tracking-wide text-muted hover:text-ink">← Back to Store</NuxtLink>
       </form>
     </div>
   </div>

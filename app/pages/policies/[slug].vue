@@ -57,14 +57,14 @@ useBreadcrumbSchema(() => [
             :key="pol.slug"
             :to="`/policies/${pol.slug}`"
             class="border-b border-hairline py-sm text-body-sm transition-colors"
-            :class="pol.slug === slug ? 'text-white' : 'text-body hover:text-white'"
+            :class="pol.slug === slug ? 'text-ink' : 'text-body hover:text-ink'"
           >{{ pol.title }}</NuxtLink>
         </nav>
       </aside>
 
       <!-- Content -->
       <article>
-        <h1 class="text-display-sm font-bold uppercase leading-none text-white md:text-display-md">{{ policy.title }}</h1>
+        <h1 class="text-display-sm font-bold uppercase leading-none text-ink md:text-display-md">{{ policy.title }}</h1>
         <p v-if="formattedDate" class="mt-sm text-caption uppercase tracking-wide text-muted">Last updated {{ formattedDate }}</p>
         <div class="m-stripe my-lg w-24" />
         <div class="prose-bmw max-w-2xl">

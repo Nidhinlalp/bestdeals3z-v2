@@ -38,7 +38,7 @@ useSeoMeta({ title: 'Dashboard', robots: 'noindex, nofollow' })
 
     <div class="grid grid-cols-2 gap-px border border-hairline bg-hairline lg:grid-cols-5">
       <NuxtLink v-for="c in cards" :key="c.label" :to="c.to" class="group flex flex-col gap-1 bg-canvas p-lg transition-colors hover:bg-surface-card">
-        <span class="text-display-sm font-bold text-white">{{ c.value }}</span>
+        <span class="text-display-sm font-bold text-ink">{{ c.value }}</span>
         <span class="text-label-uppercase uppercase text-muted group-hover:text-body">{{ c.label }}</span>
       </NuxtLink>
     </div>
@@ -64,7 +64,7 @@ useSeoMeta({ title: 'Dashboard', robots: 'noindex, nofollow' })
         </div>
         <ul v-if="lowStock.length" class="divide-y divide-hairline">
           <li v-for="p in lowStock" :key="p.slug" class="flex items-center justify-between gap-md p-md">
-            <NuxtLink :to="`/admin/products?edit=${p.slug}`" class="text-body-sm text-white hover:text-m-red line-clamp-1">{{ p.title }}</NuxtLink>
+            <NuxtLink :to="`/admin/products?edit=${p.slug}`" class="text-body-sm text-ink hover:text-m-red line-clamp-1">{{ p.title }}</NuxtLink>
             <span class="shrink-0 text-caption" :class="p.stock === 0 ? 'text-m-red' : 'text-warning'">{{ p.stock }} left</span>
           </li>
         </ul>

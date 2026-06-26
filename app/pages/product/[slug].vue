@@ -83,13 +83,13 @@ useBreadcrumbSchema(() => [
       <!-- Info -->
       <div class="flex flex-col gap-lg">
         <div class="flex flex-col gap-sm">
-          <NuxtLink :to="`/category/${product.category}`" class="kicker text-body hover:text-white">{{ categoryName }}</NuxtLink>
-          <h1 class="text-display-sm font-bold uppercase leading-none text-white md:text-display-md">{{ product.title }}</h1>
+          <NuxtLink :to="`/category/${product.category}`" class="kicker text-body hover:text-ink">{{ categoryName }}</NuxtLink>
+          <h1 class="text-display-sm font-bold uppercase leading-none text-ink md:text-display-md">{{ product.title }}</h1>
           <RatingStars v-if="product.reviewCount > 0" :rating="product.rating" :count="product.reviewCount" size="md" />
         </div>
 
         <div class="flex items-end gap-md">
-          <span class="text-display-sm font-bold text-white">{{ formatPrice(price) }}</span>
+          <span class="text-display-sm font-bold text-ink">{{ formatPrice(price) }}</span>
           <template v-if="onSale">
             <span class="pb-1 text-title-md text-muted line-through">{{ formatPrice(product.price) }}</span>
             <span class="mb-1.5 bg-m-red px-2 py-1 text-caption font-bold uppercase tracking-wide text-white">Save {{ discount }}%</span>
@@ -116,7 +116,7 @@ useBreadcrumbSchema(() => [
               v-for="opt in v.options"
               :key="opt"
               class="h-11 border px-md text-body-sm transition-colors"
-              :class="selectedVariants[v.name] === opt ? 'border-white bg-white text-on-primary' : 'border-hairline text-white hover:border-white'"
+              :class="selectedVariants[v.name] === opt ? 'border-ink bg-ink text-on-primary' : 'border-hairline text-ink hover:border-ink'"
               @click="selectedVariants[v.name] = opt"
             >{{ opt }}</button>
           </div>
@@ -140,9 +140,9 @@ useBreadcrumbSchema(() => [
 
         <!-- Trust strip -->
         <div class="grid grid-cols-3 gap-sm border-t border-hairline pt-lg text-center">
-          <div class="flex flex-col gap-1"><span class="text-body-sm font-medium text-white">Free Shipping</span><span class="text-caption text-muted">Over ₹999</span></div>
-          <div class="flex flex-col gap-1"><span class="text-body-sm font-medium text-white">Cash on Delivery</span><span class="text-caption text-muted">Pay on arrival</span></div>
-          <div class="flex flex-col gap-1"><span class="text-body-sm font-medium text-white">6-Mo Warranty</span><span class="text-caption text-muted">On defects</span></div>
+          <div class="flex flex-col gap-1"><span class="text-body-sm font-medium text-ink">Free Shipping</span><span class="text-caption text-muted">Over ₹999</span></div>
+          <div class="flex flex-col gap-1"><span class="text-body-sm font-medium text-ink">Cash on Delivery</span><span class="text-caption text-muted">Pay on arrival</span></div>
+          <div class="flex flex-col gap-1"><span class="text-body-sm font-medium text-ink">Easy Replacement</span><span class="text-caption text-muted">On damaged items</span></div>
         </div>
       </div>
     </div>
@@ -151,7 +151,7 @@ useBreadcrumbSchema(() => [
     <section class="mt-xxl grid grid-cols-1 gap-xl border-t border-hairline pt-xxl lg:grid-cols-[1fr_2fr]">
       <div>
         <div class="m-stripe mb-lg w-20" />
-        <h2 class="text-display-sm font-bold uppercase leading-none text-white">Details</h2>
+        <h2 class="text-display-sm font-bold uppercase leading-none text-ink">Details</h2>
       </div>
       <div class="prose-bmw max-w-none">
         <p v-if="product.description" class="whitespace-pre-line text-body-md text-body">{{ product.description }}</p>

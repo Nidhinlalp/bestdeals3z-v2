@@ -84,7 +84,7 @@ useBreadcrumbSchema([{ name: 'Home', item: '/' }, { name: 'Shop', item: '/shop' 
   <div class="container-bmw py-xl md:py-xxl">
     <Breadcrumb :items="[{ name: 'Home', to: '/' }, { name: 'Shop' }]" class="mb-md" />
     <div class="m-stripe mb-lg w-20" />
-    <h1 class="text-display-sm font-bold uppercase leading-none text-white md:text-display-md">Shop All Products</h1>
+    <h1 class="text-display-sm font-bold uppercase leading-none text-ink md:text-display-md">Shop All Products</h1>
 
     <div class="mt-xl grid grid-cols-1 gap-xl lg:grid-cols-[260px_1fr]">
       <!-- Filters sidebar -->
@@ -94,8 +94,8 @@ useBreadcrumbSchema([{ name: 'Home', item: '/' }, { name: 'Shop', item: '/shop' 
         <div class="flex flex-col gap-sm">
           <span class="text-label-uppercase uppercase text-body-strong">Category</span>
           <div class="flex flex-col">
-            <button class="border-b border-hairline py-2 text-left text-body-sm transition-colors" :class="category === '' ? 'text-white' : 'text-body hover:text-white'" @click="category = ''">All Categories</button>
-            <button v-for="c in categories" :key="c.slug" class="flex items-center justify-between border-b border-hairline py-2 text-left text-body-sm transition-colors" :class="category === c.slug ? 'text-white' : 'text-body hover:text-white'" @click="category = c.slug">
+            <button class="border-b border-hairline py-2 text-left text-body-sm transition-colors" :class="category === '' ? 'text-ink' : 'text-body hover:text-ink'" @click="category = ''">All Categories</button>
+            <button v-for="c in categories" :key="c.slug" class="flex items-center justify-between border-b border-hairline py-2 text-left text-body-sm transition-colors" :class="category === c.slug ? 'text-ink' : 'text-body hover:text-ink'" @click="category = c.slug">
               <span>{{ c.name }}</span>
               <span v-if="category === c.slug" class="m-stripe h-1 w-8" />
             </button>
@@ -105,7 +105,7 @@ useBreadcrumbSchema([{ name: 'Home', item: '/' }, { name: 'Shop', item: '/shop' 
         <div class="flex flex-col gap-sm">
           <div class="flex items-center justify-between">
             <span class="text-label-uppercase uppercase text-body-strong">Max Price</span>
-            <span class="text-body-sm text-white">₹{{ maxPriceFilter.toLocaleString('en-IN') }}</span>
+            <span class="text-body-sm text-ink">₹{{ maxPriceFilter.toLocaleString('en-IN') }}</span>
           </div>
           <input v-model.number="maxPriceFilter" type="range" min="0" :max="priceCeiling" step="100" class="accent-m-red" aria-label="Maximum price">
         </div>

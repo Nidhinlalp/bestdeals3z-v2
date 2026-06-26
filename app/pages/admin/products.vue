@@ -102,15 +102,15 @@ useSeoMeta({ title: 'Manage Products', robots: 'noindex, nofollow' })
             <td class="p-md">
               <div class="flex items-center gap-sm">
                 <NuxtImg :src="p.images[0]" :alt="p.title" width="40" height="40" class="h-10 w-10 border border-hairline object-cover" loading="lazy" />
-                <span class="text-body-sm text-white line-clamp-1">{{ p.title }}</span>
+                <span class="text-body-sm text-ink line-clamp-1">{{ p.title }}</span>
               </div>
             </td>
             <td class="hidden p-md text-body-sm capitalize text-body sm:table-cell">{{ p.category.replace(/-/g, ' ') }}</td>
-            <td class="p-md text-body-sm text-white">{{ formatPrice(effectivePrice(p)) }}</td>
+            <td class="p-md text-body-sm text-ink">{{ formatPrice(effectivePrice(p)) }}</td>
             <td class="hidden p-md md:table-cell"><span class="text-body-sm" :class="p.stock <= 5 ? 'text-warning' : 'text-body'">{{ p.stock }}</span></td>
             <td class="p-md">
               <div class="flex justify-end gap-2">
-                <button class="border border-hairline px-3 py-1 text-caption uppercase text-white hover:border-white" @click="openEdit(p)">Edit</button>
+                <button class="border border-hairline px-3 py-1 text-caption uppercase text-ink hover:border-ink" @click="openEdit(p)">Edit</button>
                 <button class="border border-hairline px-3 py-1 text-caption uppercase text-m-red hover:border-m-red" @click="deleteTarget = p">Delete</button>
               </div>
             </td>
@@ -127,7 +127,7 @@ useSeoMeta({ title: 'Manage Products', robots: 'noindex, nofollow' })
 
     <!-- Delete confirm -->
     <BaseModal :model-value="!!deleteTarget" title="Delete Product" @update:model-value="deleteTarget = null">
-      <p class="text-body-md text-body">Delete <strong class="text-white">{{ deleteTarget?.title }}</strong>? This removes its content file and cannot be undone.</p>
+      <p class="text-body-md text-body">Delete <strong class="text-ink">{{ deleteTarget?.title }}</strong>? This removes its content file and cannot be undone.</p>
       <div class="mt-lg flex justify-end gap-sm">
         <BaseButton variant="ghost" @click="deleteTarget = null">Cancel</BaseButton>
         <BaseButton variant="danger" @click="confirmDelete">Delete</BaseButton>

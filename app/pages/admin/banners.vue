@@ -71,12 +71,12 @@ useSeoMeta({ title: 'Manage Banners', robots: 'noindex, nofollow' })
         <NuxtImg :src="b.image" :alt="b.title" width="800" height="200" class="absolute inset-0 h-full w-full object-cover opacity-25" loading="lazy" />
         <div class="relative flex items-center justify-between gap-md p-lg">
           <div>
-            <p class="text-title-md font-bold uppercase text-white">{{ b.title }}</p>
+            <p class="text-title-md font-bold uppercase text-ink">{{ b.title }}</p>
             <p class="text-caption text-body line-clamp-1">{{ b.subtitle }}</p>
             <p class="mt-1 text-caption text-muted">→ {{ b.buttonText }} · {{ b.buttonLink }}</p>
           </div>
           <div class="flex shrink-0 flex-col gap-2">
-            <button class="border border-hairline bg-canvas px-3 py-1 text-caption uppercase text-white hover:border-white" @click="openEdit(b)">Edit</button>
+            <button class="border border-hairline bg-canvas px-3 py-1 text-caption uppercase text-ink hover:border-ink" @click="openEdit(b)">Edit</button>
             <button class="border border-hairline bg-canvas px-3 py-1 text-caption uppercase text-m-red hover:border-m-red" @click="deleteTarget = b">Delete</button>
           </div>
         </div>
@@ -88,7 +88,7 @@ useSeoMeta({ title: 'Manage Banners', robots: 'noindex, nofollow' })
     </BaseModal>
 
     <BaseModal :model-value="!!deleteTarget" title="Delete Banner" @update:model-value="deleteTarget = null">
-      <p class="text-body-md text-body">Delete the banner <strong class="text-white">{{ deleteTarget?.title }}</strong>?</p>
+      <p class="text-body-md text-body">Delete the banner <strong class="text-ink">{{ deleteTarget?.title }}</strong>?</p>
       <div class="mt-lg flex justify-end gap-sm">
         <BaseButton variant="ghost" @click="deleteTarget = null">Cancel</BaseButton>
         <BaseButton variant="danger" @click="confirmDelete">Delete</BaseButton>

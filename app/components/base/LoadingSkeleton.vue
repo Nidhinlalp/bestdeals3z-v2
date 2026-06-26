@@ -22,7 +22,7 @@ withDefaults(defineProps<Props>(), { variant: 'card', count: 1 })
 
 <style scoped>
 .shimmer {
-  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.06), transparent);
+  background: linear-gradient(90deg, transparent, rgba(0,0,0,0.05), transparent);
   transform: translateX(-100%);
   animation: shimmer 1.5s infinite;
 }

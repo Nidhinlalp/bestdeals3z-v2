@@ -24,7 +24,7 @@ const id = useId()
       :required="required"
       :rows="rows || 4"
       :aria-invalid="!!error"
-      class="w-full rounded-none border bg-surface-card px-md py-sm text-body-md text-white placeholder:text-muted focus:outline-none focus:border-white transition-colors resize-y"
+      class="w-full rounded-none border bg-surface-card px-md py-sm text-body-md text-ink placeholder:text-muted focus:outline-none focus:border-ink transition-colors resize-y"
       :class="error ? 'border-m-red' : 'border-hairline'"
       @input="$emit('update:modelValue', ($event.target as HTMLTextAreaElement).value)"
     />

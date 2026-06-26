@@ -104,13 +104,13 @@ defineExpose({ done: () => { saving.value = false } })
     <div class="flex flex-col gap-sm">
       <div class="flex items-center justify-between">
         <span class="text-label-uppercase uppercase text-body-strong">Variants</span>
-        <button type="button" class="text-caption uppercase tracking-wide text-white hover:text-m-red" @click="addVariant">+ Add Variant</button>
+        <button type="button" class="text-caption uppercase tracking-wide text-ink hover:text-m-red" @click="addVariant">+ Add Variant</button>
       </div>
       <div v-for="(v, i) in form.variants" :key="i" class="flex flex-col gap-2 border border-hairline p-sm sm:flex-row sm:items-end">
         <div class="flex-1"><BaseInput v-model="v.name" label="Name" placeholder="e.g. Colour" /></div>
         <div class="flex-[2]">
           <label class="mb-2 block text-label-uppercase uppercase text-body-strong">Options (comma separated)</label>
-          <input :value="v.options.join(', ')" class="h-12 w-full border border-hairline bg-surface-card px-md text-body-md text-white focus:border-white focus:outline-none" placeholder="Red, Blue, Green" @input="v.options = ($event.target as HTMLInputElement).value.split(',').map((s) => s.trim())">
+          <input :value="v.options.join(', ')" class="h-12 w-full border border-hairline bg-surface-card px-md text-body-md text-ink focus:border-ink focus:outline-none" placeholder="Red, Blue, Green" @input="v.options = ($event.target as HTMLInputElement).value.split(',').map((s) => s.trim())">
         </div>
         <button type="button" class="flex h-12 w-12 shrink-0 items-center justify-center border border-hairline text-muted hover:border-m-red hover:text-m-red" @click="removeVariant(i)">✕</button>
       </div>

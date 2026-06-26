@@ -67,11 +67,11 @@ useSeoMeta({ title: 'Manage Categories', robots: 'noindex, nofollow' })
       <div v-for="c in items" :key="c.slug" class="flex items-center gap-md border border-hairline p-md">
         <NuxtImg :src="c.image" :alt="c.name" width="64" height="64" class="h-16 w-16 shrink-0 border border-hairline object-cover" loading="lazy" />
         <div class="flex-1 overflow-hidden">
-          <p class="text-body-md font-medium text-white line-clamp-1">{{ c.name }}</p>
+          <p class="text-body-md font-medium text-ink line-clamp-1">{{ c.name }}</p>
           <p class="text-caption text-muted line-clamp-1">{{ c.description }}</p>
         </div>
         <div class="flex shrink-0 flex-col gap-2">
-          <button class="border border-hairline px-3 py-1 text-caption uppercase text-white hover:border-white" @click="openEdit(c)">Edit</button>
+          <button class="border border-hairline px-3 py-1 text-caption uppercase text-ink hover:border-ink" @click="openEdit(c)">Edit</button>
           <button class="border border-hairline px-3 py-1 text-caption uppercase text-m-red hover:border-m-red" @click="deleteTarget = c">Delete</button>
         </div>
       </div>
@@ -82,7 +82,7 @@ useSeoMeta({ title: 'Manage Categories', robots: 'noindex, nofollow' })
     </BaseModal>
 
     <BaseModal :model-value="!!deleteTarget" title="Delete Category" @update:model-value="deleteTarget = null">
-      <p class="text-body-md text-body">Delete <strong class="text-white">{{ deleteTarget?.name }}</strong>? Products in this category will remain but become uncategorised.</p>
+      <p class="text-body-md text-body">Delete <strong class="text-ink">{{ deleteTarget?.name }}</strong>? Products in this category will remain but become uncategorised.</p>
       <div class="mt-lg flex justify-end gap-sm">
         <BaseButton variant="ghost" @click="deleteTarget = null">Cancel</BaseButton>
         <BaseButton variant="danger" @click="confirmDelete">Delete</BaseButton>

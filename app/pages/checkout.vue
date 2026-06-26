@@ -82,7 +82,7 @@ useSeoMeta({ title: 'Checkout', robots: 'noindex' })
 <template>
   <div class="container-bmw py-xl md:py-xxl">
     <div class="m-stripe mb-lg w-20" />
-    <h1 class="text-display-sm font-bold uppercase leading-none text-white md:text-display-md">Checkout</h1>
+    <h1 class="text-display-sm font-bold uppercase leading-none text-ink md:text-display-md">Checkout</h1>
 
     <EmptyState v-if="cart.isEmpty" title="Nothing to check out" description="Your cart is empty. Add some products first." icon="cart" class="mt-xl">
       <BaseButton to="/shop" variant="primary">Browse Products</BaseButton>
@@ -121,32 +121,32 @@ useSeoMeta({ title: 'Checkout', robots: 'noindex' })
             <button
               type="button"
               :class="form.paymentMethod === 'cod'
-                ? 'border-white bg-surface-card'
-                : 'border-hairline bg-canvas hover:border-white/50'"
+                ? 'border-ink bg-surface-card'
+                : 'border-hairline bg-canvas hover:border-ink/50'"
               class="flex items-start gap-md border p-md text-left transition-colors"
               @click="form.paymentMethod = 'cod'"
             >
-              <span class="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2" :class="form.paymentMethod === 'cod' ? 'border-white' : 'border-muted'">
-                <span v-if="form.paymentMethod === 'cod'" class="h-2 w-2 rounded-full bg-white" />
+              <span class="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2" :class="form.paymentMethod === 'cod' ? 'border-ink' : 'border-muted'">
+                <span v-if="form.paymentMethod === 'cod'" class="h-2 w-2 rounded-full bg-ink" />
               </span>
               <div class="flex flex-col gap-0.5">
-                <span class="text-body-sm font-medium text-white">💵 Cash on Delivery</span>
+                <span class="text-body-sm font-medium text-ink">💵 Cash on Delivery</span>
                 <span class="text-caption text-muted">Pay cash when your order arrives</span>
               </div>
             </button>
             <button
               type="button"
               :class="form.paymentMethod === 'prepaid'
-                ? 'border-white bg-surface-card'
-                : 'border-hairline bg-canvas hover:border-white/50'"
+                ? 'border-ink bg-surface-card'
+                : 'border-hairline bg-canvas hover:border-ink/50'"
               class="flex items-start gap-md border p-md text-left transition-colors"
               @click="form.paymentMethod = 'prepaid'"
             >
-              <span class="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2" :class="form.paymentMethod === 'prepaid' ? 'border-white' : 'border-muted'">
-                <span v-if="form.paymentMethod === 'prepaid'" class="h-2 w-2 rounded-full bg-white" />
+              <span class="mt-0.5 flex h-4 w-4 shrink-0 items-center justify-center rounded-full border-2" :class="form.paymentMethod === 'prepaid' ? 'border-ink' : 'border-muted'">
+                <span v-if="form.paymentMethod === 'prepaid'" class="h-2 w-2 rounded-full bg-ink" />
               </span>
               <div class="flex flex-col gap-0.5">
-                <span class="text-body-sm font-medium text-white">💳 Prepaid (UPI)</span>
+                <span class="text-body-sm font-medium text-ink">💳 Prepaid (UPI)</span>
                 <span class="text-caption text-muted">Pay via UPI link shared on WhatsApp</span>
               </div>
             </button>
@@ -166,16 +166,16 @@ useSeoMeta({ title: 'Checkout', robots: 'noindex' })
             <ul class="flex flex-col gap-sm border-b border-hairline pb-md">
               <li v-for="item in cart.items" :key="cart.keyOf(item)" class="flex items-center gap-sm">
                 <NuxtImg :src="item.image" :alt="item.title" width="48" height="48" class="h-12 w-12 border border-hairline object-cover" loading="lazy" />
-                <span class="flex-1 text-body-sm text-white line-clamp-1">{{ item.title }}</span>
+                <span class="flex-1 text-body-sm text-ink line-clamp-1">{{ item.title }}</span>
                 <span class="text-caption text-muted">×{{ item.quantity }}</span>
-                <span class="text-body-sm text-white">{{ formatPrice(item.price * item.quantity) }}</span>
+                <span class="text-body-sm text-ink">{{ formatPrice(item.price * item.quantity) }}</span>
               </li>
             </ul>
             <div class="flex flex-col gap-sm">
-              <div class="flex justify-between text-body-sm text-body"><span>Subtotal</span><span class="text-white">{{ formatPrice(order.subtotal) }}</span></div>
-              <div class="flex justify-between text-body-sm text-body"><span>Shipping</span><span class="text-white">{{ order.shipping === 0 ? 'FREE' : formatPrice(order.shipping) }}</span></div>
+              <div class="flex justify-between text-body-sm text-body"><span>Subtotal</span><span class="text-ink">{{ formatPrice(order.subtotal) }}</span></div>
+              <div class="flex justify-between text-body-sm text-body"><span>Shipping</span><span class="text-ink">{{ order.shipping === 0 ? 'FREE' : formatPrice(order.shipping) }}</span></div>
             </div>
-            <div class="flex justify-between border-t border-hairline pt-md text-title-md font-bold text-white"><span>Total</span><span>{{ formatPrice(order.total) }}</span></div>
+            <div class="flex justify-between border-t border-hairline pt-md text-title-md font-bold text-ink"><span>Total</span><span>{{ formatPrice(order.total) }}</span></div>
 
             <BaseButton type="submit" variant="primary" size="lg" block :loading="submitting" class="!bg-success !border-success !text-white hover:!bg-success/90">
               <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38c1.45.79 3.08 1.21 4.79 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2Z" /></svg>
