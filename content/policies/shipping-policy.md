@@ -1,14 +1,14 @@
 ---
 title: "ഷിപ്പിംഗ് നയം"
 slug: "shipping-policy"
-description: "BestDeal3z ഇന്ത്യ മുഴുവൻ Order Ship ചെയ്യുന്ന രീതി, Delivery Timelines, Charges, COD നിബന്ധനകൾ, Tracking എന്നിവ."
+description: "Cloud Scart ഇന്ത്യ മുഴുവൻ Order Ship ചെയ്യുന്ന രീതി, Delivery Timelines, Charges, COD നിബന്ധനകൾ, Tracking എന്നിവ."
 order: 1
 updatedAt: "2026-06-24"
 ---
 
 ## ഷിപ്പിംഗ് നയം
 
-BestDeal3z നിങ്ങളുടെ Order വേഗത്തിലും സുരക്ഷിതമായും എത്തിക്കാൻ ശ്രമിക്കുന്നു. ഞങ്ങൾ എവിടെ Deliver ചെയ്യുന്നു, എത്ര സമയം എടുക്കും, എന്ത് Charge ആണ് — ഇവ ഈ Policy-ൽ വിശദമാക്കിയിട്ടുണ്ട്.
+Cloud Scart നിങ്ങളുടെ Order വേഗത്തിലും സുരക്ഷിതമായും എത്തിക്കാൻ ശ്രമിക്കുന്നു. ഞങ്ങൾ എവിടെ Deliver ചെയ്യുന്നു, എത്ര സമയം എടുക്കും, എന്ത് Charge ആണ് — ഇവ ഈ Policy-ൽ വിശദമാക്കിയിട്ടുണ്ട്.
 
 ### Delivery ലഭ്യത
 
@@ -48,9 +48,9 @@ COD Order-ന് ഞങ്ങൾ **മുൻകൂർ Payment വാങ്ങാ
 - COD Delivery ആവർത്തിച്ച് Reject ചെയ്യുന്ന Customers-ന് ഭാവിയിൽ COD Option ഇല്ലാതാകും.
 - Order Ship ആകുന്നതിന് **മുൻപ്** Cancel ചെയ്യണമെങ്കിൽ WhatsApp-ൽ Message ചെയ്യുക. Ship ആയ ശേഷം Cancel ചെയ്യാൻ സാധ്യമല്ല.
 
-### Delay — BestDeal3z-ന്റെ ഉത്തരവാദിത്തം
+### Delay — Cloud Scart-ന്റെ ഉത്തരവാദിത്തം
 
-ഞങ്ങൾ On-Time Delivery ഉറപ്പ് വരുത്താൻ ശ്രമിക്കുന്നു. എന്നാൽ **ഇനി പറയുന്ന കാരണങ്ങളാൽ ഉണ്ടാകുന്ന Delay-ന് BestDeal3z ഉത്തരവാദിയല്ല:**
+ഞങ്ങൾ On-Time Delivery ഉറപ്പ് വരുത്താൻ ശ്രമിക്കുന്നു. എന്നാൽ **ഇനി പറയുന്ന കാരണങ്ങളാൽ ഉണ്ടാകുന്ന Delay-ന് Cloud Scart ഉത്തരവാദിയല്ല:**
 
 - Courier / Logistics Disruptions
 - Natural Disasters, Floods, Storms, അല്ലെങ്കിൽ Acts of Nature
@@ -65,4 +65,4 @@ Checkout-ൽ Address, Pincode ശ്രദ്ധിച്ച് Check ചെയ�
 
 ### സഹായം വേണോ?
 
-**+91 79948 67698** — WhatsApp | **bestdeal3zinfo@gmail.com** — Email
+**+91 79948 67698** — WhatsApp | **cloudscartstore@gmail.com** — Email

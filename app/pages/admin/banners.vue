@@ -89,9 +89,9 @@ useSeoMeta({ title: 'Manage Banners', robots: 'noindex, nofollow' })
 
     <BaseModal :model-value="!!deleteTarget" title="Delete Banner" @update:model-value="deleteTarget = null">
       <p class="text-body-md text-body">Delete the banner <strong class="text-ink">{{ deleteTarget?.title }}</strong>?</p>
-      <div class="mt-lg flex justify-end gap-sm">
-        <BaseButton variant="ghost" @click="deleteTarget = null">Cancel</BaseButton>
-        <BaseButton variant="danger" @click="confirmDelete">Delete</BaseButton>
+      <div class="mt-lg flex flex-col-reverse gap-sm sm:flex-row sm:justify-end">
+        <BaseButton variant="ghost" class="w-full sm:w-auto" @click="deleteTarget = null">Cancel</BaseButton>
+        <BaseButton variant="danger" class="w-full sm:w-auto" @click="confirmDelete">Delete</BaseButton>
       </div>
     </BaseModal>
   </div>

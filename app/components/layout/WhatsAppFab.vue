@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { buildEnquiryUrl } from '~/composables/useWhatsapp'
-const href = computed(() => buildEnquiryUrl('Hi BestDeal3z! I have a question about your products.'))
+import { SITE } from '~/constants/site'
+const href = computed(() => buildEnquiryUrl(`Hi ${SITE.name}! I have a question about your products.`))
 </script>
 
 <template>

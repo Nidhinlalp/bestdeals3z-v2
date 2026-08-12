@@ -82,45 +82,45 @@ defineExpose({ done: () => { saving.value = false } })
     <BaseTextarea v-model="form.shortDescription" label="Short Description" :rows="2" placeholder="One-line summary shown on cards" />
     <BaseTextarea v-model="form.description" label="Full Description (markdown)" :rows="4" placeholder="Longer body shown on the product page" />
 
-    <div class="grid grid-cols-2 gap-md sm:grid-cols-3">
+    <div class="grid grid-cols-1 gap-md sm:grid-cols-2 lg:grid-cols-3">
       <BaseInput v-model.number="form.price" label="Price (₹)" type="number" inputmode="numeric" required />
       <BaseInput v-model.number="form.salePrice" label="Sale Price (₹)" type="number" inputmode="numeric" placeholder="optional" />
       <BaseInput v-model.number="form.stock" label="Stock" type="number" inputmode="numeric" required />
     </div>
-    <div class="grid grid-cols-2 gap-md">
+    <div class="grid grid-cols-1 gap-md sm:grid-cols-2">
       <BaseInput v-model.number="form.rating" label="Rating (0–5)" type="number" inputmode="decimal" />
       <BaseInput v-model.number="form.reviewCount" label="Review Count" type="number" inputmode="numeric" />
     </div>
 
     <MultiImageUpload v-model="form.images" label="Images" folder="products" />
 
-    <fieldset class="flex flex-wrap gap-lg border border-hairline p-md">
+    <fieldset class="grid grid-cols-1 gap-md border border-hairline p-md sm:grid-cols-3">
       <label class="flex items-center gap-2 text-body-sm text-body"><input v-model="form.featured" type="checkbox" class="accent-m-red"> Featured</label>
       <label class="flex items-center gap-2 text-body-sm text-body"><input v-model="form.bestSeller" type="checkbox" class="accent-m-red"> Best Seller</label>
       <label class="flex items-center gap-2 text-body-sm text-body"><input v-model="form.trending" type="checkbox" class="accent-m-red"> Trending</label>
     </fieldset>
 
     <!-- Variants -->
-    <div class="flex flex-col gap-sm">
-      <div class="flex items-center justify-between">
-        <span class="text-label-uppercase uppercase text-body-strong">Variants</span>
-        <button type="button" class="text-caption uppercase tracking-wide text-ink hover:text-m-red" @click="addVariant">+ Add Variant</button>
+    <section class="flex scroll-mt-4 flex-col gap-sm border-t border-hairline pt-md" aria-labelledby="variants-heading">
+      <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+        <span id="variants-heading" class="text-label-uppercase uppercase text-body-strong">Variants</span>
+        <button type="button" class="flex min-h-11 w-full items-center justify-center border border-hairline px-md text-caption uppercase tracking-wide text-ink hover:border-ink hover:text-m-red sm:w-auto sm:border-0 sm:px-0" @click="addVariant">+ Add Variant</button>
       </div>
-      <div v-for="(v, i) in form.variants" :key="i" class="flex flex-col gap-2 border border-hairline p-sm sm:flex-row sm:items-end">
+      <div v-for="(v, i) in form.variants" :key="i" class="flex flex-col gap-2 border border-hairline p-sm md:flex-row md:items-end">
         <div class="flex-1"><BaseInput v-model="v.name" label="Name" placeholder="e.g. Colour" /></div>
         <div class="flex-[2]">
           <label class="mb-2 block text-label-uppercase uppercase text-body-strong">Options (comma separated)</label>
           <input :value="v.options.join(', ')" class="h-12 w-full border border-hairline bg-surface-card px-md text-body-md text-ink focus:border-ink focus:outline-none" placeholder="Red, Blue, Green" @input="v.options = ($event.target as HTMLInputElement).value.split(',').map((s) => s.trim())">
         </div>
-        <button type="button" class="flex h-12 w-12 shrink-0 items-center justify-center border border-hairline text-muted hover:border-m-red hover:text-m-red" @click="removeVariant(i)">✕</button>
+        <button type="button" class="flex h-12 w-full shrink-0 items-center justify-center border border-hairline text-muted hover:border-m-red hover:text-m-red md:w-12" @click="removeVariant(i)">✕</button>
       </div>
-    </div>
+    </section>
 
     <p v-if="error" class="border border-m-red bg-m-red/10 px-md py-2 text-body-sm text-m-red">{{ error }}</p>
 
-    <div class="flex justify-end gap-sm border-t border-hairline pt-md">
-      <BaseButton type="button" variant="ghost" @click="emit('cancel')">Cancel</BaseButton>
-      <BaseButton type="submit" variant="primary" :loading="saving">Save Product</BaseButton>
+    <div class="mt-1 flex flex-col-reverse gap-sm border-t border-hairline pt-md sm:flex-row sm:justify-end">
+      <BaseButton type="button" variant="ghost" class="w-full sm:w-auto" @click="emit('cancel')">Cancel</BaseButton>
+      <BaseButton type="submit" variant="primary" class="w-full sm:w-auto" :loading="saving">Save Product</BaseButton>
     </div>
   </form>
 </template>

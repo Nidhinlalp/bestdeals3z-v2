@@ -1,5 +1,5 @@
 -- ============================================================
--- BestDeal3z v2 — Initial Supabase Schema
+-- Cloud Scart — Initial Supabase Schema
 -- Run this in: Supabase Dashboard → SQL Editor
 -- ============================================================
 

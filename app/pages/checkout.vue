@@ -10,7 +10,7 @@ const user = useSupabaseUser()
 const order = computed(() => computeOrder(cart.items))
 
 // Remember details locally for repeat orders (never sent anywhere but WhatsApp).
-const form = useLocalStorage<CheckoutDetails>('bestdeal3z-customer', {
+const form = useLocalStorage<CheckoutDetails>('cloud-scart-customer', {
   fullName: '', phone: '', whatsapp: '', address: '', city: '', state: '', pincode: '', paymentMethod: 'cod', notes: '',
 })
 const sameAsPhone = ref(true)
@@ -44,7 +44,7 @@ async function placeOrder() {
   submitting.value = true
 
   // Generate human-readable order reference
-  const orderRef = `BD3Z-${Math.floor(1000 + Math.random() * 9000)}`
+  const orderRef = `CS-${Math.floor(1000 + Math.random() * 9000)}`
   const details = checkoutSchema.parse(form.value)
 
   // Save order to Supabase (fire-and-forget; WhatsApp still opens even if this fails)

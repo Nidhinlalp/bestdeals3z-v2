@@ -46,9 +46,9 @@ defineExpose({ done: () => { saving.value = false } })
     </div>
     <BaseInput v-model.number="form.order" label="Sort Order" type="number" inputmode="numeric" />
     <p v-if="error" class="border border-m-red bg-m-red/10 px-md py-2 text-body-sm text-m-red">{{ error }}</p>
-    <div class="flex justify-end gap-sm border-t border-hairline pt-md">
-      <BaseButton type="button" variant="ghost" @click="emit('cancel')">Cancel</BaseButton>
-      <BaseButton type="submit" variant="primary" :loading="saving">Save Banner</BaseButton>
+    <div class="flex flex-col-reverse gap-sm border-t border-hairline pt-md sm:flex-row sm:justify-end">
+      <BaseButton type="button" variant="ghost" class="w-full sm:w-auto" @click="emit('cancel')">Cancel</BaseButton>
+      <BaseButton type="submit" variant="primary" class="w-full sm:w-auto" :loading="saving">Save Banner</BaseButton>
     </div>
   </form>
 </template>

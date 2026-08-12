@@ -72,11 +72,11 @@ function updateUrl(i: number, val: string) {
     </div>
 
     <!-- Actions -->
-    <div class="flex gap-2">
+    <div class="flex flex-col gap-2 sm:flex-row">
       <button
         type="button"
         :disabled="uploading"
-        class="flex h-10 items-center border border-hairline bg-surface-card px-md text-caption uppercase text-ink hover:border-ink disabled:opacity-50"
+        class="flex h-10 w-full items-center justify-center whitespace-nowrap border border-hairline bg-surface-card px-md text-caption uppercase text-ink hover:border-ink disabled:opacity-50 sm:w-auto"
         @click="fileInput?.click()"
       >
         <span v-if="uploading" class="animate-pulse">Uploading…</span>
@@ -84,7 +84,7 @@ function updateUrl(i: number, val: string) {
       </button>
       <button
         type="button"
-        class="flex h-10 items-center border border-hairline bg-surface-card px-md text-caption uppercase text-muted hover:border-ink hover:text-ink"
+        class="flex h-10 w-full items-center justify-center whitespace-nowrap border border-hairline bg-surface-card px-md text-caption uppercase text-muted hover:border-ink hover:text-ink sm:w-auto"
         @click="addManualRow"
       >+ Add URL</button>
     </div>

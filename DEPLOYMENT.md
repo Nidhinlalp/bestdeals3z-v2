@@ -1,6 +1,6 @@
-# Deployment Guide — BestDeal3z
+# Deployment Guide — Cloud Scart
 
-BestDeal3z is a **Nuxt 3** storefront backed by **Supabase** (database, auth, storage). It deploys to **Vercel** with no extra configuration.
+Cloud Scart is a **Nuxt 3** storefront backed by **Supabase** (database, auth, storage). It deploys to **Vercel** with no extra configuration.
 
 ---
 
@@ -63,7 +63,7 @@ Copy `.env.example` to `.env` and fill in all values:
 | `SUPABASE_URL` | Supabase → Project Settings → API → Project URL |
 | `SUPABASE_KEY` | Supabase → Project Settings → API → `anon` / `public` key |
 | `SUPABASE_SERVICE_ROLE_KEY` | Supabase → Project Settings → API → `service_role` key (**server only — never expose**) |
-| `NUXT_PUBLIC_SITE_URL` | Your production domain, e.g. `https://bestdeal3z.com` |
+| `NUXT_PUBLIC_SITE_URL` | Your production domain, e.g. `https://cloudscart.com` |
 | `NUXT_PUBLIC_WHATSAPP_NUMBER` | WhatsApp number, no `+` or spaces, e.g. `919000000000` |
 
 ---

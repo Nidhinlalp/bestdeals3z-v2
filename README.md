@@ -1,4 +1,4 @@
-# BestDeal3z — Headless E-Commerce Storefront
+# Cloud Scart — Headless E-Commerce Storefront
 
 A production-ready, **backend-free** e-commerce platform built with **Nuxt 3**, **Nuxt Content**, **Pinia** and **Tailwind CSS**. Checkout happens entirely over **WhatsApp** — no payment gateway, no database, no server to maintain.
 
@@ -59,7 +59,7 @@ npm run dev      # → http://localhost:3000
 | Variable | Purpose | Example |
 |---|---|---|
 | `ADMIN_PASSWORD` | Password for the `/admin` dashboard | `super-secret` |
-| `NUXT_PUBLIC_SITE_URL` | Canonical site URL (SEO, sitemap, JSON-LD) | `https://bestdeal3z.vercel.app` |
+| `NUXT_PUBLIC_SITE_URL` | Canonical site URL (SEO, sitemap, JSON-LD) | `https://cloudscart.vercel.app` |
 | `NUXT_PUBLIC_WHATSAPP_NUMBER` | Owner WhatsApp number, intl format, no `+` | `919000000000` |
 
 ---

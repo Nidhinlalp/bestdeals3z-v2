@@ -19,7 +19,7 @@ export function computeOrder(items: CartItem[]): OrderSummary {
 /** Build the human-readable WhatsApp order message. Includes orderRef for cross-referencing. */
 export function buildOrderMessage(details: CheckoutDetails, order: OrderSummary, orderRef?: string): string {
   const lines: string[] = []
-  lines.push('🛒 *NEW ORDER — BestDeal3z*')
+  lines.push(`🛒 *NEW ORDER — ${SITE.name}*`)
   if (orderRef) lines.push(`*Order Ref: ${orderRef}*`)
   lines.push('')
   lines.push('*Customer*')

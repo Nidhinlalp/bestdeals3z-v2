@@ -26,7 +26,7 @@ useSeoMeta({
     <section class="border-b border-hairline bg-surface-soft">
       <div class="container-bmw py-xxl">
         <div class="m-stripe mb-lg w-20" />
-        <h1 class="max-w-3xl text-display-md font-bold uppercase leading-none text-ink md:text-display-lg">Engineered Deals. Delivered Fast.</h1>
+        <h1 class="max-w-3xl text-display-md font-bold uppercase leading-none text-ink md:text-display-lg">{{ SITE.tagline }}</h1>
         <p class="mt-lg max-w-2xl text-title-md text-body-strong">{{ SITE.name }} is built for one thing: getting India the best price on drones, RC machines and performance gadgets — without the friction of accounts, cards or clunky checkouts.</p>
       </div>
     </section>

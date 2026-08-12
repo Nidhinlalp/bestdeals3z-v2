@@ -10,9 +10,9 @@
     color-scheme: light;
     --color-canvas: #ffffff;
     --color-on-dark: #1a1a1a;
-    --color-m-blue-light: #0066b1;
-    --color-m-blue-dark: #1c69d4;
-    --color-m-red: #e22718;
+    --color-m-blue-light: #35bce5;
+    --color-m-blue-dark: #1677a8;
+    --color-m-red: #ff8a1f;
   }
 
   html {
@@ -33,7 +33,7 @@
     font-weight: 700;
   }
 
-  /* Selection uses the M-red brand accent. */
+  /* Selection uses the Cloud Scart orange accent. */
   ::selection {
     background: var(--color-m-red);
     color: #fff;
@@ -56,7 +56,7 @@
  * Reusable component classes that encode the design system.
  * ------------------------------------------------------------------ */
 @layer components {
-  /* The signature M tricolor stripe — divider / brand accent only. */
+  /* Cloud Scart sky-blue, deep-blue and orange brand stripe. */
   .m-stripe {
     height: 4px;
     width: 100%;

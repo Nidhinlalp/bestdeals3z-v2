@@ -1,30 +1,35 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" role="img" aria-label="BestDeal3z">
-<defs>
-<pattern id="grid" width="60" height="60" patternUnits="userSpaceOnUse">
-<path d="M60 0H0V60" fill="none" stroke="#141414" stroke-width="1"/>
-</pattern>
-<radialGradient id="glow" cx="50%" cy="42%" r="55%">
-<stop offset="0%" stop-color="#e22718" stop-opacity="0.16"/>
-<stop offset="100%" stop-color="#000000" stop-opacity="0"/>
-</radialGradient>
-</defs>
-<rect width="1200" height="1200" fill="#000000"/>
-<rect width="1200" height="1200" fill="url(#grid)"/>
-<rect width="1200" height="1200" fill="url(#glow)"/>
-<circle cx="600" cy="560" r="300" fill="none" stroke="#e22718" stroke-width="2" stroke-opacity="0.5"/>
-<g color="#ffffff"><g stroke="currentColor" stroke-width="14" fill="none" stroke-linecap="round" stroke-linejoin="round">
-<circle cx="600" cy="600" r="70"/>
-<path d="M600 530v-40M600 670v40M530 600h-40M670 600h40"/>
-<line x1="495" y1="495" x2="705" y2="705"/><line x1="705" y1="495" x2="495" y2="705"/>
-<circle cx="430" cy="430" r="60"/><circle cx="770" cy="430" r="60"/>
-<circle cx="430" cy="770" r="60"/><circle cx="770" cy="770" r="60"/></g></g>
-<text x="80" y="110" fill="#7e7e7e" font-family="Inter,sans-serif" font-size="26" font-weight="700" letter-spacing="3">BESTDEAL3z</text>
-<text x="1120" y="110" text-anchor="end" fill="#7e7e7e" font-family="Inter,sans-serif" font-size="24" font-weight="400" letter-spacing="2">ENGINEERED DEALS</text>
-<text x="80" y="1010" fill="#ffffff" font-family="Inter,sans-serif" font-size="58" font-weight="700" letter-spacing="-1">BESTDEAL3Z</text>
-<text x="1120" y="1010" text-anchor="end" fill="#3c3c3c" font-family="Inter,sans-serif" font-size="120" font-weight="700">01</text>
-<g>
-<rect x="80" y="1060" width="120" height="6" fill="#0066b1"/>
-<rect x="200" y="1060" width="120" height="6" fill="#1c69d4"/>
-<rect x="320" y="1060" width="120" height="6" fill="#e22718"/>
-</g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1200" width="1200" height="1200" role="img" aria-label="Cloud Scart">
+  <defs>
+    <linearGradient id="background" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f7fdff"/>
+      <stop offset="1" stop-color="#dff6fc"/>
+    </linearGradient>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#35bce5"/>
+      <stop offset="1" stop-color="#1677a8"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="28" flood-color="#164f6b" flood-opacity="0.16"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="1200" fill="url(#background)"/>
+  <circle cx="950" cy="210" r="170" fill="#35bce5" opacity="0.12"/>
+  <circle cx="105" cy="960" r="250" fill="#ff8a1f" opacity="0.1"/>
+  <g filter="url(#shadow)">
+    <rect x="135" y="175" width="930" height="850" rx="80" fill="#ffffff"/>
+  </g>
+  <g transform="translate(600 490)">
+    <path d="M-270 80c-82 0-148-60-148-134 0-68 54-124 125-133 28-105 124-183 240-183 121 0 222 84 244 196 83 8 147 70 147 145 0 81-74 147-166 147h-442z" fill="url(#brand)"/>
+    <path d="M-225 14c0-43 39-78 88-78 20 0 39 6 54 16 25-53 82-90 148-90 81 0 148 55 158 127 48 4 86 38 86 81 0 46-43 84-96 84h-338c-55 0-100-39-100-87z" fill="#ffffff" opacity="0.96"/>
+    <path d="M-92 57c30 30 78 30 108 0" fill="none" stroke="#164f6b" stroke-width="16" stroke-linecap="round"/>
+    <circle cx="-120" cy="22" r="10" fill="#164f6b"/>
+    <circle cx="44" cy="22" r="10" fill="#164f6b"/>
+  </g>
+  <text x="600" y="760" text-anchor="middle" fill="#164f6b" font-family="Inter,Arial,sans-serif" font-size="90" font-weight="800" letter-spacing="4">CLOUD SCART</text>
+  <text x="600" y="835" text-anchor="middle" fill="#527181" font-family="Inter,Arial,sans-serif" font-size="30" font-weight="600" letter-spacing="8">SMART FINDS. DELIVERED FAST.</text>
+  <g transform="translate(370 905)">
+    <rect width="154" height="10" rx="5" fill="#35bce5"/>
+    <rect x="154" width="154" height="10" rx="5" fill="#1677a8"/>
+    <rect x="308" width="154" height="10" rx="5" fill="#ff8a1f"/>
+  </g>
 </svg>

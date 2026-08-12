@@ -3,11 +3,11 @@ import { SITE } from '~/constants/site'
 import { buildEnquiryUrl } from '~/composables/useWhatsapp'
 
 const message = ref('')
-const waUrl = computed(() => buildEnquiryUrl(message.value.trim() || 'Hi BestDeal3z! I have a question.'))
+const waUrl = computed(() => buildEnquiryUrl(message.value.trim() || `Hi ${SITE.name}! I have a question.`))
 
 useSeoMeta({
   title: 'Contact Us',
-  description: 'Get in touch with BestDeal3z on WhatsApp. We reply fast about products, orders and delivery across India.',
+  description: 'Get in touch with Cloud Scart on WhatsApp. We reply fast about products, orders and delivery across India.',
   ogImage: '/og-image.svg',
 })
 </script>

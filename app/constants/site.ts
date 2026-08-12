@@ -3,22 +3,22 @@
  * Anything secret or environment-specific is overridden via runtimeConfig in nuxt.config.ts.
  */
 export const SITE = {
-  name: 'BestDeal3z',
-  tagline: 'Engineered Deals. Delivered Fast.',
+  name: 'Cloud Scart',
+  tagline: 'Smart Finds. Delivered Fast.',
   description:
-    'BestDeal3z — drones, RC machines and performance gadgets at the best prices in India. Order in seconds, checkout on WhatsApp. Cash on delivery available.',
+    'Cloud Scart — drones, RC machines and smart gadgets at great prices across India. Order in seconds, checkout on WhatsApp. Cash on delivery available.',
   // Default production URL — override with NUXT_PUBLIC_SITE_URL.
-  url: 'https://bestdeal3z.vercel.app',
+  url: 'https://cloudscart.vercel.app',
   // WhatsApp number in international format WITHOUT '+' or spaces. Override with NUXT_PUBLIC_WHATSAPP_NUMBER.
   whatsappNumber: '917994867698',
   // Human-readable phone number for display (tel: links strip the spaces).
   phone: '+91 79948 67698',
-  email: 'bestdeal3zinfo@gmail.com',
+  email: 'cloudscartstore@gmail.com',
   locale: 'en_IN',
   currency: 'INR',
   currencySymbol: '₹',
   social: {
-    instagram: 'https://www.instagram.com/bestdeal3z/',
+    instagram: 'https://www.instagram.com/cloudscartstore/',
   },
 } as const
 

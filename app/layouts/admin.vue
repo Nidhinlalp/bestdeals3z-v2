@@ -21,7 +21,7 @@ const isActive = (item: { to: string; exact?: boolean }) =>
       <div class="m-stripe" />
       <div class="flex items-center justify-between p-lg">
         <NuxtLink to="/admin" class="flex items-center gap-2">
-          <NuxtImg src="/logo.png" alt="BestDeal3z Logo" width="24" height="24" class="h-6 w-6 object-contain" />
+          <NuxtImg src="/logo.png" :alt="`${SITE.name} logo`" width="32" height="32" class="h-8 w-8 object-contain" />
           <span class="text-title-md font-bold uppercase">{{ SITE.name }}</span>
         </NuxtLink>
         <span class="text-caption uppercase tracking-wide text-muted">Admin</span>

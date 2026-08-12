@@ -83,9 +83,9 @@ useSeoMeta({ title: 'Manage Categories', robots: 'noindex, nofollow' })
 
     <BaseModal :model-value="!!deleteTarget" title="Delete Category" @update:model-value="deleteTarget = null">
       <p class="text-body-md text-body">Delete <strong class="text-ink">{{ deleteTarget?.name }}</strong>? Products in this category will remain but become uncategorised.</p>
-      <div class="mt-lg flex justify-end gap-sm">
-        <BaseButton variant="ghost" @click="deleteTarget = null">Cancel</BaseButton>
-        <BaseButton variant="danger" @click="confirmDelete">Delete</BaseButton>
+      <div class="mt-lg flex flex-col-reverse gap-sm sm:flex-row sm:justify-end">
+        <BaseButton variant="ghost" class="w-full sm:w-auto" @click="deleteTarget = null">Cancel</BaseButton>
+        <BaseButton variant="danger" class="w-full sm:w-auto" @click="confirmDelete">Delete</BaseButton>
       </div>
     </BaseModal>
   </div>

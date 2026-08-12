@@ -22,8 +22,8 @@ const columns = computed(() => [
       <div class="grid grid-cols-1 gap-xl md:grid-cols-2 lg:grid-cols-4">
         <!-- Brand -->
         <div class="flex flex-col gap-md">
-          <NuxtLink to="/" class="flex items-center gap-2" aria-label="BestDeal3z home">
-            <NuxtImg src="/logo.png" alt="BestDeal3z Logo" width="32" height="32" class="h-8 w-8 object-contain" />
+          <NuxtLink to="/" class="flex items-center gap-3" :aria-label="`${SITE.name} home`">
+            <NuxtImg src="/logo.png" :alt="`${SITE.name} logo`" width="48" height="48" class="h-12 w-12 object-contain" />
             <span class="text-title-lg font-bold uppercase text-ink">{{ SITE.name }}</span>
           </NuxtLink>
           <p class="max-w-xs text-body-sm text-body">{{ SITE.tagline }} Drones, RC machines & gadgets at the best prices in India checkout on WhatsApp.</p>
@@ -44,7 +44,7 @@ const columns = computed(() => [
       </div>
 
       <div class="mt-xxl flex flex-col items-start justify-between gap-md border-t border-hairline pt-lg md:flex-row md:items-center">
-        <p class="text-caption text-muted">© {{ year }} {{ SITE.name }}. All rights reserved. Inspired by motorsport engineering.</p>
+        <p class="text-caption text-muted">© {{ year }} {{ SITE.name }}. All rights reserved. Smart shopping, made simple.</p>
         <nav class="flex flex-wrap gap-md" aria-label="Footer">
           <NuxtLink v-for="l in NAV_LINKS" :key="l.to" :to="l.to" class="text-caption uppercase tracking-wide text-muted hover:text-ink">{{ l.label }}</NuxtLink>
         </nav>

@@ -121,16 +121,16 @@ useSeoMeta({ title: 'Manage Products', robots: 'noindex, nofollow' })
     </div>
 
     <!-- Create / edit modal -->
-    <BaseModal v-model="modalOpen" :title="editing ? 'Edit Product' : 'Add Product'">
+    <BaseModal v-model="modalOpen" :title="editing ? 'Edit Product' : 'Add Product'" size="xl">
       <ProductForm ref="formRef" :initial="editing" :categories="categories ?? []" @submit="onSubmit" @cancel="modalOpen = false" />
     </BaseModal>
 
     <!-- Delete confirm -->
     <BaseModal :model-value="!!deleteTarget" title="Delete Product" @update:model-value="deleteTarget = null">
       <p class="text-body-md text-body">Delete <strong class="text-ink">{{ deleteTarget?.title }}</strong>? This removes its content file and cannot be undone.</p>
-      <div class="mt-lg flex justify-end gap-sm">
-        <BaseButton variant="ghost" @click="deleteTarget = null">Cancel</BaseButton>
-        <BaseButton variant="danger" @click="confirmDelete">Delete</BaseButton>
+      <div class="mt-lg flex flex-col-reverse gap-sm sm:flex-row sm:justify-end">
+        <BaseButton variant="ghost" class="w-full sm:w-auto" @click="deleteTarget = null">Cancel</BaseButton>
+        <BaseButton variant="danger" class="w-full sm:w-auto" @click="confirmDelete">Delete</BaseButton>
       </div>
     </BaseModal>
   </div>

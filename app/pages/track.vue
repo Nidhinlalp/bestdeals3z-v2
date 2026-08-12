@@ -1,14 +1,15 @@
 <script setup lang="ts">
 import { buildEnquiryUrl } from '~/composables/useWhatsapp'
+import { SITE } from '~/constants/site'
 
 const orderId = ref('')
 const waUrl = computed(() =>
-  buildEnquiryUrl(`Hi BestDeal3z! I'd like to track my order${orderId.value.trim() ? ` (Ref: ${orderId.value.trim()})` : ''}.`),
+  buildEnquiryUrl(`Hi ${SITE.name}! I'd like to track my order${orderId.value.trim() ? ` (Ref: ${orderId.value.trim()})` : ''}.`),
 )
 
 useSeoMeta({
   title: 'Track Your Order',
-  description: 'Track your BestDeal3z order. Share your order reference on WhatsApp and we will send you a live tracking link.',
+  description: 'Track your Cloud Scart order. Share your order reference on WhatsApp and we will send you a live tracking link.',
   ogImage: '/og-image.svg',
 })
 </script>
@@ -22,7 +23,7 @@ useSeoMeta({
     <div class="mt-xl max-w-md border border-hairline bg-surface-card p-lg">
       <div class="m-stripe mb-lg w-16" />
       <div class="flex flex-col gap-md">
-        <BaseInput v-model="orderId" label="Order Reference (optional)" placeholder="e.g. BD3Z-1042" />
+        <BaseInput v-model="orderId" label="Order Reference (optional)" placeholder="e.g. CS-1042" />
         <BaseButton :href="waUrl" variant="primary" size="lg" block class="!bg-success !border-success">Track on WhatsApp</BaseButton>
         <p class="text-caption text-muted">Don't have a reference? No problem — just message us and we'll find your order by your phone number.</p>
       </div>

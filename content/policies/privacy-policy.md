@@ -1,18 +1,18 @@
 ---
 title: "സ്വകാര്യതാ നയം"
 slug: "privacy-policy"
-description: "BestDeal3z-ൽ Shop ചെയ്യുമ്പോഴും WhatsApp വഴി Order ചെയ്യുമ്പോഴും നിങ്ങളുടെ Personal Information ശേഖരിക്കുന്ന, ഉപയോഗിക്കുന്ന, സംരക്ഷിക്കുന്ന രീതി."
+description: "Cloud Scart-ൽ Shop ചെയ്യുമ്പോഴും WhatsApp വഴി Order ചെയ്യുമ്പോഴും നിങ്ങളുടെ Personal Information ശേഖരിക്കുന്ന, ഉപയോഗിക്കുന്ന, സംരക്ഷിക്കുന്ന രീതി."
 order: 3
 updatedAt: "2026-06-24"
 ---
 
 ## സ്വകാര്യതാ നയം
 
-നിങ്ങളുടെ Privacy ഞങ്ങൾക്ക് പ്രധാനമാണ്. BestDeal3z ഉപയോഗിക്കുമ്പോൾ ഏത് Information ശേഖരിക്കുന്നു, എങ്ങനെ ഉപയോഗിക്കുന്നു, നിങ്ങൾക്ക് ഏത് Choice ഉണ്ട് — ഇവ ഈ Policy-ൽ വിശദമാക്കിയിട്ടുണ്ട്. ഈ Website ഉപയോഗിക്കുന്നതിലൂടെ ഇതിൽ വിവരിച്ചിരിക്കുന്ന രീതികൾ നിങ്ങൾ അംഗീകരിക്കുന്നതായി കണക്കാക്കും.
+നിങ്ങളുടെ Privacy ഞങ്ങൾക്ക് പ്രധാനമാണ്. Cloud Scart ഉപയോഗിക്കുമ്പോൾ ഏത് Information ശേഖരിക്കുന്നു, എങ്ങനെ ഉപയോഗിക്കുന്നു, നിങ്ങൾക്ക് ഏത് Choice ഉണ്ട് — ഇവ ഈ Policy-ൽ വിശദമാക്കിയിട്ടുണ്ട്. ഈ Website ഉപയോഗിക്കുന്നതിലൂടെ ഇതിൽ വിവരിച്ചിരിക്കുന്ന രീതികൾ നിങ്ങൾ അംഗീകരിക്കുന്നതായി കണക്കാക്കും.
 
 ### ഞങ്ങൾ ശേഖരിക്കുന്ന Information
 
-BestDeal3z-ന് Online Accounts അല്ലെങ്കിൽ Payment Gateway ഇല്ലാത്തതിനാൽ ഞങ്ങൾ ശേഖരിക്കുന്ന Information വളരെ കുറവാണ്:
+Cloud Scart-ന് Online Accounts അല്ലെങ്കിൽ Payment Gateway ഇല്ലാത്തതിനാൽ ഞങ്ങൾ ശേഖരിക്കുന്ന Information വളരെ കുറവാണ്:
 
 - **Order Details** — Checkout-ൽ നൽകുന്ന പേര്, Phone Number, WhatsApp Number, Delivery Address — Order Confirm ചെയ്യാനും Ship ചെയ്യാനും.
 - **Messages** — WhatsApp-ൽ അല്ലെങ്കിൽ Email-ൽ ഞങ്ങൾക്ക് അയക്കുന്ന Messages.
@@ -60,4 +60,4 @@ Order Information Order Fulfil ചെയ്യാൻ, Support നൽകാൻ, L
 
 ### ഞങ്ങളെ ബന്ധപ്പെടുക
 
-Privacy സംബന്ധിച്ച് ഏതെങ്കിലും ചോദ്യം ഉണ്ടെങ്കിൽ **+91 79948 67698** — WhatsApp | **bestdeal3zinfo@gmail.com** — Email.
+Privacy സംബന്ധിച്ച് ഏതെങ്കിലും ചോദ്യം ഉണ്ടെങ്കിൽ **+91 79948 67698** — WhatsApp | **cloudscartstore@gmail.com** — Email.

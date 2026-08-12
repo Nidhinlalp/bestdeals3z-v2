@@ -18,14 +18,14 @@ watch(() => route.fullPath, () => ui.closeAll())
 <template>
   <header class="sticky top-0 z-40 w-full transition-colors duration-300" :class="scrolled ? 'bg-canvas/95 backdrop-blur border-b border-hairline' : 'bg-canvas border-b border-transparent'">
     <div class="m-stripe" />
-    <div class="container-bmw flex h-16 items-center justify-between gap-md">
+    <div class="container-bmw flex h-20 items-center justify-between gap-md">
       <!-- Left: mobile menu + logo -->
       <div class="flex items-center gap-md">
         <button class="flex h-10 w-10 items-center justify-center text-ink lg:hidden" aria-label="Open menu" @click="ui.openMenu()">
           <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M3 6h18M3 18h18" /></svg>
         </button>
-        <NuxtLink to="/" class="flex items-center gap-2" aria-label="BestDeal3z home">
-          <NuxtImg src="/logo.png" alt="BestDeal3z Logo" width="32" height="32" class="h-8 w-8 object-contain" />
+        <NuxtLink to="/" class="flex items-center gap-3" :aria-label="`${SITE.name} home`">
+          <NuxtImg src="/logo.png" :alt="`${SITE.name} logo`" width="48" height="48" class="h-12 w-12 object-contain" preload />
           <span class="text-title-lg font-bold uppercase tracking-tight text-ink">{{ SITE.name }}</span>
         </NuxtLink>
       </div>

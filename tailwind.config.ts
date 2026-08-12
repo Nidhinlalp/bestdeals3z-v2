@@ -2,7 +2,7 @@ import type { Config } from 'tailwindcss'
 
 /**
  * Design tokens — light ecommerce theme.
- * White canvas, near-black display type, M-tricolor used only as a brand accent.
+ * White canvas, near-black display type, Cloud Scart colors used as brand accents.
  */
 export default <Partial<Config>>{
   content: [
@@ -36,12 +36,12 @@ export default <Partial<Config>>{
         'surface-card': '#f4f4f4',
         'surface-elevated': '#ececec',
         'carbon-gray': '#e8e8e8',
-        // M tricolor (brand-identity accent only — never a CTA fill)
-        'm-blue-light': '#0066b1',
-        'm-blue-dark': '#1c69d4',
-        'm-red': '#e22718',
-        'bmw-blue': '#1c69d4',
-        'electric-blue': '#0653b6',
+        // Cloud Scart palette (sky blue, deep blue and playful orange).
+        'm-blue-light': '#35bce5',
+        'm-blue-dark': '#1677a8',
+        'm-red': '#ff8a1f',
+        'bmw-blue': '#1677a8',
+        'electric-blue': '#168fbe',
         // Semantic
         warning: '#b45309',
         success: '#0f9d34',

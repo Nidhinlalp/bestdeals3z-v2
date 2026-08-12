@@ -85,6 +85,6 @@ export const useCartStore = defineStore('cart', {
   // Survives refresh via @pinia-plugin-persistedstate.
   // Defaults to localStorage on the client and is skipped during SSR.
   persist: {
-    key: 'bestdeal3z-cart',
+    key: 'cloud-scart-cart',
   },
 })

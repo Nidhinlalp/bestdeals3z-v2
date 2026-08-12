@@ -1,7 +1,7 @@
 ---
 title: "റിട്ടേൺ & റീഫണ്ട് നയം"
 slug: "refund-policy"
-description: "BestDeal3z-ന്റെ Return, Replacement, Refund നിബന്ധനകൾ — Unboxing Video ആവശ്യകത, 24 മണിക്കൂർ Complaint Window എന്നിവ ഉൾപ്പെടെ."
+description: "Cloud Scart-ന്റെ Return, Replacement, Refund നിബന്ധനകൾ — Unboxing Video ആവശ്യകത, 24 മണിക്കൂർ Complaint Window എന്നിവ ഉൾപ്പെടെ."
 order: 2
 updatedAt: "2026-06-24"
 ---
@@ -39,7 +39,7 @@ Report ചെയ്യുമ്പോൾ ഇവ ഉൾപ്പെടുത്�
 
 ### Return Shipping Charge
 
-Return Approved ആയാൽ **Return Shipping Charge മുഴുവനായും Customer വഹിക്കണം.** BestDeal3z Prepaid Return Label നൽകില്ല. Product Original Packaging-ൽ Securely Pack ചെയ്ത് Ship ചെയ്യുക.
+Return Approved ആയാൽ **Return Shipping Charge മുഴുവനായും Customer വഹിക്കണം.** Cloud Scart Prepaid Return Label നൽകില്ല. Product Original Packaging-ൽ Securely Pack ചെയ്ത് Ship ചെയ്യുക.
 
 ### Return സ്വീകരിക്കുന്ന കാര്യങ്ങൾ
 
@@ -68,4 +68,4 @@ Order **Ship ആകുന്നതിന് മുൻപ്** WhatsApp-ൽ Reply
 
 ### സഹായം വേണോ?
 
-**+91 79948 67698** — WhatsApp | **bestdeal3zinfo@gmail.com** — Email
+**+91 79948 67698** — WhatsApp | **cloudscartstore@gmail.com** — Email
