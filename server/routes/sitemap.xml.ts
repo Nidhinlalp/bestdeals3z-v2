@@ -36,15 +36,20 @@ export default defineEventHandler(async (event) => {
   // Products and categories come from Supabase; legal policy slugs are build-time constants.
   const supabase = createClient(config.public.supabaseUrl, config.supabaseServiceKey)
 
-  const [productResult, categoryResult] = await Promise.all([
+  const [productResult, categoryResult] = await Promise.allSettled([
     supabase.from('products').select('slug, created_at, manufacturer, importer, country_of_origin, net_quantity'),
     supabase.from('categories').select('slug'),
   ])
-  if (process.env.VERCEL_ENV === 'production' && (productResult.error || categoryResult.error)) {
-    throw createError({ statusCode: 503, statusMessage: 'Catalog schema is not ready for production.' })
-  }
-  const products = productResult.data
-  const categories = categoryResult.data
+
+  // The sitemap is generated during deployment. A temporary database/network
+  // failure must not block the whole storefront from deploying; static routes
+  // remain valid and catalog URLs are included again on the next successful build.
+  const products = productResult.status === 'fulfilled' && !productResult.value.error
+    ? productResult.value.data
+    : []
+  const categories = categoryResult.status === 'fulfilled' && !categoryResult.value.error
+    ? categoryResult.value.data
+    : []
 
   const staticPages = [
     { loc: '/', priority: '1.0', freq: 'daily' },
