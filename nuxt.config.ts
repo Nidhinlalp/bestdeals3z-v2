@@ -1,7 +1,6 @@
 import { readdirSync } from 'node:fs'
 import { createRequire } from 'node:module'
 import { dirname, join } from 'node:path'
-import { POLICIES } from './app/constants/policies'
 import { SITE } from './app/constants/site'
 
 const supabaseHostname = (() => {
@@ -169,11 +168,11 @@ export default defineNuxtConfig({
       traceInclude: sharpLibvipsTraceEntries,
     },
     prerender: {
-      // Only prerender truly static routes. Catalog pages use ISR below.
+      // Only prerender framework-independent server routes. Vue pages are
+      // rendered through ISR so a page-rendering issue cannot abort deployment.
       routes: [
         '/sitemap.xml',
         '/robots.txt',
-        ...POLICIES.map(policy => `/policies/${policy.slug}`),
       ],
       // Avoid shared console-timing label collisions while Nuxt renders several
       // dynamic policy routes in the same build process.
@@ -193,8 +192,9 @@ export default defineNuxtConfig({
     '/about': { isr: 3600 },
     '/contact': { isr: 3600 },
     '/track': { isr: 3600 },
-    // Policy pages are build-time content, so prerender them.
-    '/policies/**': { prerender: true },
+    // Policy content is static, but rendering it through ISR avoids coupling a
+    // deployment to Nitro's dynamic-route prerender worker on Vercel.
+    '/policies/**': { isr: 86400 },
     // Admin is client-only (SPA).
     '/admin/**': { ssr: false },
     // Security headers on all routes.
