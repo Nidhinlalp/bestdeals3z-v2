@@ -40,14 +40,13 @@ export default <Partial<Config>>{
         'm-blue-light': '#35bce5',
         'm-blue-dark': '#1677a8',
         'm-red': '#ff8a1f',
-        'bmw-blue': '#1677a8',
         'electric-blue': '#168fbe',
         // Semantic
         warning: '#b45309',
         success: '#0f9d34',
       },
       fontFamily: {
-        // BMW Type Next Latin substitute per the design doc.
+        // Open-source typeface used throughout the Cloud Scart interface.
         sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'sans-serif'],
       },
       fontSize: {

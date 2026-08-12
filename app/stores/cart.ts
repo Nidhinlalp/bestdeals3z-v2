@@ -82,7 +82,7 @@ export const useCartStore = defineStore('cart', {
     },
   },
 
-  // Survives refresh via @pinia-plugin-persistedstate.
+  // Survives refresh via pinia-plugin-persistedstate.
   // Defaults to localStorage on the client and is skipped during SSR.
   persist: {
     key: 'cloud-scart-cart',

@@ -17,9 +17,9 @@ defineProps<{ banner: Banner; priority?: boolean }>()
       :fetchpriority="priority ? 'high' : 'auto'"
     />
     <div class="absolute inset-0 bg-gradient-to-r from-black via-black/60 to-transparent" />
-    <div class="container-bmw relative z-10">
+    <div class="container-cloud relative z-10">
       <div class="max-w-2xl py-xxl">
-        <div class="m-stripe mb-lg w-32" />
+        <div class="brand-stripe mb-lg w-32" />
         <h2 class="text-display-md font-bold uppercase leading-none text-white md:text-display-lg">{{ banner.title }}</h2>
         <p v-if="banner.subtitle" class="mt-md max-w-lg text-body-md text-white/90 md:text-title-md">{{ banner.subtitle }}</p>
         <BaseButton :to="banner.buttonLink" variant="light" size="lg" class="mt-xl">{{ banner.buttonText }}</BaseButton>

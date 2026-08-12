@@ -7,6 +7,7 @@ const props = defineProps<{ initial?: (Banner & { slug?: string }) | null }>()
 const emit = defineEmits<{ submit: [doc: Record<string, unknown>]; cancel: [] }>()
 
 const form = reactive({ title: '', slug: '', subtitle: '', image: '', buttonText: 'Shop Now', buttonLink: '/shop', order: 0 })
+const rightsConfirmed = ref(false)
 const error = ref('')
 const saving = ref(false)
 
@@ -20,10 +21,12 @@ watchEffect(() => {
   } else {
     Object.assign(form, { title: '', slug: '', subtitle: '', image: '', buttonText: 'Shop Now', buttonLink: '/shop', order: 0 })
   }
+  rightsConfirmed.value = false
 })
 
 function submit() {
   error.value = ''
+  if (!rightsConfirmed.value) { error.value = 'Confirm that Cloud Scart has permission to publish this banner image and copy.'; return }
   const slug = form.slug || slugify(form.title)
   const doc = { ...form, slug, order: Number(form.order) }
   const result = bannerSchema.safeParse(doc)
@@ -45,6 +48,10 @@ defineExpose({ done: () => { saving.value = false } })
       <BaseInput v-model="form.buttonLink" label="Button Link" placeholder="/shop or /category/drones" />
     </div>
     <BaseInput v-model.number="form.order" label="Sort Order" type="number" inputmode="numeric" />
+    <label class="flex items-start gap-sm border border-hairline bg-surface-soft p-md text-body-sm text-body">
+      <input v-model="rightsConfirmed" type="checkbox" required class="mt-1 h-4 w-4 shrink-0 accent-m-red">
+      <span>I confirm Cloud Scart owns, has licensed, or has permission to publish this banner image and copy.</span>
+    </label>
     <p v-if="error" class="border border-m-red bg-m-red/10 px-md py-2 text-body-sm text-m-red">{{ error }}</p>
     <div class="flex flex-col-reverse gap-sm border-t border-hairline pt-md sm:flex-row sm:justify-end">
       <BaseButton type="button" variant="ghost" class="w-full sm:w-auto" @click="emit('cancel')">Cancel</BaseButton>

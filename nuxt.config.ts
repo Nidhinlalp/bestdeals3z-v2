@@ -1,8 +1,73 @@
+import { readdirSync } from 'node:fs'
+import { createRequire } from 'node:module'
+import { dirname, join } from 'node:path'
+import { POLICIES } from './app/constants/policies'
 import { SITE } from './app/constants/site'
 
 const supabaseHostname = (() => {
   try { return new URL(process.env.SUPABASE_URL || '').hostname } catch { return '' }
 })()
+
+// Nitro's dependency tracer can miss libvips because the native Sharp package
+// loads it by file-system convention instead of a JavaScript import. Trace its
+// exported directory explicitly so production image routes include the binary.
+const sharpLibvipsTraceEntries = (() => {
+  let packageName = ''
+  if (process.platform === 'darwin') {
+    packageName = `@img/sharp-libvips-darwin-${process.arch}`
+  }
+  else if (process.platform === 'linux') {
+    packageName = `@img/sharp-libvips-linux-${process.arch}`
+  }
+
+  if (!packageName) return []
+
+  try {
+    const require = createRequire(import.meta.url)
+    const packageRoot = dirname(require.resolve(`${packageName}/package`))
+    const libraryDirectory = join(packageRoot, 'lib')
+    return readdirSync(libraryDirectory, { withFileTypes: true })
+      .filter(entry => entry.isFile())
+      .map(entry => join(libraryDirectory, entry.name))
+  }
+  catch {
+    return []
+  }
+})()
+
+if (process.env.VERCEL_ENV === 'production') {
+  const requiredProductionVariables = [
+    'SUPABASE_URL',
+    'SUPABASE_KEY',
+    'SUPABASE_SERVICE_ROLE_KEY',
+    'NUXT_PUBLIC_SITE_URL',
+    'NUXT_PUBLIC_WHATSAPP_NUMBER',
+    'NUXT_PUBLIC_SELLER_LEGAL_NAME',
+    'NUXT_PUBLIC_BUSINESS_ADDRESS',
+    'NUXT_PUBLIC_GRIEVANCE_OFFICER_NAME',
+  ]
+  const missing = requiredProductionVariables.filter((name) => !process.env[name]?.trim())
+  if (missing.length) {
+    throw new Error(`Missing required production environment variables: ${missing.join(', ')}`)
+  }
+  if (process.env.CONTENT_RIGHTS_CONFIRMED !== 'true') {
+    throw new Error('Set CONTENT_RIGHTS_CONFIRMED=true only after verifying the rights or licences for every published image, logo and piece of copy.')
+  }
+  const productionSiteUrl = new URL(process.env.NUXT_PUBLIC_SITE_URL!)
+  const productionSupabaseUrl = new URL(process.env.SUPABASE_URL!)
+  if (productionSiteUrl.protocol !== 'https:' || productionSupabaseUrl.protocol !== 'https:') {
+    throw new Error('Production site and Supabase URLs must use HTTPS.')
+  }
+  if (['localhost', '127.0.0.1'].includes(productionSiteUrl.hostname)) {
+    throw new Error('NUXT_PUBLIC_SITE_URL must use the public production hostname.')
+  }
+  if (!/^\d{10,15}$/u.test(process.env.NUXT_PUBLIC_WHATSAPP_NUMBER!)) {
+    throw new Error('NUXT_PUBLIC_WHATSAPP_NUMBER must contain 10–15 digits without + or spaces.')
+  }
+  if (!/\b[1-9][0-9]{5}\b/u.test(process.env.NUXT_PUBLIC_BUSINESS_ADDRESS!)) {
+    throw new Error('NUXT_PUBLIC_BUSINESS_ADDRESS must include the full Indian address and six-digit pincode.')
+  }
+}
 
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
@@ -11,15 +76,14 @@ export default defineNuxtConfig({
   // Opt into the Nuxt 4 directory structure (app/ as the source dir).
   future: { compatibilityVersion: 4 },
 
-  devtools: { enabled: true },
+  devtools: { enabled: false },
 
   modules: [
     '@nuxtjs/supabase',
-    '@nuxt/content',
     '@nuxt/image',
     '@nuxtjs/tailwindcss',
     '@pinia/nuxt',
-    '@pinia-plugin-persistedstate/nuxt',
+    'pinia-plugin-persistedstate/nuxt',
     '@vueuse/nuxt',
     '@nuxt/eslint',
   ],
@@ -37,6 +101,11 @@ export default defineNuxtConfig({
       whatsappNumber: process.env.NUXT_PUBLIC_WHATSAPP_NUMBER || SITE.whatsappNumber,
       supabaseUrl: process.env.SUPABASE_URL || '',
       supabaseKey: process.env.SUPABASE_KEY || '',
+      sellerLegalName: process.env.NUXT_PUBLIC_SELLER_LEGAL_NAME || SITE.name,
+      businessAddress: process.env.NUXT_PUBLIC_BUSINESS_ADDRESS || '',
+      grievanceOfficerName: process.env.NUXT_PUBLIC_GRIEVANCE_OFFICER_NAME || '',
+      grievanceEmail: process.env.NUXT_PUBLIC_GRIEVANCE_EMAIL || SITE.email,
+      grievancePhone: process.env.NUXT_PUBLIC_GRIEVANCE_PHONE || SITE.phone,
     },
   },
 
@@ -76,11 +145,6 @@ export default defineNuxtConfig({
     },
   },
 
-  content: {
-    documentDriven: false,
-    markdown: { anchorLinks: false },
-  },
-
   image: {
     quality: 70,
     format: ['webp'],
@@ -97,15 +161,25 @@ export default defineNuxtConfig({
   },
 
   nitro: {
+    externals: {
+      traceInclude: sharpLibvipsTraceEntries,
+    },
     prerender: {
-      // Only prerender truly static routes. Content pages use ISR below.
-      routes: ['/sitemap.xml', '/robots.txt'],
-      failOnError: false,
+      // Only prerender truly static routes. Catalog pages use ISR below.
+      routes: [
+        '/sitemap.xml',
+        '/robots.txt',
+        ...POLICIES.map(policy => `/policies/${policy.slug}`),
+      ],
+      // Avoid shared console-timing label collisions while Nuxt renders several
+      // dynamic policy routes in the same build process.
+      concurrency: 1,
+      failOnError: true,
     },
   },
 
   routeRules: {
-    // Content pages — ISR: served from cache, re-generated every 60 s in the background.
+    // Catalog pages — ISR: served from cache, re-generated every 60 s in the background.
     // Changes made in the admin panel go live within ~1 minute without a redeploy.
     '/': { isr: 60 },
     '/shop': { isr: 60 },
@@ -115,7 +189,7 @@ export default defineNuxtConfig({
     '/about': { isr: 3600 },
     '/contact': { isr: 3600 },
     '/track': { isr: 3600 },
-    // Policy pages are markdown — only change on redeploy, so prerender them.
+    // Policy pages are build-time content, so prerender them.
     '/policies/**': { prerender: true },
     // Admin is client-only (SPA).
     '/admin/**': { ssr: false },
@@ -126,6 +200,9 @@ export default defineNuxtConfig({
         'X-Content-Type-Options': 'nosniff',
         'Referrer-Policy': 'strict-origin-when-cross-origin',
         'Permissions-Policy': 'camera=(), microphone=(), geolocation=()',
+        'Cross-Origin-Opener-Policy': 'same-origin-allow-popups',
+        'Strict-Transport-Security': 'max-age=31536000; includeSubDomains',
+        'Content-Security-Policy': "default-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'; form-action 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: blob: https:; connect-src 'self' https://*.supabase.co wss://*.supabase.co; upgrade-insecure-requests",
       },
     },
   },

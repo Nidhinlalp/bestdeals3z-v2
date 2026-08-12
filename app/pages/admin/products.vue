@@ -74,7 +74,7 @@ useSeoMeta({ title: 'Manage Products', robots: 'noindex, nofollow' })
   <div class="flex flex-col gap-lg">
     <div class="flex flex-wrap items-end justify-between gap-md">
       <div>
-        <div class="m-stripe mb-md w-16" />
+        <div class="brand-stripe mb-md w-16" />
         <h1 class="text-display-sm font-bold uppercase leading-none">Products</h1>
         <p class="mt-1 text-body-sm text-body">{{ products.length }} total</p>
       </div>
@@ -127,7 +127,7 @@ useSeoMeta({ title: 'Manage Products', robots: 'noindex, nofollow' })
 
     <!-- Delete confirm -->
     <BaseModal :model-value="!!deleteTarget" title="Delete Product" @update:model-value="deleteTarget = null">
-      <p class="text-body-md text-body">Delete <strong class="text-ink">{{ deleteTarget?.title }}</strong>? This removes its content file and cannot be undone.</p>
+      <p class="text-body-md text-body">Delete <strong class="text-ink">{{ deleteTarget?.title }}</strong>? This removes the product record and cannot be undone.</p>
       <div class="mt-lg flex flex-col-reverse gap-sm sm:flex-row sm:justify-end">
         <BaseButton variant="ghost" class="w-full sm:w-auto" @click="deleteTarget = null">Cancel</BaseButton>
         <BaseButton variant="danger" class="w-full sm:w-auto" @click="confirmDelete">Delete</BaseButton>

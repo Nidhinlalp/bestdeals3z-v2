@@ -2,37 +2,36 @@
 import { SITE } from '~/constants/site'
 
 const stats = [
-  { value: '5K+', label: 'Happy Customers' },
-  { value: '4.6★', label: 'Avg. Rating' },
-  { value: '3–6', label: 'Day Delivery' },
-  { value: 'COD', label: 'Available' },
+  { value: 'India', label: 'Service Area' },
+  { value: '1–2', label: 'Day Processing' },
+  { value: 'WhatsApp', label: 'Human Support' },
+  { value: 'COD', label: 'Where Eligible' },
 ]
 const policies = [
   { title: 'Free Shipping over ₹999', body: 'All orders above ₹999 ship free across India. Smaller orders carry a flat ₹49.' },
   { title: 'Cash on Delivery', body: 'Pay only when your order arrives. Available on most pincodes.' },
-  { title: '24-Hour Return Window', body: 'Damaged or defective on arrival? Message us within 24 hours with an unboxing video for a free replacement or refund.' },
-  { title: 'Genuine Products', body: 'Every product is quality-checked before dispatch so you get exactly what you ordered.' },
+  { title: 'Fair Returns', body: 'Damaged, defective, wrong or misdescribed item? Message us promptly so we can verify and provide the appropriate remedy.' },
+  { title: 'Clear Information', body: 'We aim to show accurate prices, availability and product details before accepting an order.' },
 ]
 
 useSeoMeta({
   title: 'About Us',
-  description: `${SITE.name} brings you the best deals on drones, RC machines and gadgets in India — with WhatsApp ordering and cash on delivery.`,
-  ogImage: '/og-image.svg',
+  description: `${SITE.name} offers drones, RC machines and gadgets in India with WhatsApp ordering and Cash on Delivery at eligible pincodes.`,
 })
 </script>
 
 <template>
   <div>
     <section class="border-b border-hairline bg-surface-soft">
-      <div class="container-bmw py-xxl">
-        <div class="m-stripe mb-lg w-20" />
+      <div class="container-cloud py-xxl">
+        <div class="brand-stripe mb-lg w-20" />
         <h1 class="max-w-3xl text-display-md font-bold uppercase leading-none text-ink md:text-display-lg">{{ SITE.tagline }}</h1>
-        <p class="mt-lg max-w-2xl text-title-md text-body-strong">{{ SITE.name }} is built for one thing: getting India the best price on drones, RC machines and performance gadgets — without the friction of accounts, cards or clunky checkouts.</p>
+        <p class="mt-lg max-w-2xl text-title-md text-body-strong">{{ SITE.name }} helps customers across India discover drones, RC machines and useful gadgets, with a simple WhatsApp-first ordering experience.</p>
       </div>
     </section>
 
     <section class="section">
-      <div class="container-bmw grid grid-cols-2 gap-px border border-hairline bg-hairline md:grid-cols-4">
+      <div class="container-cloud grid grid-cols-2 gap-px border border-hairline bg-hairline md:grid-cols-4">
         <div v-for="s in stats" :key="s.label" class="flex flex-col gap-1 bg-canvas p-lg">
           <span class="text-display-sm font-bold text-ink">{{ s.value }}</span>
           <span class="text-label-uppercase uppercase text-muted">{{ s.label }}</span>
@@ -41,21 +40,21 @@ useSeoMeta({
     </section>
 
     <section class="section border-t border-hairline">
-      <div class="container-bmw grid grid-cols-1 gap-xl lg:grid-cols-2">
+      <div class="container-cloud grid grid-cols-1 gap-xl lg:grid-cols-2">
         <div>
-          <div class="m-stripe mb-lg w-20" />
+          <div class="brand-stripe mb-lg w-20" />
           <h2 class="text-display-sm font-bold uppercase leading-none text-ink">Why WhatsApp Checkout?</h2>
         </div>
         <div class="flex flex-col gap-md text-body-md text-body">
-          <p>We keep things lean so we can keep prices low. Instead of paying for heavy payment gateways and passing the cost to you, we confirm every order personally on WhatsApp.</p>
-          <p>You get a real human, instant answers, cash on delivery, and a tracking link — all in one chat. It's faster, friendlier, and lets us pass the savings straight to you.</p>
+          <p>WhatsApp lets you review the prepared order before sending it, ask questions, and receive confirmation from a real person. The website does not send your message until you choose to send it in WhatsApp.</p>
+          <p>We confirm stock, final charges, delivery estimates and the available payment method in the same conversation. Cash on Delivery is available at eligible pincodes, and prepaid UPI instructions are shared only through our official business chat.</p>
           <BaseButton to="/contact" variant="outline" class="mt-sm w-fit">Talk to Us</BaseButton>
         </div>
       </div>
     </section>
 
     <section id="policies" class="section border-t border-hairline">
-      <div class="container-bmw">
+      <div class="container-cloud">
         <SectionHeader kicker="The Fine Print" title="Shipping & Returns" />
         <div class="grid grid-cols-1 gap-lg md:grid-cols-2">
           <div v-for="p in policies" :key="p.title" class="border border-hairline bg-surface-card p-lg">

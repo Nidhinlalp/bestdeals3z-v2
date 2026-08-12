@@ -33,7 +33,7 @@ useSeoMeta({ title: 'Admin Login', robots: 'noindex, nofollow' })
 <template>
   <div class="flex min-h-[70vh] items-center justify-center">
     <div class="w-full max-w-sm border border-hairline bg-surface-card">
-      <div class="m-stripe" />
+      <div class="brand-stripe" />
       <form class="flex flex-col gap-lg p-lg" @submit.prevent="submit">
         <div>
           <h1 class="text-title-lg font-bold uppercase">Admin Access</h1>

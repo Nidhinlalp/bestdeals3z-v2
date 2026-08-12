@@ -2,15 +2,15 @@
 import { formatPrice } from '~/utils/format'
 import { checkoutSchema } from '~/utils/schemas'
 import { computeOrder, buildWhatsappUrl } from '~/composables/useWhatsapp'
+import type { OrderSummary } from '~/composables/useWhatsapp'
 import type { CheckoutDetails } from '~/types'
 
 const cart = useCartStore()
-const supabase = useSupabaseClient()
-const user = useSupabaseUser()
 const order = computed(() => computeOrder(cart.items))
 
-// Remember details locally for repeat orders (never sent anywhere but WhatsApp).
-const form = useLocalStorage<CheckoutDetails>('cloud-scart-customer', {
+// Keep delivery details only in page memory. They are sent to the order API and
+// included in the WhatsApp message only after the customer submits the form.
+const form = ref<CheckoutDetails>({
   fullName: '', phone: '', whatsapp: '', address: '', city: '', state: '', pincode: '', paymentMethod: 'cod', notes: '',
 })
 const sameAsPhone = ref(true)
@@ -18,8 +18,17 @@ watch([sameAsPhone, () => form.value.phone], () => { if (sameAsPhone.value) form
 
 const errors = ref<Partial<Record<keyof CheckoutDetails, string>>>({})
 const submitting = ref(false)
+const acceptedPolicies = ref(false)
+const lastWhatsappUrl = useSessionStorage('cloud-scart-last-whatsapp-url', '')
 
-const INDIAN_STATES = ['Andhra Pradesh', 'Assam', 'Bihar', 'Chhattisgarh', 'Delhi', 'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jharkhand', 'Karnataka', 'Kerala', 'Madhya Pradesh', 'Maharashtra', 'Odisha', 'Punjab', 'Rajasthan', 'Tamil Nadu', 'Telangana', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal'].map((s) => ({ label: s, value: s }))
+const INDIAN_STATES = [
+  'Andaman and Nicobar Islands', 'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar',
+  'Chandigarh', 'Chhattisgarh', 'Dadra and Nagar Haveli and Daman and Diu', 'Delhi', 'Goa',
+  'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jammu and Kashmir', 'Jharkhand', 'Karnataka',
+  'Kerala', 'Ladakh', 'Lakshadweep', 'Madhya Pradesh', 'Maharashtra', 'Manipur', 'Meghalaya',
+  'Mizoram', 'Nagaland', 'Odisha', 'Puducherry', 'Punjab', 'Rajasthan', 'Sikkim',
+  'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh', 'Uttarakhand', 'West Bengal',
+].map((state) => ({ label: state, value: state }))
 
 function validate(): boolean {
   const result = checkoutSchema.safeParse(form.value)
@@ -43,45 +52,48 @@ async function placeOrder() {
   }
   submitting.value = true
 
-  // Generate human-readable order reference
-  const orderRef = `CS-${Math.floor(1000 + Math.random() * 9000)}`
   const details = checkoutSchema.parse(form.value)
+  const fallbackRef = `CS-${new Date().toISOString().slice(0, 10).replace(/-/g, '')}-${crypto.randomUUID().slice(0, 8).toUpperCase()}`
+  let orderRef = fallbackRef
+  let verifiedOrder: OrderSummary = order.value
+  const whatsappWindow = window.open('about:blank', '_blank')
+  if (whatsappWindow) whatsappWindow.opener = null
 
-  // Save order to Supabase (fire-and-forget; WhatsApp still opens even if this fails)
-  const { error } = await supabase.from('orders').insert({
-    order_ref: orderRef,
-    user_id: user.value?.id ?? null,
-    customer_name: details.fullName,
-    customer_phone: details.phone,
-    customer_whatsapp: details.whatsapp,
-    address: details.address,
-    city: details.city,
-    state: details.state,
-    pincode: details.pincode,
-    notes: details.notes ?? '',
-    payment_method: details.paymentMethod,
-    items: cart.items,
-    subtotal: order.value.subtotal,
-    shipping: order.value.shipping,
-    total: order.value.total,
-    status: 'pending',
-    whatsapp_sent: true,
-  })
-  if (error) console.error('Order save failed:', error)
+  try {
+    const saved = await $fetch<{ orderRef: string; order: OrderSummary }>('/api/orders', {
+      method: 'POST',
+      body: {
+        details,
+        items: cart.items.map(({ slug, quantity, variant }) => ({ slug, quantity, variant })),
+        website: '',
+      },
+    })
+    orderRef = saved.orderRef
+    verifiedOrder = saved.order
+  }
+  catch {
+    // WhatsApp remains the source of confirmation if the optional order record fails.
+  }
 
-  // Open WhatsApp with the prefilled order (includes order ref), then show the success page.
-  const url = buildWhatsappUrl(details, order.value, orderRef)
-  window.open(url, '_blank', 'noopener')
+  // WhatsApp opens only after the customer submits and still requires them to press Send.
+  const url = buildWhatsappUrl(details, verifiedOrder, orderRef)
+  lastWhatsappUrl.value = url
   cart.clear()
-  await navigateTo('/order-success')
+  if (whatsappWindow) {
+    whatsappWindow.location.replace(url)
+    await navigateTo('/order-success')
+  }
+  else {
+    window.location.assign(url)
+  }
 }
 
 useSeoMeta({ title: 'Checkout', robots: 'noindex' })
 </script>
 
 <template>
-  <div class="container-bmw py-xl md:py-xxl">
-    <div class="m-stripe mb-lg w-20" />
+  <div class="container-cloud py-xl md:py-xxl">
+    <div class="brand-stripe mb-lg w-20" />
     <h1 class="text-display-sm font-bold uppercase leading-none text-ink md:text-display-md">Checkout</h1>
 
     <EmptyState v-if="cart.isEmpty" title="Nothing to check out" description="Your cart is empty. Add some products first." icon="cart" class="mt-xl">
@@ -155,12 +167,17 @@ useSeoMeta({ title: 'Checkout', robots: 'noindex' })
         </div>
 
         <BaseTextarea v-model="form.notes" label="Order Notes (optional)" placeholder="Anything we should know? Colour preference, delivery timing…" :rows="2" />
+
+        <label class="flex items-start gap-sm border border-hairline bg-surface-soft p-md text-body-sm text-body">
+          <input v-model="acceptedPolicies" type="checkbox" required class="mt-1 h-4 w-4 shrink-0 accent-m-red">
+          <span>I have read and agree to the <NuxtLink to="/policies/terms-of-service" target="_blank" class="text-ink underline">Terms of Service</NuxtLink> and <NuxtLink to="/policies/refund-policy" target="_blank" class="text-ink underline">Return & Refund Policy</NuxtLink>, and acknowledge the <NuxtLink to="/policies/privacy-policy" target="_blank" class="text-ink underline">Privacy Policy</NuxtLink>.</span>
+        </label>
       </div>
 
       <!-- Summary -->
       <aside class="lg:sticky lg:top-24 lg:self-start">
         <div class="border border-hairline bg-surface-card">
-          <div class="m-stripe" />
+          <div class="brand-stripe" />
           <div class="flex flex-col gap-md p-lg">
             <h2 class="text-title-lg font-bold uppercase">Your Order</h2>
             <ul class="flex flex-col gap-sm border-b border-hairline pb-md">

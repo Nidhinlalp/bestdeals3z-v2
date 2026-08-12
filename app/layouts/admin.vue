@@ -18,7 +18,7 @@ const isActive = (item: { to: string; exact?: boolean }) =>
   <div class="flex min-h-screen flex-col bg-canvas text-on-dark lg:flex-row">
     <!-- Sidebar -->
     <aside class="flex shrink-0 flex-col border-b border-hairline lg:w-64 lg:border-b-0 lg:border-r">
-      <div class="m-stripe" />
+      <div class="brand-stripe" />
       <div class="flex items-center justify-between p-lg">
         <NuxtLink to="/admin" class="flex items-center gap-2">
           <NuxtImg src="/logo.png" :alt="`${SITE.name} logo`" width="32" height="32" class="h-8 w-8 object-contain" />

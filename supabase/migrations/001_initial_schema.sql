@@ -11,6 +11,13 @@ CREATE TABLE products (
   description       text        NOT NULL DEFAULT '',
   short_description text        NOT NULL DEFAULT '',
   category          text        NOT NULL,
+  brand             text        NOT NULL DEFAULT '',
+  manufacturer      text        NOT NULL DEFAULT '',
+  importer          text        NOT NULL DEFAULT '',
+  country_of_origin text        NOT NULL DEFAULT '',
+  net_quantity      text        NOT NULL DEFAULT '',
+  warranty_info     text        NOT NULL DEFAULT '',
+  safety_information text       NOT NULL DEFAULT '',
   price             numeric(10,2) NOT NULL,
   sale_price        numeric(10,2),
   images            text[]      NOT NULL DEFAULT '{}',
@@ -70,9 +77,13 @@ CREATE TABLE orders (
   subtotal            numeric(10,2) NOT NULL,
   shipping            numeric(10,2) NOT NULL DEFAULT 0,
   total               numeric(10,2) NOT NULL,
+  payment_method      text        NOT NULL DEFAULT 'cod'
+                        CHECK (payment_method IN ('cod','prepaid')),
   status              text        NOT NULL DEFAULT 'pending'
                         CHECK (status IN ('pending','confirmed','shipped','delivered','cancelled')),
   whatsapp_sent       boolean     NOT NULL DEFAULT false,
+  policy_version      text        NOT NULL DEFAULT '2026-08-12',
+  privacy_accepted_at timestamptz NOT NULL DEFAULT now(),
   created_at          timestamptz NOT NULL DEFAULT now(),
   updated_at          timestamptz NOT NULL DEFAULT now()
 );
@@ -108,12 +119,20 @@ ALTER TABLE orders      ENABLE ROW LEVEL SECURITY;
 ALTER TABLE admin_users ENABLE ROW LEVEL SECURITY;
 
 -- ── Helper: is_admin() ───────────────────────────────────────
-CREATE OR REPLACE FUNCTION is_admin()
-RETURNS boolean AS $$
+CREATE OR REPLACE FUNCTION public.is_admin()
+RETURNS boolean
+LANGUAGE sql
+STABLE
+SECURITY DEFINER
+SET search_path = ''
+AS $$
   SELECT EXISTS (
-    SELECT 1 FROM admin_users WHERE user_id = auth.uid()
+    SELECT 1 FROM public.admin_users WHERE user_id = auth.uid()
   );
-$$ LANGUAGE sql SECURITY DEFINER;
+$$;
+
+REVOKE ALL ON FUNCTION public.is_admin() FROM PUBLIC;
+GRANT EXECUTE ON FUNCTION public.is_admin() TO authenticated;
 
 -- ── Policies: products ───────────────────────────────────────
 CREATE POLICY "Public read products"
@@ -143,13 +162,8 @@ CREATE POLICY "Admins write banners"
   USING (is_admin()) WITH CHECK (is_admin());
 
 -- ── Policies: orders ─────────────────────────────────────────
-CREATE POLICY "Anyone can create order"
-  ON orders FOR INSERT WITH CHECK (true);
-
-CREATE POLICY "Users read own orders"
-  ON orders FOR SELECT
-  USING (user_id = auth.uid() OR user_id IS NULL);
-
+-- The server-side /api/orders endpoint validates catalog prices and inserts with
+-- the service role. Anonymous clients receive no direct access to order records.
 CREATE POLICY "Admins read all orders"
   ON orders FOR SELECT USING (is_admin());
 
@@ -157,3 +171,34 @@ CREATE POLICY "Admins update orders"
   ON orders FOR UPDATE USING (is_admin());
 
 -- admin_users has no client policies — only service role can manage it
+
+-- ── Public image bucket ──────────────────────────────────────
+INSERT INTO storage.buckets (id, name, public, file_size_limit, allowed_mime_types)
+VALUES (
+  'images',
+  'images',
+  true,
+  5242880,
+  ARRAY['image/jpeg', 'image/png', 'image/webp', 'image/gif']
+)
+ON CONFLICT (id) DO UPDATE SET
+  public = EXCLUDED.public,
+  file_size_limit = EXCLUDED.file_size_limit,
+  allowed_mime_types = EXCLUDED.allowed_mime_types;
+
+CREATE POLICY "Public read store images"
+  ON storage.objects FOR SELECT
+  USING (bucket_id = 'images');
+
+CREATE POLICY "Admins upload store images"
+  ON storage.objects FOR INSERT TO authenticated
+  WITH CHECK (bucket_id = 'images' AND public.is_admin());
+
+CREATE POLICY "Admins update store images"
+  ON storage.objects FOR UPDATE TO authenticated
+  USING (bucket_id = 'images' AND public.is_admin())
+  WITH CHECK (bucket_id = 'images' AND public.is_admin());
+
+CREATE POLICY "Admins delete store images"
+  ON storage.objects FOR DELETE TO authenticated
+  USING (bucket_id = 'images' AND public.is_admin());

@@ -11,8 +11,8 @@ useSeoMeta({ title: 'Your Cart', robots: 'noindex' })
 </script>
 
 <template>
-  <div class="container-bmw py-xl md:py-xxl">
-    <div class="m-stripe mb-lg w-20" />
+  <div class="container-cloud py-xl md:py-xxl">
+    <div class="brand-stripe mb-lg w-20" />
     <h1 class="text-display-sm font-bold uppercase leading-none text-ink md:text-display-md">Your Cart</h1>
 
     <EmptyState v-if="cart.isEmpty" title="Your cart is empty" description="Looks like you haven't added anything yet. Explore our deals and find your next machine." icon="cart" class="mt-xl">
@@ -36,7 +36,7 @@ useSeoMeta({ title: 'Your Cart', robots: 'noindex' })
       <!-- Summary -->
       <aside class="lg:sticky lg:top-24 lg:self-start">
         <div class="border border-hairline bg-surface-card">
-          <div class="m-stripe" />
+          <div class="brand-stripe" />
           <div class="flex flex-col gap-md p-lg">
             <h2 class="text-title-lg font-bold uppercase">Order Summary</h2>
             <p v-if="remaining > 0" class="border border-hairline bg-surface-soft px-md py-2 text-caption text-body">Add <span class="text-ink">{{ formatPrice(remaining) }}</span> more for FREE shipping.</p>

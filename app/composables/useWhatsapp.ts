@@ -2,7 +2,7 @@ import type { CartItem, CheckoutDetails } from '~/types'
 import { formatPrice } from '~/utils/format'
 import { SITE, SHIPPING } from '~/constants/site'
 
-interface OrderSummary {
+export interface OrderSummary {
   items: CartItem[]
   subtotal: number
   shipping: number

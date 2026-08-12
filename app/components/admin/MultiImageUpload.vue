@@ -89,7 +89,7 @@ function updateUrl(i: number, val: string) {
       >+ Add URL</button>
     </div>
 
-    <input ref="fileInput" type="file" accept="image/*" multiple class="hidden" @change="onFileChange" >
+    <input ref="fileInput" type="file" accept="image/jpeg,image/png,image/webp,image/gif" multiple class="hidden" @change="onFileChange" >
     <p v-if="uploadError" class="text-caption text-m-red">{{ uploadError }}</p>
   </div>
 </template>

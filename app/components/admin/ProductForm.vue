@@ -8,20 +8,23 @@ const emit = defineEmits<{ submit: [doc: Record<string, unknown>]; cancel: [] }>
 
 interface FormState {
   title: string; slug: string; category: string; shortDescription: string; description: string
+  brand: string; manufacturer: string; importer: string; countryOfOrigin: string; netQuantity: string
+  warrantyInfo: string; safetyInformation: string
   price: number; salePrice: number | null; stock: number
-  featured: boolean; bestSeller: boolean; trending: boolean
-  rating: number; reviewCount: number
+  featured: boolean
   images: string[]; variants: ProductVariant[]; createdAt: string
 }
 
 const blank = (): FormState => ({
   title: '', slug: '', category: props.categories[0]?.slug ?? '', shortDescription: '', description: '',
-  price: 0, salePrice: null, stock: 0, featured: false, bestSeller: false, trending: false,
-  rating: 0, reviewCount: 0, images: [], variants: [], createdAt: new Date().toISOString(),
+  brand: '', manufacturer: '', importer: '', countryOfOrigin: '', netQuantity: '', warrantyInfo: '', safetyInformation: '',
+  price: 0, salePrice: null, stock: 0, featured: false,
+  images: [], variants: [], createdAt: new Date().toISOString(),
 })
 
 const form = reactive<FormState>(blank())
 const slugLocked = ref(false)
+const rightsConfirmed = ref(false)
 const error = ref('')
 const saving = ref(false)
 
@@ -31,8 +34,10 @@ watchEffect(() => {
     Object.assign(form, {
       title: p.title, slug: p.slug, category: p.category, shortDescription: p.shortDescription,
       description: p.description, price: p.price, salePrice: p.salePrice ?? null, stock: p.stock,
-      featured: p.featured, bestSeller: p.bestSeller, trending: p.trending, rating: p.rating,
-      reviewCount: p.reviewCount, images: [...p.images], variants: p.variants ? JSON.parse(JSON.stringify(p.variants)) : [],
+      brand: p.brand, manufacturer: p.manufacturer, importer: p.importer, countryOfOrigin: p.countryOfOrigin,
+      netQuantity: p.netQuantity, warrantyInfo: p.warrantyInfo, safetyInformation: p.safetyInformation,
+      featured: p.featured,
+      images: [...p.images], variants: p.variants ? JSON.parse(JSON.stringify(p.variants)) : [],
       createdAt: p.createdAt,
     })
     slugLocked.value = true
@@ -40,6 +45,7 @@ watchEffect(() => {
     Object.assign(form, blank())
     slugLocked.value = false
   }
+  rightsConfirmed.value = false
 })
 
 watch(() => form.title, (t) => { if (!slugLocked.value) form.slug = slugify(t) })
@@ -51,13 +57,20 @@ function removeVariant(i: number) { form.variants.splice(i, 1) }
 
 function submit() {
   error.value = ''
+  if (!rightsConfirmed.value) {
+    error.value = 'Confirm that Cloud Scart has permission to publish the product images and copy.'
+    return
+  }
   const images = form.images.filter(Boolean)
   const doc = {
     title: form.title, slug: form.slug || slugify(form.title), category: form.category,
     shortDescription: form.shortDescription, description: form.description,
+    brand: form.brand, manufacturer: form.manufacturer, importer: form.importer,
+    countryOfOrigin: form.countryOfOrigin, netQuantity: form.netQuantity,
+    warrantyInfo: form.warrantyInfo, safetyInformation: form.safetyInformation,
     price: Number(form.price), salePrice: form.salePrice ? Number(form.salePrice) : null,
-    stock: Number(form.stock), featured: form.featured, bestSeller: form.bestSeller, trending: form.trending,
-    rating: Number(form.rating), reviewCount: Number(form.reviewCount), images,
+    stock: Number(form.stock), featured: form.featured, bestSeller: false, trending: false,
+    rating: 0, reviewCount: 0, images,
     variants: form.variants.map((v) => ({ name: v.name, options: v.options.filter(Boolean) })).filter((v) => v.name && v.options.length),
     createdAt: form.createdAt,
   }
@@ -80,24 +93,34 @@ defineExpose({ done: () => { saving.value = false } })
       <BaseSelect v-model="form.category" label="Category" :options="categoryOptions" />
     </div>
     <BaseTextarea v-model="form.shortDescription" label="Short Description" :rows="2" placeholder="One-line summary shown on cards" />
-    <BaseTextarea v-model="form.description" label="Full Description (markdown)" :rows="4" placeholder="Longer body shown on the product page" />
+    <BaseTextarea v-model="form.description" label="Full Description" :rows="4" placeholder="Longer body shown on the product page" />
+
+    <fieldset class="flex flex-col gap-md border border-hairline p-md">
+      <legend class="px-2 text-label-uppercase uppercase text-body-strong">Mandatory Product Disclosures</legend>
+      <div class="grid grid-cols-1 gap-md sm:grid-cols-3">
+        <BaseInput v-model="form.brand" label="Brand" placeholder="Brand or unbranded" />
+        <BaseInput v-model="form.countryOfOrigin" label="Country of Origin" required placeholder="e.g. India" />
+        <BaseInput v-model="form.netQuantity" label="Net Quantity" required placeholder="e.g. 1 unit" />
+      </div>
+      <BaseTextarea v-model="form.manufacturer" label="Manufacturer / Packer Name & Address" required :rows="2" placeholder="Legal name and complete postal address" />
+      <BaseTextarea v-model="form.importer" label="Importer Name & Address (if imported)" :rows="2" placeholder="Required for imported products" />
+      <BaseTextarea v-model="form.warrantyInfo" label="Warranty / Guarantee" :rows="2" placeholder="State coverage and duration, or clearly state none" />
+      <BaseTextarea v-model="form.safetyInformation" label="Safety & Age Guidance" :rows="2" placeholder="Warnings, supervision and safe-use instructions" />
+    </fieldset>
 
     <div class="grid grid-cols-1 gap-md sm:grid-cols-2 lg:grid-cols-3">
       <BaseInput v-model.number="form.price" label="Price (₹)" type="number" inputmode="numeric" required />
       <BaseInput v-model.number="form.salePrice" label="Sale Price (₹)" type="number" inputmode="numeric" placeholder="optional" />
       <BaseInput v-model.number="form.stock" label="Stock" type="number" inputmode="numeric" required />
     </div>
-    <div class="grid grid-cols-1 gap-md sm:grid-cols-2">
-      <BaseInput v-model.number="form.rating" label="Rating (0–5)" type="number" inputmode="decimal" />
-      <BaseInput v-model.number="form.reviewCount" label="Review Count" type="number" inputmode="numeric" />
-    </div>
-
     <MultiImageUpload v-model="form.images" label="Images" folder="products" />
+    <label class="flex items-start gap-sm border border-hairline bg-surface-soft p-md text-body-sm text-body">
+      <input v-model="rightsConfirmed" type="checkbox" required class="mt-1 h-4 w-4 shrink-0 accent-m-red">
+      <span>I confirm Cloud Scart owns, has licensed, or has permission to publish these images and this product copy.</span>
+    </label>
 
-    <fieldset class="grid grid-cols-1 gap-md border border-hairline p-md sm:grid-cols-3">
+    <fieldset class="border border-hairline p-md">
       <label class="flex items-center gap-2 text-body-sm text-body"><input v-model="form.featured" type="checkbox" class="accent-m-red"> Featured</label>
-      <label class="flex items-center gap-2 text-body-sm text-body"><input v-model="form.bestSeller" type="checkbox" class="accent-m-red"> Best Seller</label>
-      <label class="flex items-center gap-2 text-body-sm text-body"><input v-model="form.trending" type="checkbox" class="accent-m-red"> Trending</label>
     </fieldset>
 
     <!-- Variants -->

@@ -40,7 +40,7 @@ onUnmounted(() => { if (import.meta.client) document.body.style.overflow = '' })
             :aria-labelledby="title || $slots.header ? titleId : undefined"
             :aria-label="!title && !$slots.header ? 'Dialog' : undefined"
           >
-            <div class="m-stripe shrink-0" />
+            <div class="brand-stripe shrink-0" />
             <header v-if="title || $slots.header" class="flex shrink-0 items-center justify-between gap-md border-b border-hairline px-4 py-3 sm:px-6 sm:py-4">
               <h2 :id="titleId" class="min-w-0 text-title-md font-bold uppercase tracking-wide sm:text-title-lg"><slot name="header">{{ title }}</slot></h2>
               <button class="flex h-10 w-10 shrink-0 items-center justify-center text-ink hover:text-m-red" aria-label="Close" @click="close">

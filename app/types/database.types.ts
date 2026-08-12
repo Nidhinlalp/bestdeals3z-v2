@@ -17,6 +17,13 @@ export type Database = {
           description: string
           short_description: string
           category: string
+          brand: string
+          manufacturer: string
+          importer: string
+          country_of_origin: string
+          net_quantity: string
+          warranty_info: string
+          safety_information: string
           price: number
           sale_price: number | null
           stock: number
@@ -39,6 +46,13 @@ export type Database = {
           description?: string
           short_description?: string
           category: string
+          brand?: string
+          manufacturer?: string
+          importer?: string
+          country_of_origin?: string
+          net_quantity?: string
+          warranty_info?: string
+          safety_information?: string
           price: number
           sale_price?: number | null
           stock?: number
@@ -61,6 +75,13 @@ export type Database = {
           description?: string
           short_description?: string
           category?: string
+          brand?: string
+          manufacturer?: string
+          importer?: string
+          country_of_origin?: string
+          net_quantity?: string
+          warranty_info?: string
+          safety_information?: string
           price?: number
           sale_price?: number | null
           stock?: number
@@ -166,6 +187,8 @@ export type Database = {
           total: number
           status: 'pending' | 'confirmed' | 'shipped' | 'delivered' | 'cancelled'
           payment_method: 'cod' | 'prepaid'
+          policy_version: string
+          privacy_accepted_at: string | null
           whatsapp_sent: boolean
           created_at: string
           updated_at: string
@@ -188,6 +211,8 @@ export type Database = {
           total: number
           status?: 'pending' | 'confirmed' | 'shipped' | 'delivered' | 'cancelled'
           payment_method?: 'cod' | 'prepaid'
+          policy_version?: string
+          privacy_accepted_at?: string | null
           whatsapp_sent?: boolean
           created_at?: string
           updated_at?: string
@@ -210,6 +235,8 @@ export type Database = {
           total?: number
           status?: 'pending' | 'confirmed' | 'shipped' | 'delivered' | 'cancelled'
           payment_method?: 'cod' | 'prepaid'
+          policy_version?: string
+          privacy_accepted_at?: string | null
           whatsapp_sent?: boolean
           created_at?: string
           updated_at?: string

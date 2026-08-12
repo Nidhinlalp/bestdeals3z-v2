@@ -7,6 +7,7 @@ const route = useRoute()
 
 // Canonical URL tracks the current path reactively (computed inside setup).
 const canonical = computed(() => siteUrl + route.path)
+const defaultSocialImage = computed(() => `${siteUrl}/og-image.png`)
 
 // Global SEO defaults — pages override title/description as needed.
 useSeoMeta({
@@ -15,6 +16,8 @@ useSeoMeta({
   ogLocale: SITE.locale,
   twitterCard: 'summary_large_image',
   ogUrl: canonical,
+  ogImage: defaultSocialImage,
+  twitterImage: defaultSocialImage,
 })
 
 useHead({

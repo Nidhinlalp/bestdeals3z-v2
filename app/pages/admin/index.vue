@@ -31,7 +31,7 @@ useSeoMeta({ title: 'Dashboard', robots: 'noindex, nofollow' })
 <template>
   <div class="flex flex-col gap-xl">
     <div>
-      <div class="m-stripe mb-md w-16" />
+      <div class="brand-stripe mb-md w-16" />
       <h1 class="text-display-sm font-bold uppercase leading-none">Dashboard</h1>
       <p class="mt-sm text-body-sm text-body">Manage your store. All data is stored in Supabase.</p>
     </div>

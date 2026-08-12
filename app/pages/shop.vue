@@ -45,7 +45,7 @@ const filtered = computed(() => {
     case 'price-desc': list.sort((a, b) => effectivePrice(b) - effectivePrice(a)); break
     case 'name-asc': list.sort((a, b) => a.title.localeCompare(b.title)); break
     case 'newest': list.sort((a, b) => b.createdAt.localeCompare(a.createdAt)); break
-    default: list.sort((a, b) => Number(b.featured) - Number(a.featured) || b.rating - a.rating)
+    default: list.sort((a, b) => Number(b.featured) - Number(a.featured) || b.createdAt.localeCompare(a.createdAt))
   }
   return list
 })
@@ -75,15 +75,14 @@ function goToPage(p: number) {
 useSeoMeta({
   title: 'Shop All Products',
   description: 'Browse the full Cloud Scart range — drones, RC cars, planes, gimbals, blasters and gadgets. Filter, sort and order on WhatsApp.',
-  ogImage: '/og-image.svg',
 })
 useBreadcrumbSchema([{ name: 'Home', item: '/' }, { name: 'Shop', item: '/shop' }])
 </script>
 
 <template>
-  <div class="container-bmw py-xl md:py-xxl">
+  <div class="container-cloud py-xl md:py-xxl">
     <Breadcrumb :items="[{ name: 'Home', to: '/' }, { name: 'Shop' }]" class="mb-md" />
-    <div class="m-stripe mb-lg w-20" />
+    <div class="brand-stripe mb-lg w-20" />
     <h1 class="text-display-sm font-bold uppercase leading-none text-ink md:text-display-md">Shop All Products</h1>
 
     <div class="mt-xl grid grid-cols-1 gap-xl lg:grid-cols-[260px_1fr]">
@@ -97,7 +96,7 @@ useBreadcrumbSchema([{ name: 'Home', item: '/' }, { name: 'Shop', item: '/shop' 
             <button class="border-b border-hairline py-2 text-left text-body-sm transition-colors" :class="category === '' ? 'text-ink' : 'text-body hover:text-ink'" @click="category = ''">All Categories</button>
             <button v-for="c in categories" :key="c.slug" class="flex items-center justify-between border-b border-hairline py-2 text-left text-body-sm transition-colors" :class="category === c.slug ? 'text-ink' : 'text-body hover:text-ink'" @click="category = c.slug">
               <span>{{ c.name }}</span>
-              <span v-if="category === c.slug" class="m-stripe h-1 w-8" />
+              <span v-if="category === c.slug" class="brand-stripe h-1 w-8" />
             </button>
           </div>
         </div>

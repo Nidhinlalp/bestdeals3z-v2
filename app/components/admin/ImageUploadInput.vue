@@ -69,7 +69,7 @@ async function onFileChange(e: Event) {
       >
     </div>
 
-    <input ref="fileInput" type="file" accept="image/*" class="hidden" @change="onFileChange" >
+    <input ref="fileInput" type="file" accept="image/jpeg,image/png,image/webp,image/gif" class="hidden" @change="onFileChange" >
     <p v-if="uploadError" class="text-caption text-m-red">{{ uploadError }}</p>
   </div>
 </template>

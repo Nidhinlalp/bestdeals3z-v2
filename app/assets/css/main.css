@@ -28,7 +28,7 @@
     text-rendering: optimizeLegibility;
   }
 
-  /* Headings carry the heavy "stamped" voice; body stays light. */
+  /* Headings carry a strong display voice; body stays light. */
   h1, h2, h3, h4 {
     font-weight: 700;
   }
@@ -57,7 +57,7 @@
  * ------------------------------------------------------------------ */
 @layer components {
   /* Cloud Scart sky-blue, deep-blue and orange brand stripe. */
-  .m-stripe {
+  .brand-stripe {
     height: 4px;
     width: 100%;
     background: linear-gradient(
@@ -76,7 +76,7 @@
     @apply py-xl md:py-section;
   }
 
-  .container-bmw {
+  .container-cloud {
     @apply mx-auto w-full max-w-content px-4 md:px-6 lg:px-10;
   }
 
@@ -90,17 +90,17 @@
   }
 
   /* Long-form editorial body used on product descriptions and policy pages. */
-  .prose-bmw h2 { @apply text-title-lg font-bold uppercase text-ink mt-xl mb-md; }
-  .prose-bmw h3 { @apply text-title-md font-bold text-ink mt-lg mb-sm; }
-  .prose-bmw p { @apply text-body-md text-body mb-md; }
-  .prose-bmw ul { @apply flex flex-col gap-2 mb-md; }
-  .prose-bmw ol { @apply flex flex-col gap-2 mb-md list-decimal pl-lg; }
-  .prose-bmw ul > li { @apply text-body-md text-body pl-md relative; }
-  .prose-bmw ul > li::before { content: ''; @apply absolute left-0 top-2.5 h-1.5 w-1.5 bg-m-red; }
-  .prose-bmw ol > li { @apply text-body-md text-body pl-1; }
-  .prose-bmw a { @apply text-ink underline decoration-hairline-strong underline-offset-4 hover:decoration-m-red; }
-  .prose-bmw blockquote { @apply border-l-2 border-m-red pl-md text-body-sm text-body-strong italic mb-md; }
-  .prose-bmw strong { @apply text-ink font-medium; }
+  .prose-cloud h2 { @apply text-title-lg font-bold uppercase text-ink mt-xl mb-md; }
+  .prose-cloud h3 { @apply text-title-md font-bold text-ink mt-lg mb-sm; }
+  .prose-cloud p { @apply text-body-md text-body mb-md; }
+  .prose-cloud ul { @apply flex flex-col gap-2 mb-md; }
+  .prose-cloud ol { @apply flex flex-col gap-2 mb-md list-decimal pl-lg; }
+  .prose-cloud ul > li { @apply text-body-md text-body pl-md relative; }
+  .prose-cloud ul > li::before { content: ''; @apply absolute left-0 top-2.5 h-1.5 w-1.5 bg-m-red; }
+  .prose-cloud ol > li { @apply text-body-md text-body pl-1; }
+  .prose-cloud a { @apply text-ink underline decoration-hairline-strong underline-offset-4 hover:decoration-m-red; }
+  .prose-cloud blockquote { @apply border-l-2 border-m-red pl-md text-body-sm text-body-strong italic mb-md; }
+  .prose-cloud strong { @apply text-ink font-medium; }
 }
 
 /* Respect reduced-motion preferences. */

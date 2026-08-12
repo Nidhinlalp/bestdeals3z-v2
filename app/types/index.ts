@@ -26,7 +26,6 @@ export type Category = z.infer<typeof categorySchema> & {
 
 /** Banner as stored in Supabase. `buttonText`/`buttonLink` map from DB `cta_label`/`cta_href`. */
 export type Banner = z.infer<typeof bannerSchema> & {
-  slug: string
   id?: string
   active?: boolean
 }
@@ -59,17 +58,6 @@ export interface Order {
   whatsappSent: boolean
   createdAt: string
   updatedAt: string
-}
-
-export interface Review {
-  id: string
-  name: string
-  location: string
-  rating: number
-  title: string
-  body: string
-  date: string
-  product?: string
 }
 
 export interface FaqItem {

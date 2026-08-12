@@ -6,7 +6,7 @@ withDefaults(defineProps<Props>(), { linkText: 'View All', stripe: true, kicker:
 <template>
   <div class="mb-xl flex flex-wrap items-end justify-between gap-md">
     <div class="flex flex-col gap-sm">
-      <div v-if="stripe" class="m-stripe w-20" />
+      <div v-if="stripe" class="brand-stripe w-20" />
       <p v-if="kicker" class="kicker text-body">{{ kicker }}</p>
       <h2 class="text-display-sm font-bold uppercase leading-none text-ink md:text-display-md">{{ title }}</h2>
     </div>

@@ -53,7 +53,7 @@ useSeoMeta({ title: 'Manage Categories', robots: 'noindex, nofollow' })
   <div class="flex flex-col gap-lg">
     <div class="flex flex-wrap items-end justify-between gap-md">
       <div>
-        <div class="m-stripe mb-md w-16" />
+        <div class="brand-stripe mb-md w-16" />
         <h1 class="text-display-sm font-bold uppercase leading-none">Categories</h1>
         <p class="mt-1 text-body-sm text-body">{{ items.length }} total</p>
       </div>

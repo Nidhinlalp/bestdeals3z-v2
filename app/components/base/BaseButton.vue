@@ -1,6 +1,6 @@
 <script setup lang="ts">
 /**
- * The signature BMW-M rectangular button: 0px radius, uppercase letterspaced label.
+ * Cloud Scart's rectangular button: 0px radius, uppercase letter-spaced label.
  * Renders as <button>, <a> or <NuxtLink> depending on props.
  */
 interface Props {

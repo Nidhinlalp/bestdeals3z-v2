@@ -3,6 +3,7 @@ import { effectivePrice } from '~/utils/format'
 import type { SortOption } from '~/types'
 
 const route = useRoute()
+const runtimeConfig = useRuntimeConfig()
 const slug = computed(() => route.params.slug as string)
 
 const { data: category } = await useCategory(slug)
@@ -26,7 +27,7 @@ const items = computed(() => {
     case 'price-asc': return [...list].sort((a, b) => effectivePrice(a) - effectivePrice(b))
     case 'price-desc': return [...list].sort((a, b) => effectivePrice(b) - effectivePrice(a))
     case 'newest': return [...list].sort((a, b) => b.createdAt.localeCompare(a.createdAt))
-    default: return [...list].sort((a, b) => Number(b.featured) - Number(a.featured) || b.rating - a.rating)
+    default: return [...list].sort((a, b) => Number(b.featured) - Number(a.featured) || b.createdAt.localeCompare(a.createdAt))
   }
 })
 
@@ -35,7 +36,10 @@ useSeoMeta({
   description: () => category.value?.description,
   ogTitle: () => category.value?.name,
   ogDescription: () => category.value?.description,
-  ogImage: () => category.value?.image,
+  ogImage: () => {
+    const image = category.value?.image
+    return image?.startsWith('http') ? image : `${runtimeConfig.public.siteUrl}${image || '/og-image.png'}`
+  },
 })
 useBreadcrumbSchema(() => [
   { name: 'Home', item: '/' },
@@ -50,15 +54,15 @@ useBreadcrumbSchema(() => [
     <section class="relative overflow-hidden border-b border-hairline bg-surface-soft">
       <NuxtImg :src="category.image" :alt="category.name" width="1440" height="480" sizes="xs:100vw sm:100vw md:100vw lg:100vw xl:100vw xxl:100vw" class="absolute inset-0 h-full w-full object-cover opacity-30" loading="eager" preload />
       <div class="absolute inset-0 bg-gradient-to-t from-canvas via-canvas/80 to-canvas/40" />
-      <div class="container-bmw relative z-10 py-xxl">
+      <div class="container-cloud relative z-10 py-xxl">
         <Breadcrumb :items="[{ name: 'Home', to: '/' }, { name: 'Categories', to: '/categories' }, { name: category.name }]" class="mb-md" />
-        <div class="m-stripe mb-lg w-20" />
+        <div class="brand-stripe mb-lg w-20" />
         <h1 class="text-display-md font-bold uppercase leading-none text-ink md:text-display-lg">{{ category.name }}</h1>
         <p class="mt-md max-w-xl text-body-md text-body-strong">{{ category.description }}</p>
       </div>
     </section>
 
-    <div class="container-bmw py-xl md:py-xxl">
+    <div class="container-cloud py-xl md:py-xxl">
       <div class="mb-lg flex flex-wrap items-center justify-between gap-md border-b border-hairline pb-md">
         <p class="text-body-sm text-body">{{ items.length }} {{ items.length === 1 ? 'product' : 'products' }}</p>
         <div class="w-full max-w-[240px]"><BaseSelect v-model="sort" :options="SORTS" /></div>

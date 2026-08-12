@@ -1,6 +1,8 @@
 import { createClient } from '@supabase/supabase-js'
 
 export default defineEventHandler(async (event) => {
+  setHeader(event, 'Cache-Control', 'no-store')
+  setHeader(event, 'Vary', 'Authorization')
   const token = getHeader(event, 'Authorization')?.replace('Bearer ', '')
   if (!token) return { isAdmin: false }
 

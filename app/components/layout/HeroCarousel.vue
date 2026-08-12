@@ -26,7 +26,7 @@ onUnmounted(stop)
     </div>
 
     <div v-if="count > 1" class="pointer-events-none absolute inset-0">
-      <div class="container-bmw relative flex h-full items-end pb-lg">
+      <div class="container-cloud relative flex h-full items-end pb-lg">
         <div class="pointer-events-auto flex items-center gap-sm">
           <button class="flex h-12 w-12 items-center justify-center rounded-full bg-black/40 text-white backdrop-blur hover:bg-black/60" aria-label="Previous slide" @click="prev">
             <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2"><path d="m15 18-6-6 6-6" /></svg>

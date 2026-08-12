@@ -32,7 +32,7 @@ onUnmounted(() => { if (import.meta.client) document.body.style.overflow = '' })
           aria-modal="true"
           :aria-label="title"
         >
-          <div class="m-stripe shrink-0" />
+          <div class="brand-stripe shrink-0" />
           <header class="flex shrink-0 items-center justify-between gap-md border-b border-hairline px-4 py-3 sm:px-6 sm:py-4">
             <h2 class="min-w-0 text-title-md font-bold uppercase tracking-wide sm:text-title-lg">{{ title }}</h2>
             <button class="flex h-10 w-10 items-center justify-center text-ink hover:text-m-red" aria-label="Close" @click="close">

@@ -7,8 +7,8 @@ useSeoMeta({ title: is404.value ? 'Page Not Found' : 'Something went wrong', rob
 
 <template>
   <div class="flex min-h-screen flex-col bg-canvas">
-    <div class="m-stripe" />
-    <main class="container-bmw flex flex-1 flex-col items-center justify-center py-xxl text-center">
+    <div class="brand-stripe" />
+    <main class="container-cloud flex flex-1 flex-col items-center justify-center py-xxl text-center">
       <p class="text-display-lg font-bold text-hairline md:text-[120px]">{{ error.statusCode }}</p>
       <h1 class="mt-md text-display-sm font-bold uppercase text-ink">{{ is404 ? 'Lost in the pit lane' : 'Engine trouble' }}</h1>
       <p class="mt-sm max-w-md text-body-md text-body">

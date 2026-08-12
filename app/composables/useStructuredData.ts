@@ -4,11 +4,16 @@ import { effectivePrice } from '~/utils/format'
 
 /** Inject a JSON-LD <script> into the head. */
 function useJsonLd(data: MaybeRefOrGetter<Record<string, unknown>>) {
+  const serialize = (value: Record<string, unknown>) => JSON.stringify(value)
+    .replace(/</g, '\\u003C')
+    .replace(/>/g, '\\u003E')
+    .replace(/&/g, '\\u0026')
+
   useHead({
     script: [
       {
         type: 'application/ld+json',
-        innerHTML: computed(() => JSON.stringify(toValue(data))),
+        innerHTML: computed(() => serialize(toValue(data))),
       },
     ],
   })
@@ -23,6 +28,8 @@ export function useOrganizationSchema() {
     url,
     logo: `${url}/logo.png`,
     description: SITE.description,
+    email: SITE.email,
+    telephone: SITE.phone,
     sameAs: Object.values(SITE.social),
   })
 }
@@ -40,16 +47,7 @@ export function useProductSchema(product: MaybeRefOrGetter<Product | null | unde
       image: p.images.map((i) => (i.startsWith('http') ? i : `${url}${i}`)),
       sku: p.slug,
       category: p.category,
-      brand: { '@type': 'Brand', name: SITE.name },
-      ...(p.reviewCount > 0
-        ? {
-            aggregateRating: {
-              '@type': 'AggregateRating',
-              ratingValue: p.rating,
-              reviewCount: p.reviewCount,
-            },
-          }
-        : {}),
+      ...(p.brand ? { brand: { '@type': 'Brand', name: p.brand } } : {}),
       offers: {
         '@type': 'Offer',
         url: `${url}/product/${p.slug}`,

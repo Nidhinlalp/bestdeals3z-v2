@@ -6,9 +6,9 @@ export const SITE = {
   name: 'Cloud Scart',
   tagline: 'Smart Finds. Delivered Fast.',
   description:
-    'Cloud Scart — drones, RC machines and smart gadgets at great prices across India. Order in seconds, checkout on WhatsApp. Cash on delivery available.',
+    'Cloud Scart — drones, RC machines and smart gadgets with prices shown clearly. Browse online and continue your order on WhatsApp. Cash on delivery is available at eligible pincodes.',
   // Default production URL — override with NUXT_PUBLIC_SITE_URL.
-  url: 'https://cloudscart.vercel.app',
+  url: 'https://cloudscart.in',
   // WhatsApp number in international format WITHOUT '+' or spaces. Override with NUXT_PUBLIC_WHATSAPP_NUMBER.
   whatsappNumber: '917994867698',
   // Human-readable phone number for display (tel: links strip the spaces).

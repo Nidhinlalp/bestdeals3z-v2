@@ -18,7 +18,7 @@ watch(() => props.images, () => { active.value = 0 })
         preload
         fetchpriority="high"
       />
-      <div class="m-stripe absolute bottom-0 left-0 w-24" />
+      <div class="brand-stripe absolute bottom-0 left-0 w-24" />
     </div>
 
     <div v-if="images.length > 1" class="grid grid-cols-4 gap-sm md:grid-cols-5">

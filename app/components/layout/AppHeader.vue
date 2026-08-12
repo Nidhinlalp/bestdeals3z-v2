@@ -17,8 +17,8 @@ watch(() => route.fullPath, () => ui.closeAll())
 
 <template>
   <header class="sticky top-0 z-40 w-full transition-colors duration-300" :class="scrolled ? 'bg-canvas/95 backdrop-blur border-b border-hairline' : 'bg-canvas border-b border-transparent'">
-    <div class="m-stripe" />
-    <div class="container-bmw flex h-20 items-center justify-between gap-md">
+    <div class="brand-stripe" />
+    <div class="container-cloud flex h-20 items-center justify-between gap-md">
       <!-- Left: mobile menu + logo -->
       <div class="flex items-center gap-md">
         <button class="flex h-10 w-10 items-center justify-center text-ink lg:hidden" aria-label="Open menu" @click="ui.openMenu()">

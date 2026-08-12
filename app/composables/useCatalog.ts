@@ -10,6 +10,13 @@ export function toProduct(row: Record<string, unknown>): Product {
     description: (row.description as string) ?? '',
     shortDescription: (row.short_description as string) ?? '',
     category: row.category as string,
+    brand: (row.brand as string) ?? '',
+    manufacturer: (row.manufacturer as string) ?? '',
+    importer: (row.importer as string) ?? '',
+    countryOfOrigin: (row.country_of_origin as string) ?? '',
+    netQuantity: (row.net_quantity as string) ?? '',
+    warrantyInfo: (row.warranty_info as string) ?? '',
+    safetyInformation: (row.safety_information as string) ?? '',
     price: Number(row.price),
     salePrice: row.sale_price != null ? Number(row.sale_price) : undefined,
     stock: Number(row.stock ?? 0),
@@ -98,9 +105,7 @@ export function useBanners() {
 /** Featured / flag-based product collections, computed client+server side. */
 export function useProductCollections(products: Ref<Product[]>) {
   const featured = computed(() => products.value.filter((p) => p.featured))
-  const bestSellers = computed(() => products.value.filter((p) => p.bestSeller))
-  const trending = computed(() => products.value.filter((p) => p.trending))
-  return { featured, bestSellers, trending }
+  return { featured }
 }
 
 /** Related products: same category, excluding the current product. */

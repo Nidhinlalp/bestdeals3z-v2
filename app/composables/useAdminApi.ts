@@ -54,6 +54,10 @@ function toDbRow(type: ContentType, doc: Record<string, unknown>): Record<string
     row.meta_title = doc.metaTitle ?? doc.meta_title ?? null
     row.meta_desc = doc.metaDesc ?? doc.meta_desc ?? null
     row.review_count = doc.reviewCount ?? doc.review_count ?? 0
+    row.country_of_origin = doc.countryOfOrigin ?? doc.country_of_origin ?? ''
+    row.net_quantity = doc.netQuantity ?? doc.net_quantity ?? ''
+    row.warranty_info = doc.warrantyInfo ?? doc.warranty_info ?? ''
+    row.safety_information = doc.safetyInformation ?? doc.safety_information ?? ''
     // Remove camelCase duplicates
     delete row.salePrice
     delete row.bestSeller
@@ -61,6 +65,10 @@ function toDbRow(type: ContentType, doc: Record<string, unknown>): Record<string
     delete row.metaTitle
     delete row.metaDesc
     delete row.reviewCount
+    delete row.countryOfOrigin
+    delete row.netQuantity
+    delete row.warrantyInfo
+    delete row.safetyInformation
     delete row.createdAt  // DB manages this
   }
 
