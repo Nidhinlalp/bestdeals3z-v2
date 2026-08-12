@@ -63,7 +63,7 @@ The website does not collect card numbers, UPI PINs, OTPs or banking passwords.
 
 ## Production deployment
 
-The intended host is Vercel. Production builds on Vercel intentionally fail if essential Supabase, site, WhatsApp or mandatory seller/grievance disclosure variables are absent. Apply every SQL migration in order and complete the checklist in [DEPLOYMENT.md](./DEPLOYMENT.md) before accepting orders.
+The intended host is Vercel. Production builds intentionally fail if essential Supabase or WhatsApp configuration is absent. The confirmed domain and seller disclosures have versioned defaults in `app/constants/site.ts` and can be overridden through Vercel environment variables. Apply every SQL migration in order and complete the checklist in [DEPLOYMENT.md](./DEPLOYMENT.md) before accepting orders.
 
 ## Content and intellectual property
 

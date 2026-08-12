@@ -14,6 +14,10 @@ export const SITE = {
   // Human-readable phone number for display (tel: links strip the spaces).
   phone: '+91 79948 67698',
   email: 'cloudscartstore@gmail.com',
+  sellerLegalName: 'Rijil, trading as Cloud Scart',
+  businessAddress: 'Kuttiyil Parambu, Pullumkunnu, Vaidyarangadi P.O., Ramanattukara, Kozhikode, Kerala – 673633',
+  grievanceOfficerName: 'Rijil (Owner & Grievance Officer)',
+  contentRightsConfirmed: true,
   locale: 'en_IN',
   currency: 'INR',
   currencySymbol: '₹',

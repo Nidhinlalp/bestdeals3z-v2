@@ -8,6 +8,14 @@ const supabaseHostname = (() => {
   try { return new URL(process.env.SUPABASE_URL || '').hostname } catch { return '' }
 })()
 
+const resolvedSiteUrl = process.env.NUXT_PUBLIC_SITE_URL || SITE.url
+const resolvedSellerLegalName = process.env.NUXT_PUBLIC_SELLER_LEGAL_NAME || SITE.sellerLegalName
+const resolvedBusinessAddress = process.env.NUXT_PUBLIC_BUSINESS_ADDRESS || SITE.businessAddress
+const resolvedGrievanceOfficerName = process.env.NUXT_PUBLIC_GRIEVANCE_OFFICER_NAME || SITE.grievanceOfficerName
+const contentRightsConfirmed = process.env.CONTENT_RIGHTS_CONFIRMED
+  ? process.env.CONTENT_RIGHTS_CONFIRMED === 'true'
+  : SITE.contentRightsConfirmed
+
 // Nitro's dependency tracer can miss libvips because the native Sharp package
 // loads it by file-system convention instead of a JavaScript import. Trace its
 // exported directory explicitly so production image routes include the binary.
@@ -40,20 +48,16 @@ if (process.env.VERCEL_ENV === 'production') {
     'SUPABASE_URL',
     'SUPABASE_KEY',
     'SUPABASE_SERVICE_ROLE_KEY',
-    'NUXT_PUBLIC_SITE_URL',
     'NUXT_PUBLIC_WHATSAPP_NUMBER',
-    'NUXT_PUBLIC_SELLER_LEGAL_NAME',
-    'NUXT_PUBLIC_BUSINESS_ADDRESS',
-    'NUXT_PUBLIC_GRIEVANCE_OFFICER_NAME',
   ]
   const missing = requiredProductionVariables.filter((name) => !process.env[name]?.trim())
   if (missing.length) {
     throw new Error(`Missing required production environment variables: ${missing.join(', ')}`)
   }
-  if (process.env.CONTENT_RIGHTS_CONFIRMED !== 'true') {
+  if (!contentRightsConfirmed) {
     throw new Error('Set CONTENT_RIGHTS_CONFIRMED=true only after verifying the rights or licences for every published image, logo and piece of copy.')
   }
-  const productionSiteUrl = new URL(process.env.NUXT_PUBLIC_SITE_URL!)
+  const productionSiteUrl = new URL(resolvedSiteUrl)
   const productionSupabaseUrl = new URL(process.env.SUPABASE_URL!)
   if (productionSiteUrl.protocol !== 'https:' || productionSupabaseUrl.protocol !== 'https:') {
     throw new Error('Production site and Supabase URLs must use HTTPS.')
@@ -64,7 +68,7 @@ if (process.env.VERCEL_ENV === 'production') {
   if (!/^\d{10,15}$/u.test(process.env.NUXT_PUBLIC_WHATSAPP_NUMBER!)) {
     throw new Error('NUXT_PUBLIC_WHATSAPP_NUMBER must contain 10–15 digits without + or spaces.')
   }
-  if (!/\b[1-9][0-9]{5}\b/u.test(process.env.NUXT_PUBLIC_BUSINESS_ADDRESS!)) {
+  if (!/\b[1-9][0-9]{5}\b/u.test(resolvedBusinessAddress)) {
     throw new Error('NUXT_PUBLIC_BUSINESS_ADDRESS must include the full Indian address and six-digit pincode.')
   }
 }
@@ -97,13 +101,13 @@ export default defineNuxtConfig({
   runtimeConfig: {
     supabaseServiceKey: process.env.SUPABASE_SERVICE_ROLE_KEY || '',
     public: {
-      siteUrl: process.env.NUXT_PUBLIC_SITE_URL || SITE.url,
+      siteUrl: resolvedSiteUrl,
       whatsappNumber: process.env.NUXT_PUBLIC_WHATSAPP_NUMBER || SITE.whatsappNumber,
       supabaseUrl: process.env.SUPABASE_URL || '',
       supabaseKey: process.env.SUPABASE_KEY || '',
-      sellerLegalName: process.env.NUXT_PUBLIC_SELLER_LEGAL_NAME || SITE.name,
-      businessAddress: process.env.NUXT_PUBLIC_BUSINESS_ADDRESS || '',
-      grievanceOfficerName: process.env.NUXT_PUBLIC_GRIEVANCE_OFFICER_NAME || '',
+      sellerLegalName: resolvedSellerLegalName,
+      businessAddress: resolvedBusinessAddress,
+      grievanceOfficerName: resolvedGrievanceOfficerName,
       grievanceEmail: process.env.NUXT_PUBLIC_GRIEVANCE_EMAIL || SITE.email,
       grievancePhone: process.env.NUXT_PUBLIC_GRIEVANCE_PHONE || SITE.phone,
     },

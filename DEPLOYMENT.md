@@ -50,16 +50,16 @@ Copy `.env.example` to `.env` and fill in all values:
 | `SUPABASE_URL` | Supabase → Project Settings → API → Project URL |
 | `SUPABASE_KEY` | Supabase → Project Settings → API → `anon` / `public` key |
 | `SUPABASE_SERVICE_ROLE_KEY` | Supabase → Project Settings → API → `service_role` key (**server only — never expose**) |
-| `NUXT_PUBLIC_SITE_URL` | `https://cloudscart.in` |
+| `NUXT_PUBLIC_SITE_URL` | Optional override; defaults to `https://cloudscart.in` |
 | `NUXT_PUBLIC_WHATSAPP_NUMBER` | WhatsApp number, no `+` or spaces, e.g. `919000000000` |
-| `NUXT_PUBLIC_SELLER_LEGAL_NAME` | Registered proprietor/company/LLP name operating the store |
-| `NUXT_PUBLIC_BUSINESS_ADDRESS` | Full principal business address with state and pincode |
-| `NUXT_PUBLIC_GRIEVANCE_OFFICER_NAME` | Full name of the designated consumer grievance officer |
+| `NUXT_PUBLIC_SELLER_LEGAL_NAME` | Optional override; the confirmed proprietor is stored in `app/constants/site.ts` |
+| `NUXT_PUBLIC_BUSINESS_ADDRESS` | Optional override; the confirmed dispatch/return address is stored in `app/constants/site.ts` |
+| `NUXT_PUBLIC_GRIEVANCE_OFFICER_NAME` | Optional override; the confirmed owner/grievance officer is stored in `app/constants/site.ts` |
 | `NUXT_PUBLIC_GRIEVANCE_EMAIL` | Optional grievance email override |
 | `NUXT_PUBLIC_GRIEVANCE_PHONE` | Optional grievance phone override |
 | `CONTENT_RIGHTS_CONFIRMED` | Set to `true` only after completing the content/IP review below |
 
-Vercel production builds fail intentionally when the required Supabase, site, WhatsApp or seller/grievance values are missing. This prevents a legally incomplete storefront from being published accidentally.
+Vercel production builds fail intentionally when required Supabase or WhatsApp configuration is missing. Confirmed public site and seller disclosures have safe, non-secret defaults in `app/constants/site.ts` and may be overridden through Vercel later.
 
 ---
 
