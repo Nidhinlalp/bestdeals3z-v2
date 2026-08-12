@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": "22.x"
+  },
   "packageManager": "pnpm@10.33.0",
   "description": "Cloud Scart — budget-friendly headless e-commerce storefront built with Nuxt 3, Supabase and WhatsApp checkout.",
   "scripts": {
@@ -20,6 +23,7 @@
     "@nuxtjs/supabase": "^2.0.9",
     "@pinia/nuxt": "^0.10.1",
     "@supabase/supabase-js": "^2.108.2",
+    "@vueuse/core": "^11.3.0",
     "@vueuse/nuxt": "^11.3.0",
     "nuxt": "^3.14.1592",
     "pinia": "^3.0.4",

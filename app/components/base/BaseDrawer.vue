@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { onKeyStroke } from '@vueuse/core'
+
 interface Props {
   modelValue: boolean
   title?: string
